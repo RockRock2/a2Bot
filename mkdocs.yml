@@ -1,0 +1,79 @@
+site_name: EduBot Docs
+site_url: https://yourusername.github.io/edubot-docs
+site_description: Educational Differential Drive Robot with ROS2
+site_author: Rock
+
+repo_name: RockRock2/a2Bot
+repo_url: https://github.com/RockRock2/a2Bot
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Hardware:
+    - Overview: hardware/overview.md
+    - Wiring Guide: hardware/wiring.md
+    - Power System: hardware/power.md
+    - Bill of Materials: hardware/bom.md
+  - Setup:
+    - Raspberry Pi Setup: setup/raspberry-pi.md
+    - ROS2 Jazzy Install: setup/ros2-jazzy.md
+    - Camera Setup: setup/camera.md
+    - Display Setup: setup/display.md
+  - Robot Software:
+    - URDF Model: software/urdf.md
+    - Arduino Firmware: software/arduino.md
+    - ros2_control: software/ros2-control.md
+    - Odometry: software/odometry.md
+  - Lessons:
+    - Overview: lessons/overview.md
+    - Keyboard Teleop: lessons/keyboard-teleop.md
+    - Gesture Control: lessons/gesture-control.md
+    - Adding LiDAR: lessons/lidar.md
+    - SLAM Mapping: lessons/slam.md
+    - Autonomous Nav: lessons/navigation.md
+  - API:
+    - ROS2 Topics: api/topics.md
+    - Parameters: api/parameters.md
+  - FAQ: faq.md
