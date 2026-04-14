@@ -1,0 +1,2 @@
+Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4
+Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4

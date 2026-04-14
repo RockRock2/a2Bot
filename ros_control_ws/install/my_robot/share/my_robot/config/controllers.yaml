@@ -1,0 +1,60 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 25        # Hz — control loop rate (reduce to 30 if CPU issues)
+    use_sim_time: false
+
+    # Declare which controllers to load
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+# ── Differential Drive Controller ──────────────────────────────
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names:  ["left_wheel_joint"]
+    right_wheel_names: ["right_wheel_joint"]
+    use_stamped_vel: false    # ← accept Twist instead of TwistStamped
+
+    # Robot physical parameters — MUST MATCH YOUR ROBOT
+    wheel_separation: 0.25      # meters, center-to-center
+    wheel_radius:     0.033     # meters
+
+    # Velocity limits
+    max_wheel_angular_velocity: 3.0   # rad/s
+
+    linear:
+      x:
+        has_velocity_limits: true
+        max_velocity: 0.10        # ← max 0.10 m/s forward
+        min_velocity: -0.10       # ← max 0.10 m/s backward
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 0.5         # ← max 0.5 rad/s turning
+        min_velocity: -0.5
+
+    # Odometry
+    pose_covariance_diagonal:     [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal:    [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    open_loop:                    false   # use encoder feedback (not open loop)
+    enable_odom_tf:               true    # broadcast odom→base_footprint TF
+    odom_frame_id:                odom
+    base_frame_id:                base_footprint
+
+    # Velocity command topic
+    # diff_drive_controller subscribes to this automatically
+    cmd_vel_topic: /cmd_vel
+
+    # Publish rate
+    publish_rate: 25.0          # Hz — reduce to 20.0 if CPU pressure
+
+
+# ── Joint State Broadcaster ────────────────────────────────────
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+      - right_wheel_joint

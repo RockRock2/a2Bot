@@ -1,0 +1,19 @@
+running develop
+running egg_info
+writing my_robot.egg-info/PKG-INFO
+writing dependency_links to my_robot.egg-info/dependency_links.txt
+writing entry points to my_robot.egg-info/entry_points.txt
+writing requirements to my_robot.egg-info/requires.txt
+writing top-level names to my_robot.egg-info/top_level.txt
+reading manifest file 'my_robot.egg-info/SOURCES.txt'
+writing manifest file 'my_robot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing imu_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+
+Installed /home/rockpi/robot_ws/build/my_robot
+running symlink_data
+symbolically linking /home/rockpi/robot_ws/build/my_robot/launch/navigation.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+symbolically linking /home/rockpi/robot_ws/build/my_robot/config/nav2_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config

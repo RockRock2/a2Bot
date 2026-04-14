@@ -1,0 +1,4 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o[0m
+gmake[2]: *** [CMakeFiles/my_robot_hardware.dir/build.make:76: CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_robot_hardware.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

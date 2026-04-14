@@ -1,0 +1,41 @@
+running develop
+Removing /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+running egg_info
+writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+writing entry points to ../../build/my_robot/my_robot.egg-info/entry_points.txt
+writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+creating /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/diff_drive_controller.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/__init__.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/imu_node.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/odometry_node.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/diff_drive_controller.py to diff_drive_controller.cpython-312.pyc
+byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/imu_node.py to imu_node.cpython-312.pyc
+byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/odometry_node.py to odometry_node.cpython-312.pyc
+running install_data
+copying resource/my_robot -> /home/rockpi/robot_ws/install/my_robot/share/ament_index/resource_index/packages
+copying package.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot
+copying launch/navigation.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+copying launch/robot.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+copying launch/slam.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+copying config/mapper_params_online_async.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+copying config/slam_toolbox_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+copying config/ekf.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+copying config/nav2_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+copying urdf/robot.urdf.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/urdf
+running install_egg_info
+Copying ../../build/my_robot/my_robot.egg-info to /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info
+running install_scripts
+Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing imu_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+writing list of installed files to '/home/rockpi/robot_ws/build/my_robot/install.log'

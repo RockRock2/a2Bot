@@ -1,0 +1,34 @@
+[4.415s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rockpi/ros_control_ws/install/my_robot_hardware:/home/rockpi/ros_control_ws/install/my_robot:/home/rockpi/ros_control_ws/install/gesture_control:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4
+[5.350s] [100%] Built target my_robot_hardware
+[5.586s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rockpi/ros_control_ws/install/my_robot_hardware:/home/rockpi/ros_control_ws/install/my_robot:/home/rockpi/ros_control_ws/install/gesture_control:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4
+[5.721s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rockpi/ros_control_ws/install/my_robot_hardware:/home/rockpi/ros_control_ws/install/my_robot:/home/rockpi/ros_control_ws/install/gesture_control:/opt/ros/jazzy /usr/bin/cmake --install /home/rockpi/ros_control_ws/build/my_robot_hardware_interface
+[5.888s] -- Install configuration: ""
+[5.902s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/my_robot_hardware_interface.xml
+[5.902s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/lib/libmy_robot_hardware.so
+[5.911s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include
+[5.919s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include/my_robot_hardware_interface
+[5.922s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include/my_robot_hardware_interface/my_robot_hardware.hpp
+[5.927s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/library_path.sh
+[5.928s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/library_path.dsv
+[5.942s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/package_run_dependencies/my_robot_hardware_interface
+[5.948s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/parent_prefix_path/my_robot_hardware_interface
+[5.952s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/ament_prefix_path.sh
+[5.953s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/ament_prefix_path.dsv
+[5.954s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/path.sh
+[5.962s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/path.dsv
+[5.971s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.bash
+[5.979s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.sh
+[5.980s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.zsh
+[5.980s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.dsv
+[5.986s] -- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/package.dsv
+[5.987s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/packages/my_robot_hardware_interface
+[5.992s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_robot_hardware_interface
+[6.008s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/export_my_robot_hardwareExport.cmake
+[6.008s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/export_my_robot_hardwareExport-noconfig.cmake
+[6.011s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[6.020s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_targets-extras.cmake
+[6.021s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.021s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/my_robot_hardware_interfaceConfig.cmake
+[6.022s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/my_robot_hardware_interfaceConfig-version.cmake
+[6.041s] -- Up-to-date: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/package.xml
+[6.044s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rockpi/ros_control_ws/install/my_robot_hardware:/home/rockpi/ros_control_ws/install/my_robot:/home/rockpi/ros_control_ws/install/gesture_control:/opt/ros/jazzy /usr/bin/cmake --install /home/rockpi/ros_control_ws/build/my_robot_hardware_interface

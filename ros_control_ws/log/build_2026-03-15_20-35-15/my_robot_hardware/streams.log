@@ -1,0 +1,17 @@
+[4.962s] Invoking command in '/home/rockpi/robot_ws/build/my_robot_hardware': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot_hardware/build --no-deps symlink_data
+[6.597s] running develop
+[7.651s] running egg_info
+[7.747s] writing my_robot_hardware.egg-info/PKG-INFO
+[7.748s] writing dependency_links to my_robot_hardware.egg-info/dependency_links.txt
+[7.750s] writing entry points to my_robot_hardware.egg-info/entry_points.txt
+[7.751s] writing requirements to my_robot_hardware.egg-info/requires.txt
+[7.752s] writing top-level names to my_robot_hardware.egg-info/top_level.txt
+[7.941s] reading manifest file 'my_robot_hardware.egg-info/SOURCES.txt'
+[7.944s] writing manifest file 'my_robot_hardware.egg-info/SOURCES.txt'
+[8.085s] running build_ext
+[8.087s] Creating /home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages/my-robot-hardware.egg-link (link to .)
+[8.091s] Installing arduino_bridge script to /home/rockpi/robot_ws/install/my_robot_hardware/lib/my_robot_hardware
+[8.093s] 
+[8.095s] Installed /home/rockpi/robot_ws/build/my_robot_hardware
+[8.098s] running symlink_data
+[8.319s] Invoked command in '/home/rockpi/robot_ws/build/my_robot_hardware' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot_hardware/build --no-deps symlink_data

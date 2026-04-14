@@ -1,0 +1,6 @@
+[0.057s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4
+[0.484s] [ 50%] [32mBuilding CXX object CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o[0m
+[5.189s] gmake[2]: *** [CMakeFiles/my_robot_hardware.dir/build.make:76: CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o] Interrupt
+[5.192s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_robot_hardware.dir/all] Interrupt
+[5.195s] gmake: *** [Makefile:146: all] Interrupt
+[5.202s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '-2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4

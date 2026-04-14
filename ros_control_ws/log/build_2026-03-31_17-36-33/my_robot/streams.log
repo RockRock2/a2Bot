@@ -1,0 +1,25 @@
+[16.139s] Invoking command in '/home/rockpi/ros_control_ws/src/my_robot': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/ros_control_ws/build/my_robot/build install --record /home/rockpi/ros_control_ws/build/my_robot/install.log --single-version-externally-managed install_data
+[21.066s] running egg_info
+[21.236s] writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+[21.238s] writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+[21.241s] writing entry points to ../../build/my_robot/my_robot.egg-info/entry_points.txt
+[21.244s] writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+[21.247s] writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+[21.571s] reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[21.577s] writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[21.580s] running build
+[21.583s] running build_py
+[21.586s] running install
+[21.613s] running install_lib
+[21.904s] running install_data
+[21.911s] running install_egg_info
+[22.496s] removing '/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info' (and everything under it)
+[22.506s] Copying ../../build/my_robot/my_robot.egg-info to /home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info
+[22.527s] running install_scripts
+[25.711s] Installing diff_drive_controller script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[25.714s] Installing imu_node script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[25.715s] Installing node_monitor_server script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[25.716s] Installing odometry_node script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[25.718s] Installing twist_to_twist_stamped script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[25.747s] writing list of installed files to '/home/rockpi/ros_control_ws/build/my_robot/install.log'
+[25.987s] Invoked command in '/home/rockpi/ros_control_ws/src/my_robot' returned '0': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/ros_control_ws/build/my_robot/build install --record /home/rockpi/ros_control_ws/build/my_robot/install.log --single-version-externally-managed install_data

@@ -1,0 +1,26 @@
+[5.789s] Invoking command in '/home/rockpi/robot_ws/src/my_robot': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/robot_ws/build/my_robot/build install --record /home/rockpi/robot_ws/build/my_robot/install.log --single-version-externally-managed install_data
+[9.071s] running egg_info
+[9.320s] writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+[9.323s] writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+[9.324s] writing entry points to ../../build/my_robot/my_robot.egg-info/entry_points.txt
+[9.328s] writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+[9.331s] writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+[9.836s] reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[9.847s] writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[9.849s] running build
+[9.850s] running build_py
+[9.852s] copying my_robot/odometry_node.py -> /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot
+[9.862s] running install
+[9.932s] running install_lib
+[10.185s] copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/odometry_node.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[10.192s] byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/odometry_node.py to odometry_node.cpython-312.pyc
+[10.204s] running install_data
+[10.207s] copying launch/robot.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+[10.211s] running install_egg_info
+[10.476s] removing '/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info' (and everything under it)
+[10.483s] Copying ../../build/my_robot/my_robot.egg-info to /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info
+[10.495s] running install_scripts
+[12.267s] Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[12.271s] Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[12.276s] writing list of installed files to '/home/rockpi/robot_ws/build/my_robot/install.log'
+[12.558s] Invoked command in '/home/rockpi/robot_ws/src/my_robot' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/robot_ws/build/my_robot/build install --record /home/rockpi/robot_ws/build/my_robot/install.log --single-version-externally-managed install_data

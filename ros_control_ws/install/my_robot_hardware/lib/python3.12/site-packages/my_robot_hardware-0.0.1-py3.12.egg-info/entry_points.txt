@@ -1,0 +1,2 @@
+[console_scripts]
+arduino_bridge = my_robot_hardware.arduino_bridge:main

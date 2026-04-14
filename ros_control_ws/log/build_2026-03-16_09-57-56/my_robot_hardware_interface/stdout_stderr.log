@@ -1,0 +1,22 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o[0m
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn my_robot_hardware_interface::MyRobotHardware::[01;32m[Kon_init[m[K(const hardware_interface::HardwareInfo&)[m[K’:
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:21:51:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn hardware_interface::HardwareComponentInterface::[01;32m[Kon_init[m[K(const hardware_interface::HardwareInfo&)[m[K’ is deprecated: Use on_init(const HardwareComponentInterfaceParams & params) instead. [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+   21 |   if ([01;35m[Khardware_interface::SystemInterface::on_init(info)[m[K !=
+      |       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+In file included from [01m[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/system_interface.hpp:18[m[K,
+                 from [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/include/my_robot_hardware_interface/my_robot_hardware.hpp:9[m[K,
+                 from [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:3[m[K:
+[01m[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/hardware_component_interface.hpp:140:26:[m[K [01;36m[Knote: [m[Kdeclared here
+  140 |   virtual CallbackReturn [01;36m[Kon_init[m[K(const HardwareInfo & hardware_info);
+      |                          [01;36m[K^~~~~~~[m[K
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:[m[K In member function ‘[01m[Kbool my_robot_hardware_interface::MyRobotHardware::[01;32m[KwriteSerial[m[K(const std::string&)[m[K’:
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:229:15:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmy_robot_hardware_interface::MyRobotHardware::write(int&, const char*, std::__cxx11::basic_string<char>::size_type)[m[K’
+  229 |   return [01;31m[Kwrite(serial_fd_, data.c_str(), data.size())[m[K == (ssize_t)data.size();
+      |          [01;31m[K~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:166:33:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual hardware_interface::return_type my_robot_hardware_interface::MyRobotHardware::[01;32m[Kwrite[m[K(const rclcpp::Time&, const rclcpp::Duration&)[m[K’
+  166 | hardware_interface::return_type [01;36m[KMyRobotHardware[m[K::write(
+      |                                 [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:166:33:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 3 provided
+gmake[2]: *** [CMakeFiles/my_robot_hardware.dir/build.make:76: CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_robot_hardware.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

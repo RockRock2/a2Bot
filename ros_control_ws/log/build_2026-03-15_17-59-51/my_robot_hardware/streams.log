@@ -1,0 +1,21 @@
+[10.101s] Invoking command in '/home/rockpi/robot_ws/src/my_robot_hardware': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_hardware build --build-base /home/rockpi/robot_ws/build/my_robot_hardware/build install --record /home/rockpi/robot_ws/build/my_robot_hardware/install.log --single-version-externally-managed install_data
+[13.318s] running egg_info
+[13.572s] writing ../../build/my_robot_hardware/my_robot_hardware.egg-info/PKG-INFO
+[13.577s] writing dependency_links to ../../build/my_robot_hardware/my_robot_hardware.egg-info/dependency_links.txt
+[13.581s] writing entry points to ../../build/my_robot_hardware/my_robot_hardware.egg-info/entry_points.txt
+[13.586s] writing requirements to ../../build/my_robot_hardware/my_robot_hardware.egg-info/requires.txt
+[13.587s] writing top-level names to ../../build/my_robot_hardware/my_robot_hardware.egg-info/top_level.txt
+[14.110s] reading manifest file '../../build/my_robot_hardware/my_robot_hardware.egg-info/SOURCES.txt'
+[14.121s] writing manifest file '../../build/my_robot_hardware/my_robot_hardware.egg-info/SOURCES.txt'
+[14.124s] running build
+[14.125s] running build_py
+[14.128s] running install
+[14.205s] running install_lib
+[14.485s] running install_data
+[14.487s] running install_egg_info
+[14.779s] removing '/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware-0.0.1-py3.12.egg-info' (and everything under it)
+[14.785s] Copying ../../build/my_robot_hardware/my_robot_hardware.egg-info to /home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware-0.0.1-py3.12.egg-info
+[14.802s] running install_scripts
+[16.539s] Installing arduino_bridge script to /home/rockpi/robot_ws/install/my_robot_hardware/lib/my_robot_hardware
+[16.553s] writing list of installed files to '/home/rockpi/robot_ws/build/my_robot_hardware/install.log'
+[16.904s] Invoked command in '/home/rockpi/robot_ws/src/my_robot_hardware' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_hardware build --build-base /home/rockpi/robot_ws/build/my_robot_hardware/build install --record /home/rockpi/robot_ws/build/my_robot_hardware/install.log --single-version-externally-managed install_data

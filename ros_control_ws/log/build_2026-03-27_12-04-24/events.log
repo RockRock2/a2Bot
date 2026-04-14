@@ -1,0 +1,116 @@
+[0.000000] (-) TimerEvent: {}
+[0.000928] (-) JobUnselected: {'identifier': 'my_robot'}
+[0.001705] (-) JobUnselected: {'identifier': 'my_robot_hardware'}
+[0.001784] (-) JobUnselected: {'identifier': 'my_robot_hardware_interface'}
+[0.001855] (gesture_control) JobQueued: {'identifier': 'gesture_control', 'dependencies': OrderedDict()}
+[0.001930] (gesture_control) JobStarted: {'identifier': 'gesture_control'}
+[0.099282] (-) TimerEvent: {}
+[0.200035] (-) TimerEvent: {}
+[0.300705] (-) TimerEvent: {}
+[0.401360] (-) TimerEvent: {}
+[0.501934] (-) TimerEvent: {}
+[0.602537] (-) TimerEvent: {}
+[0.703067] (-) TimerEvent: {}
+[0.803593] (-) TimerEvent: {}
+[0.904174] (-) TimerEvent: {}
+[1.004785] (-) TimerEvent: {}
+[1.105593] (-) TimerEvent: {}
+[1.206264] (-) TimerEvent: {}
+[1.306830] (-) TimerEvent: {}
+[1.407546] (-) TimerEvent: {}
+[1.508218] (-) TimerEvent: {}
+[1.608775] (-) TimerEvent: {}
+[1.709502] (-) TimerEvent: {}
+[1.810082] (-) TimerEvent: {}
+[1.910621] (-) TimerEvent: {}
+[2.011181] (-) TimerEvent: {}
+[2.111729] (-) TimerEvent: {}
+[2.212404] (-) TimerEvent: {}
+[2.313056] (-) TimerEvent: {}
+[2.413734] (-) TimerEvent: {}
+[2.514470] (-) TimerEvent: {}
+[2.615109] (-) TimerEvent: {}
+[2.715697] (-) TimerEvent: {}
+[2.816282] (-) TimerEvent: {}
+[2.916804] (-) TimerEvent: {}
+[3.017361] (-) TimerEvent: {}
+[3.117895] (-) TimerEvent: {}
+[3.218506] (-) TimerEvent: {}
+[3.319188] (-) TimerEvent: {}
+[3.419742] (-) TimerEvent: {}
+[3.520310] (-) TimerEvent: {}
+[3.620834] (-) TimerEvent: {}
+[3.721452] (-) TimerEvent: {}
+[3.822020] (-) TimerEvent: {}
+[3.922545] (-) TimerEvent: {}
+[4.023104] (-) TimerEvent: {}
+[4.123698] (-) TimerEvent: {}
+[4.224423] (-) TimerEvent: {}
+[4.325128] (-) TimerEvent: {}
+[4.426169] (-) TimerEvent: {}
+[4.462976] (gesture_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/gesture_control', 'build', '--build-base', '/home/rockpi/ros_control_ws/build/gesture_control/build', 'install', '--record', '/home/rockpi/ros_control_ws/build/gesture_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/rockpi/ros_control_ws/src/gesture_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'rockpi', 'SSH_CLIENT': '192.168.0.168 36124 22', 'LC_TIME': 'ms_MY.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/rockpi/ros_control_ws/install/my_robot_hardware_interface/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/helpers/browser.sh', 'HOME': '/home/rockpi', 'OLDPWD': '/home/rockpi', 'TERM_PROGRAM_VERSION': '1.110.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bcea31d-6051-4d9b-9021-cfe7dac00f92.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'ms_MY.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/rockpi/ros_control_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'rockpi', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rockpi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/rockpi/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'ms_MY.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'ms_MY.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-ab091cf714.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/rockpi/ros_control_ws/install/my_robot_hardware_interface:/home/rockpi/ros_control_ws/install/my_robot_hardware:/home/rockpi/ros_control_ws/install/my_robot:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'ms_MY.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ms_MY.UTF-8', 'LC_IDENTIFICATION': 'ms_MY.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/rockpi/ros_control_ws/build/gesture_control', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.168 36124 192.168.0.117 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rockpi/ros_control_ws/build/gesture_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages:/home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages:/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'ms_MY.UTF-8', 'LC_PAPER': 'ms_MY.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/rockpi/ros_control_ws/install/my_robot_hardware_interface:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[4.526323] (-) TimerEvent: {}
+[4.627028] (-) TimerEvent: {}
+[4.727725] (-) TimerEvent: {}
+[4.828335] (-) TimerEvent: {}
+[4.928917] (-) TimerEvent: {}
+[5.029575] (-) TimerEvent: {}
+[5.130176] (-) TimerEvent: {}
+[5.230764] (-) TimerEvent: {}
+[5.331335] (-) TimerEvent: {}
+[5.431919] (-) TimerEvent: {}
+[5.532529] (-) TimerEvent: {}
+[5.633071] (-) TimerEvent: {}
+[5.714049] (gesture_control) StdoutLine: {'line': b'running egg_info\n'}
+[5.715420] (gesture_control) StdoutLine: {'line': b'creating ../../build/gesture_control/gesture_control.egg-info\n'}
+[5.733217] (-) TimerEvent: {}
+[5.805386] (gesture_control) StdoutLine: {'line': b'writing ../../build/gesture_control/gesture_control.egg-info/PKG-INFO\n'}
+[5.806567] (gesture_control) StdoutLine: {'line': b'writing dependency_links to ../../build/gesture_control/gesture_control.egg-info/dependency_links.txt\n'}
+[5.807480] (gesture_control) StdoutLine: {'line': b'writing entry points to ../../build/gesture_control/gesture_control.egg-info/entry_points.txt\n'}
+[5.808256] (gesture_control) StdoutLine: {'line': b'writing requirements to ../../build/gesture_control/gesture_control.egg-info/requires.txt\n'}
+[5.808865] (gesture_control) StdoutLine: {'line': b'writing top-level names to ../../build/gesture_control/gesture_control.egg-info/top_level.txt\n'}
+[5.809481] (gesture_control) StdoutLine: {'line': b"writing manifest file '../../build/gesture_control/gesture_control.egg-info/SOURCES.txt'\n"}
+[5.833373] (-) TimerEvent: {}
+[5.933901] (-) TimerEvent: {}
+[5.993327] (gesture_control) StdoutLine: {'line': b"reading manifest file '../../build/gesture_control/gesture_control.egg-info/SOURCES.txt'\n"}
+[5.996221] (gesture_control) StdoutLine: {'line': b"writing manifest file '../../build/gesture_control/gesture_control.egg-info/SOURCES.txt'\n"}
+[5.996841] (gesture_control) StdoutLine: {'line': b'running build\n'}
+[5.997392] (gesture_control) StdoutLine: {'line': b'running build_py\n'}
+[5.997872] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/build/gesture_control/build\n'}
+[5.998457] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/build/gesture_control/build/lib\n'}
+[5.999032] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control\n'}
+[6.000435] (gesture_control) StdoutLine: {'line': b'copying gesture_control/__init__.py -> /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control\n'}
+[6.000907] (gesture_control) StdoutLine: {'line': b'copying gesture_control/gesture_node.py -> /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control\n'}
+[6.001468] (gesture_control) StdoutLine: {'line': b'running install\n'}
+[6.027148] (gesture_control) StdoutLine: {'line': b'running install_lib\n'}
+[6.034052] (-) TimerEvent: {}
+[6.118700] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control\n'}
+[6.119479] (gesture_control) StdoutLine: {'line': b'copying /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control/__init__.py -> /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control\n'}
+[6.120327] (gesture_control) StdoutLine: {'line': b'copying /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control/gesture_node.py -> /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control\n'}
+[6.122939] (gesture_control) StdoutLine: {'line': b'byte-compiling /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control/__init__.py to __init__.cpython-312.pyc\n'}
+[6.124374] (gesture_control) StdoutLine: {'line': b'byte-compiling /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control/gesture_node.py to gesture_node.cpython-312.pyc\n'}
+[6.128324] (gesture_control) StdoutLine: {'line': b'running install_data\n'}
+[6.129026] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/install/gesture_control/share/ament_index\n'}
+[6.129744] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/install/gesture_control/share/ament_index/resource_index\n'}
+[6.130480] (gesture_control) StdoutLine: {'line': b'creating /home/rockpi/ros_control_ws/install/gesture_control/share/ament_index/resource_index/packages\n'}
+[6.130845] (gesture_control) StdoutLine: {'line': b'copying resource/gesture_control -> /home/rockpi/ros_control_ws/install/gesture_control/share/ament_index/resource_index/packages\n'}
+[6.131429] (gesture_control) StdoutLine: {'line': b'copying package.xml -> /home/rockpi/ros_control_ws/install/gesture_control/share/gesture_control\n'}
+[6.131865] (gesture_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[6.134174] (-) TimerEvent: {}
+[6.230400] (gesture_control) StdoutLine: {'line': b'Copying ../../build/gesture_control/gesture_control.egg-info to /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control-0.0.0-py3.12.egg-info\n'}
+[6.234315] (-) TimerEvent: {}
+[6.236279] (gesture_control) StdoutLine: {'line': b'running install_scripts\n'}
+[6.334488] (-) TimerEvent: {}
+[6.435064] (-) TimerEvent: {}
+[6.535659] (-) TimerEvent: {}
+[6.636315] (-) TimerEvent: {}
+[6.736835] (-) TimerEvent: {}
+[6.837402] (-) TimerEvent: {}
+[6.922284] (gesture_control) StdoutLine: {'line': b'Installing gesture_node script to /home/rockpi/ros_control_ws/install/gesture_control/lib/gesture_control\n'}
+[6.923750] (gesture_control) StdoutLine: {'line': b"writing list of installed files to '/home/rockpi/ros_control_ws/build/gesture_control/install.log'\n"}
+[6.937665] (-) TimerEvent: {}
+[7.038615] (-) TimerEvent: {}
+[7.071347] (gesture_control) CommandEnded: {'returncode': 0}
+[7.138820] (-) TimerEvent: {}
+[7.140430] (gesture_control) JobEnded: {'identifier': 'gesture_control', 'rc': 0}
+[7.143002] (-) EventReactorShutdown: {}

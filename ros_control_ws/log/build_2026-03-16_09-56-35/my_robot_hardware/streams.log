@@ -1,0 +1,29 @@
+[12.868s] Invoking command in '/home/rockpi/ros_control_ws/src/my_robot_hardware': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_hardware build --build-base /home/rockpi/ros_control_ws/build/my_robot_hardware/build install --record /home/rockpi/ros_control_ws/build/my_robot_hardware/install.log --single-version-externally-managed install_data
+[16.376s] running egg_info
+[16.682s] writing ../../build/my_robot_hardware/my_robot_hardware.egg-info/PKG-INFO
+[16.685s] writing dependency_links to ../../build/my_robot_hardware/my_robot_hardware.egg-info/dependency_links.txt
+[16.686s] writing entry points to ../../build/my_robot_hardware/my_robot_hardware.egg-info/entry_points.txt
+[16.690s] writing requirements to ../../build/my_robot_hardware/my_robot_hardware.egg-info/requires.txt
+[16.697s] writing top-level names to ../../build/my_robot_hardware/my_robot_hardware.egg-info/top_level.txt
+[17.255s] reading manifest file '../../build/my_robot_hardware/my_robot_hardware.egg-info/SOURCES.txt'
+[17.266s] writing manifest file '../../build/my_robot_hardware/my_robot_hardware.egg-info/SOURCES.txt'
+[17.270s] running build
+[17.274s] running build_py
+[17.275s] copying my_robot_hardware/__init__.py -> /home/rockpi/ros_control_ws/build/my_robot_hardware/build/lib/my_robot_hardware
+[17.280s] copying my_robot_hardware/arduino_bridge.py -> /home/rockpi/ros_control_ws/build/my_robot_hardware/build/lib/my_robot_hardware
+[17.282s] running install
+[17.355s] running install_lib
+[17.680s] copying /home/rockpi/ros_control_ws/build/my_robot_hardware/build/lib/my_robot_hardware/__init__.py -> /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware
+[17.685s] copying /home/rockpi/ros_control_ws/build/my_robot_hardware/build/lib/my_robot_hardware/arduino_bridge.py -> /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware
+[17.699s] byte-compiling /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware/__init__.py to __init__.cpython-312.pyc
+[17.701s] byte-compiling /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware/arduino_bridge.py to arduino_bridge.cpython-312.pyc
+[17.715s] running install_data
+[17.721s] copying resource/my_robot_hardware -> /home/rockpi/ros_control_ws/install/my_robot_hardware/share/ament_index/resource_index/packages
+[17.723s] copying package.xml -> /home/rockpi/ros_control_ws/install/my_robot_hardware/share/my_robot_hardware
+[17.724s] running install_egg_info
+[17.899s] removing '/home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware-0.0.1-py3.12.egg-info' (and everything under it)
+[17.903s] Copying ../../build/my_robot_hardware/my_robot_hardware.egg-info to /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages/my_robot_hardware-0.0.1-py3.12.egg-info
+[17.908s] running install_scripts
+[19.864s] Installing arduino_bridge script to /home/rockpi/ros_control_ws/install/my_robot_hardware/lib/my_robot_hardware
+[19.873s] writing list of installed files to '/home/rockpi/ros_control_ws/build/my_robot_hardware/install.log'
+[20.247s] Invoked command in '/home/rockpi/ros_control_ws/src/my_robot_hardware' returned '0': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_hardware build --build-base /home/rockpi/ros_control_ws/build/my_robot_hardware/build install --record /home/rockpi/ros_control_ws/build/my_robot_hardware/install.log --single-version-externally-managed install_data

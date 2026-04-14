@@ -1,0 +1,44 @@
+[4.993s] Invoking command in '/home/rockpi/robot_ws/build/my_robot': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rockpi/robot_ws/build/my_robot/build
+[6.516s] running develop
+[7.660s] Removing /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+[7.836s] Invoked command in '/home/rockpi/robot_ws/build/my_robot' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/rockpi/robot_ws/build/my_robot/build
+[7.842s] Invoking command in '/home/rockpi/robot_ws/src/my_robot': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/robot_ws/build/my_robot/build install --record /home/rockpi/robot_ws/build/my_robot/install.log --single-version-externally-managed install_data --force
+[8.984s] running egg_info
+[9.061s] writing ../../build/my_robot/my_robot.egg-info/PKG-INFO
+[9.062s] writing dependency_links to ../../build/my_robot/my_robot.egg-info/dependency_links.txt
+[9.064s] writing entry points to ../../build/my_robot/my_robot.egg-info/entry_points.txt
+[9.066s] writing requirements to ../../build/my_robot/my_robot.egg-info/requires.txt
+[9.066s] writing top-level names to ../../build/my_robot/my_robot.egg-info/top_level.txt
+[9.230s] reading manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[9.234s] writing manifest file '../../build/my_robot/my_robot.egg-info/SOURCES.txt'
+[9.235s] running build
+[9.236s] running build_py
+[9.236s] copying my_robot/diff_drive_controller.py -> /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot
+[9.238s] running install
+[9.264s] running install_lib
+[9.354s] creating /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[9.355s] copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/diff_drive_controller.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[9.356s] copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/__init__.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[9.357s] copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/imu_node.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[9.359s] copying /home/rockpi/robot_ws/build/my_robot/build/lib/my_robot/odometry_node.py -> /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot
+[9.362s] byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/diff_drive_controller.py to diff_drive_controller.cpython-312.pyc
+[9.368s] byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/__init__.py to __init__.cpython-312.pyc
+[9.369s] byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/imu_node.py to imu_node.cpython-312.pyc
+[9.375s] byte-compiling /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot/odometry_node.py to odometry_node.cpython-312.pyc
+[9.379s] running install_data
+[9.379s] copying resource/my_robot -> /home/rockpi/robot_ws/install/my_robot/share/ament_index/resource_index/packages
+[9.380s] copying package.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot
+[9.381s] copying launch/robot.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+[9.382s] copying launch/slam.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+[9.384s] copying config/mapper_params_online_async.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[9.385s] copying config/slam_toolbox_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[9.387s] copying config/ekf.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[9.388s] copying urdf/robot.urdf.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/urdf
+[9.389s] running install_egg_info
+[9.479s] Copying ../../build/my_robot/my_robot.egg-info to /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.1-py3.12.egg-info
+[9.484s] running install_scripts
+[10.081s] Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[10.082s] Installing imu_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[10.083s] Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[10.085s] writing list of installed files to '/home/rockpi/robot_ws/build/my_robot/install.log'
+[10.232s] Invoked command in '/home/rockpi/robot_ws/src/my_robot' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot build --build-base /home/rockpi/robot_ws/build/my_robot/build install --record /home/rockpi/robot_ws/build/my_robot/install.log --single-version-externally-managed install_data --force

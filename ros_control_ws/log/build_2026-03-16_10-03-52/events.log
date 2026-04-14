@@ -1,0 +1,300 @@
+[0.000000] (-) TimerEvent: {}
+[0.000978] (-) JobUnselected: {'identifier': 'my_robot'}
+[0.002466] (-) JobUnselected: {'identifier': 'my_robot_hardware'}
+[0.004134] (my_robot_hardware_interface) JobQueued: {'identifier': 'my_robot_hardware_interface', 'dependencies': OrderedDict()}
+[0.005306] (my_robot_hardware_interface) JobStarted: {'identifier': 'my_robot_hardware_interface'}
+[0.098298] (-) TimerEvent: {}
+[0.114154] (my_robot_hardware_interface) JobProgress: {'identifier': 'my_robot_hardware_interface', 'progress': 'cmake'}
+[0.120302] (my_robot_hardware_interface) JobProgress: {'identifier': 'my_robot_hardware_interface', 'progress': 'build'}
+[0.126835] (my_robot_hardware_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface', '--', '-j4', '-l4'], 'cwd': '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'rockpi', 'SSH_CLIENT': '192.168.0.175 46968 22', 'LC_TIME': 'ms_MY.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/helpers/browser.sh', 'HOME': '/home/rockpi', 'OLDPWD': '/home/rockpi/ros_control_ws/src', 'TERM_PROGRAM_VERSION': '1.110.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-02c094ca-8973-4cdc-885c-1d93369d2874.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'ms_MY.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'rockpi', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'ms_MY.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'ms_MY.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-ab091cf714.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'ms_MY.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ms_MY.UTF-8', 'LC_IDENTIFICATION': 'ms_MY.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.175 46968 192.168.0.122 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'ms_MY.UTF-8', 'LC_PAPER': 'ms_MY.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.198905] (-) TimerEvent: {}
+[0.301749] (-) TimerEvent: {}
+[0.403008] (-) TimerEvent: {}
+[0.504363] (-) TimerEvent: {}
+[0.605599] (-) TimerEvent: {}
+[0.706906] (-) TimerEvent: {}
+[0.808160] (-) TimerEvent: {}
+[0.892815] (my_robot_hardware_interface) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o\x1b[0m\n'}
+[0.908332] (-) TimerEvent: {}
+[1.008987] (-) TimerEvent: {}
+[1.109637] (-) TimerEvent: {}
+[1.210330] (-) TimerEvent: {}
+[1.310982] (-) TimerEvent: {}
+[1.411651] (-) TimerEvent: {}
+[1.512326] (-) TimerEvent: {}
+[1.612986] (-) TimerEvent: {}
+[1.713665] (-) TimerEvent: {}
+[1.814414] (-) TimerEvent: {}
+[1.915102] (-) TimerEvent: {}
+[2.015756] (-) TimerEvent: {}
+[2.116429] (-) TimerEvent: {}
+[2.217082] (-) TimerEvent: {}
+[2.317739] (-) TimerEvent: {}
+[2.418411] (-) TimerEvent: {}
+[2.519083] (-) TimerEvent: {}
+[2.619749] (-) TimerEvent: {}
+[2.720457] (-) TimerEvent: {}
+[2.821182] (-) TimerEvent: {}
+[2.921841] (-) TimerEvent: {}
+[3.022609] (-) TimerEvent: {}
+[3.123256] (-) TimerEvent: {}
+[3.224011] (-) TimerEvent: {}
+[3.324818] (-) TimerEvent: {}
+[3.425623] (-) TimerEvent: {}
+[3.526372] (-) TimerEvent: {}
+[3.627199] (-) TimerEvent: {}
+[3.727954] (-) TimerEvent: {}
+[3.828709] (-) TimerEvent: {}
+[3.929554] (-) TimerEvent: {}
+[4.030280] (-) TimerEvent: {}
+[4.130954] (-) TimerEvent: {}
+[4.231735] (-) TimerEvent: {}
+[4.332499] (-) TimerEvent: {}
+[4.433193] (-) TimerEvent: {}
+[4.533895] (-) TimerEvent: {}
+[4.634681] (-) TimerEvent: {}
+[4.735497] (-) TimerEvent: {}
+[4.836324] (-) TimerEvent: {}
+[4.937125] (-) TimerEvent: {}
+[5.037821] (-) TimerEvent: {}
+[5.138660] (-) TimerEvent: {}
+[5.239567] (-) TimerEvent: {}
+[5.340399] (-) TimerEvent: {}
+[5.441163] (-) TimerEvent: {}
+[5.541930] (-) TimerEvent: {}
+[5.642897] (-) TimerEvent: {}
+[5.744302] (-) TimerEvent: {}
+[5.845148] (-) TimerEvent: {}
+[5.945848] (-) TimerEvent: {}
+[6.046651] (-) TimerEvent: {}
+[6.147450] (-) TimerEvent: {}
+[6.248185] (-) TimerEvent: {}
+[6.348895] (-) TimerEvent: {}
+[6.449763] (-) TimerEvent: {}
+[6.550520] (-) TimerEvent: {}
+[6.651237] (-) TimerEvent: {}
+[6.751941] (-) TimerEvent: {}
+[6.852698] (-) TimerEvent: {}
+[6.953490] (-) TimerEvent: {}
+[7.054349] (-) TimerEvent: {}
+[7.155090] (-) TimerEvent: {}
+[7.255854] (-) TimerEvent: {}
+[7.356676] (-) TimerEvent: {}
+[7.457427] (-) TimerEvent: {}
+[7.558146] (-) TimerEvent: {}
+[7.658830] (-) TimerEvent: {}
+[7.759576] (-) TimerEvent: {}
+[7.860314] (-) TimerEvent: {}
+[7.961011] (-) TimerEvent: {}
+[8.062747] (-) TimerEvent: {}
+[8.163546] (-) TimerEvent: {}
+[8.264361] (-) TimerEvent: {}
+[8.365107] (-) TimerEvent: {}
+[8.465817] (-) TimerEvent: {}
+[8.566684] (-) TimerEvent: {}
+[8.668357] (-) TimerEvent: {}
+[8.769196] (-) TimerEvent: {}
+[8.870370] (-) TimerEvent: {}
+[8.971897] (-) TimerEvent: {}
+[9.072661] (-) TimerEvent: {}
+[9.173524] (-) TimerEvent: {}
+[9.274313] (-) TimerEvent: {}
+[9.375143] (-) TimerEvent: {}
+[9.475830] (-) TimerEvent: {}
+[9.576605] (-) TimerEvent: {}
+[9.677346] (-) TimerEvent: {}
+[9.778100] (-) TimerEvent: {}
+[9.878816] (-) TimerEvent: {}
+[9.979665] (-) TimerEvent: {}
+[10.080513] (-) TimerEvent: {}
+[10.181304] (-) TimerEvent: {}
+[10.282102] (-) TimerEvent: {}
+[10.382825] (-) TimerEvent: {}
+[10.483652] (-) TimerEvent: {}
+[10.584421] (-) TimerEvent: {}
+[10.685154] (-) TimerEvent: {}
+[10.785928] (-) TimerEvent: {}
+[10.886694] (-) TimerEvent: {}
+[10.987478] (-) TimerEvent: {}
+[11.088288] (-) TimerEvent: {}
+[11.189131] (-) TimerEvent: {}
+[11.289858] (-) TimerEvent: {}
+[11.390669] (-) TimerEvent: {}
+[11.491518] (-) TimerEvent: {}
+[11.592401] (-) TimerEvent: {}
+[11.693150] (-) TimerEvent: {}
+[11.793878] (-) TimerEvent: {}
+[11.894638] (-) TimerEvent: {}
+[11.995429] (-) TimerEvent: {}
+[12.096180] (-) TimerEvent: {}
+[12.196956] (-) TimerEvent: {}
+[12.297739] (-) TimerEvent: {}
+[12.398487] (-) TimerEvent: {}
+[12.499194] (-) TimerEvent: {}
+[12.599938] (-) TimerEvent: {}
+[12.700742] (-) TimerEvent: {}
+[12.801511] (-) TimerEvent: {}
+[12.902225] (-) TimerEvent: {}
+[13.002980] (-) TimerEvent: {}
+[13.103752] (-) TimerEvent: {}
+[13.204667] (-) TimerEvent: {}
+[13.266348] (my_robot_hardware_interface) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual hardware_interface::CallbackReturn my_robot_hardware_interface::MyRobotHardware::\x1b[01;32m\x1b[Kon_init\x1b[m\x1b[K(const hardware_interface::HardwareInfo&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.268657] (my_robot_hardware_interface) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:24:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn hardware_interface::HardwareComponentInterface::\x1b[01;32m\x1b[Kon_init\x1b[m\x1b[K(const hardware_interface::HardwareInfo&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use on_init(const HardwareComponentInterfaceParams & params) instead. [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.269355] (my_robot_hardware_interface) StderrLine: {'line': b'   24 |   if (\x1b[01;35m\x1b[Khardware_interface::SystemInterface::on_init(info)\x1b[m\x1b[K !=\n'}
+[13.269834] (my_robot_hardware_interface) StderrLine: {'line': b'      |       \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[13.270327] (my_robot_hardware_interface) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/system_interface.hpp:18\x1b[m\x1b[K,\n'}
+[13.270754] (my_robot_hardware_interface) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/include/my_robot_hardware_interface/my_robot_hardware.hpp:9\x1b[m\x1b[K,\n'}
+[13.271387] (my_robot_hardware_interface) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:3\x1b[m\x1b[K:\n'}
+[13.271851] (my_robot_hardware_interface) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/hardware_component_interface.hpp:140:26:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[13.272291] (my_robot_hardware_interface) StderrLine: {'line': b'  140 |   virtual CallbackReturn \x1b[01;36m\x1b[Kon_init\x1b[m\x1b[K(const HardwareInfo & hardware_info);\n'}
+[13.272711] (my_robot_hardware_interface) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[13.304853] (-) TimerEvent: {}
+[13.405608] (-) TimerEvent: {}
+[13.506356] (-) TimerEvent: {}
+[13.607189] (-) TimerEvent: {}
+[13.707972] (-) TimerEvent: {}
+[13.808736] (-) TimerEvent: {}
+[13.909546] (-) TimerEvent: {}
+[14.010268] (-) TimerEvent: {}
+[14.110956] (-) TimerEvent: {}
+[14.211738] (-) TimerEvent: {}
+[14.312503] (-) TimerEvent: {}
+[14.413213] (-) TimerEvent: {}
+[14.513940] (-) TimerEvent: {}
+[14.614680] (-) TimerEvent: {}
+[14.715446] (-) TimerEvent: {}
+[14.816177] (-) TimerEvent: {}
+[14.916880] (-) TimerEvent: {}
+[15.017645] (-) TimerEvent: {}
+[15.118406] (-) TimerEvent: {}
+[15.219149] (-) TimerEvent: {}
+[15.320618] (-) TimerEvent: {}
+[15.421376] (-) TimerEvent: {}
+[15.522115] (-) TimerEvent: {}
+[15.622851] (-) TimerEvent: {}
+[15.723606] (-) TimerEvent: {}
+[15.824355] (-) TimerEvent: {}
+[15.925263] (-) TimerEvent: {}
+[16.026336] (-) TimerEvent: {}
+[16.127084] (-) TimerEvent: {}
+[16.227799] (-) TimerEvent: {}
+[16.328613] (-) TimerEvent: {}
+[16.429868] (-) TimerEvent: {}
+[16.530686] (-) TimerEvent: {}
+[16.631500] (-) TimerEvent: {}
+[16.732343] (-) TimerEvent: {}
+[16.833153] (-) TimerEvent: {}
+[16.933872] (-) TimerEvent: {}
+[17.034644] (-) TimerEvent: {}
+[17.135455] (-) TimerEvent: {}
+[17.236206] (-) TimerEvent: {}
+[17.336906] (-) TimerEvent: {}
+[17.437672] (-) TimerEvent: {}
+[17.538496] (-) TimerEvent: {}
+[17.639262] (-) TimerEvent: {}
+[17.739969] (-) TimerEvent: {}
+[17.840741] (-) TimerEvent: {}
+[17.941494] (-) TimerEvent: {}
+[18.042174] (-) TimerEvent: {}
+[18.142871] (-) TimerEvent: {}
+[18.243666] (-) TimerEvent: {}
+[18.344460] (-) TimerEvent: {}
+[18.445307] (-) TimerEvent: {}
+[18.546096] (-) TimerEvent: {}
+[18.646871] (-) TimerEvent: {}
+[18.747761] (-) TimerEvent: {}
+[18.848716] (-) TimerEvent: {}
+[18.949552] (-) TimerEvent: {}
+[19.050319] (-) TimerEvent: {}
+[19.151090] (-) TimerEvent: {}
+[19.251806] (-) TimerEvent: {}
+[19.352596] (-) TimerEvent: {}
+[19.453371] (-) TimerEvent: {}
+[19.554125] (-) TimerEvent: {}
+[19.654821] (-) TimerEvent: {}
+[19.756223] (-) TimerEvent: {}
+[19.856959] (-) TimerEvent: {}
+[19.957694] (-) TimerEvent: {}
+[20.058444] (-) TimerEvent: {}
+[20.159191] (-) TimerEvent: {}
+[20.259869] (-) TimerEvent: {}
+[20.360676] (-) TimerEvent: {}
+[20.461450] (-) TimerEvent: {}
+[20.562188] (-) TimerEvent: {}
+[20.662871] (-) TimerEvent: {}
+[20.763606] (-) TimerEvent: {}
+[20.864353] (-) TimerEvent: {}
+[20.965080] (-) TimerEvent: {}
+[21.065850] (-) TimerEvent: {}
+[21.166624] (-) TimerEvent: {}
+[21.267353] (-) TimerEvent: {}
+[21.368147] (-) TimerEvent: {}
+[21.468919] (-) TimerEvent: {}
+[21.569830] (-) TimerEvent: {}
+[21.670818] (-) TimerEvent: {}
+[21.771565] (-) TimerEvent: {}
+[21.872339] (-) TimerEvent: {}
+[21.973116] (-) TimerEvent: {}
+[22.073910] (-) TimerEvent: {}
+[22.174861] (-) TimerEvent: {}
+[22.195275] (my_robot_hardware_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libmy_robot_hardware.so\x1b[0m\n'}
+[22.275064] (-) TimerEvent: {}
+[22.376177] (-) TimerEvent: {}
+[22.477001] (-) TimerEvent: {}
+[22.577919] (-) TimerEvent: {}
+[22.678699] (-) TimerEvent: {}
+[22.779624] (-) TimerEvent: {}
+[22.880657] (-) TimerEvent: {}
+[22.981707] (-) TimerEvent: {}
+[23.082994] (-) TimerEvent: {}
+[23.183877] (-) TimerEvent: {}
+[23.284790] (-) TimerEvent: {}
+[23.385648] (-) TimerEvent: {}
+[23.486620] (-) TimerEvent: {}
+[23.587919] (-) TimerEvent: {}
+[23.688903] (-) TimerEvent: {}
+[23.789671] (-) TimerEvent: {}
+[23.890563] (-) TimerEvent: {}
+[23.991578] (-) TimerEvent: {}
+[24.092488] (-) TimerEvent: {}
+[24.182753] (my_robot_hardware_interface) StdoutLine: {'line': b'[100%] Built target my_robot_hardware\n'}
+[24.192659] (-) TimerEvent: {}
+[24.250930] (my_robot_hardware_interface) CommandEnded: {'returncode': 0}
+[24.252941] (my_robot_hardware_interface) JobProgress: {'identifier': 'my_robot_hardware_interface', 'progress': 'install'}
+[24.292864] (-) TimerEvent: {}
+[24.311663] (my_robot_hardware_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface'], 'cwd': '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'rockpi', 'SSH_CLIENT': '192.168.0.175 46968 22', 'LC_TIME': 'ms_MY.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/helpers/browser.sh', 'HOME': '/home/rockpi', 'OLDPWD': '/home/rockpi/ros_control_ws/src', 'TERM_PROGRAM_VERSION': '1.110.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-02c094ca-8973-4cdc-885c-1d93369d2874.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'ms_MY.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'rockpi', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rockpi/.vscode-server/cli/servers/Stable-61b3d0ab13be7dda2389f1d3e60a119c7f660cc3/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'ms_MY.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'ms_MY.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-ab091cf714.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'ms_MY.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ms_MY.UTF-8', 'LC_IDENTIFICATION': 'ms_MY.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.175 46968 192.168.0.122 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'ms_MY.UTF-8', 'LC_PAPER': 'ms_MY.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[24.364105] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[24.364836] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/my_robot_hardware_interface.xml\n'}
+[24.366298] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/lib/libmy_robot_hardware.so\n'}
+[24.375556] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/rockpi/ros_control_ws/install/my_robot_hardware_interface/lib/libmy_robot_hardware.so" to ""\n'}
+[24.376299] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include\n'}
+[24.376798] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include/my_robot_hardware_interface\n'}
+[24.377314] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/include/my_robot_hardware_interface/my_robot_hardware.hpp\n'}
+[24.378893] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/library_path.sh\n'}
+[24.380185] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/library_path.dsv\n'}
+[24.382123] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/package_run_dependencies/my_robot_hardware_interface\n'}
+[24.383868] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/parent_prefix_path/my_robot_hardware_interface\n'}
+[24.385254] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/ament_prefix_path.sh\n'}
+[24.386593] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/ament_prefix_path.dsv\n'}
+[24.387943] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/path.sh\n'}
+[24.389187] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/environment/path.dsv\n'}
+[24.390485] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.bash\n'}
+[24.391784] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.sh\n'}
+[24.392968] (-) TimerEvent: {}
+[24.393472] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.zsh\n'}
+[24.394670] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/local_setup.dsv\n'}
+[24.395923] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/package.dsv\n'}
+[24.397723] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/packages/my_robot_hardware_interface\n'}
+[24.399611] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_robot_hardware_interface\n'}
+[24.401609] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/export_my_robot_hardwareExport.cmake\n'}
+[24.403159] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/export_my_robot_hardwareExport-noconfig.cmake\n'}
+[24.404646] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[24.406254] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[24.407806] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[24.409252] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/my_robot_hardware_interfaceConfig.cmake\n'}
+[24.410444] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/cmake/my_robot_hardware_interfaceConfig-version.cmake\n'}
+[24.411792] (my_robot_hardware_interface) StdoutLine: {'line': b'-- Installing: /home/rockpi/ros_control_ws/install/my_robot_hardware_interface/share/my_robot_hardware_interface/package.xml\n'}
+[24.418847] (my_robot_hardware_interface) CommandEnded: {'returncode': 0}
+[24.493168] (-) TimerEvent: {}
+[24.511684] (my_robot_hardware_interface) JobEnded: {'identifier': 'my_robot_hardware_interface', 'rc': 0}
+[24.515482] (-) EventReactorShutdown: {}

@@ -1,0 +1,19 @@
+[5.674s] Invoking command in '/home/rockpi/robot_ws/build/my_robot_hardware': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot_hardware/build --no-deps symlink_data --force
+[7.260s] running develop
+[8.284s] running egg_info
+[8.376s] writing my_robot_hardware.egg-info/PKG-INFO
+[8.378s] writing dependency_links to my_robot_hardware.egg-info/dependency_links.txt
+[8.379s] writing entry points to my_robot_hardware.egg-info/entry_points.txt
+[8.384s] writing requirements to my_robot_hardware.egg-info/requires.txt
+[8.385s] writing top-level names to my_robot_hardware.egg-info/top_level.txt
+[8.570s] reading manifest file 'my_robot_hardware.egg-info/SOURCES.txt'
+[8.575s] writing manifest file 'my_robot_hardware.egg-info/SOURCES.txt'
+[8.671s] running build_ext
+[8.674s] Creating /home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages/my-robot-hardware.egg-link (link to .)
+[8.678s] Installing arduino_bridge script to /home/rockpi/robot_ws/install/my_robot_hardware/lib/my_robot_hardware
+[8.680s] 
+[8.681s] Installed /home/rockpi/robot_ws/build/my_robot_hardware
+[8.681s] running symlink_data
+[8.688s] symbolically linking /home/rockpi/robot_ws/build/my_robot_hardware/resource/my_robot_hardware -> /home/rockpi/robot_ws/install/my_robot_hardware/share/ament_index/resource_index/packages
+[8.689s] symbolically linking /home/rockpi/robot_ws/build/my_robot_hardware/package.xml -> /home/rockpi/robot_ws/install/my_robot_hardware/share/my_robot_hardware
+[8.925s] Invoked command in '/home/rockpi/robot_ws/build/my_robot_hardware' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot_hardware/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot_hardware/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot_hardware/build --no-deps symlink_data --force

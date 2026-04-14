@@ -1,0 +1,25 @@
+running develop
+running egg_info
+writing my_robot.egg-info/PKG-INFO
+writing dependency_links to my_robot.egg-info/dependency_links.txt
+writing entry points to my_robot.egg-info/entry_points.txt
+writing requirements to my_robot.egg-info/requires.txt
+writing top-level names to my_robot.egg-info/top_level.txt
+reading manifest file 'my_robot.egg-info/SOURCES.txt'
+writing manifest file 'my_robot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing imu_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+
+Installed /home/rockpi/robot_ws/build/my_robot
+running symlink_data
+symbolically linking /home/rockpi/robot_ws/build/my_robot/resource/my_robot -> /home/rockpi/robot_ws/install/my_robot/share/ament_index/resource_index/packages
+symbolically linking /home/rockpi/robot_ws/build/my_robot/package.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot
+symbolically linking /home/rockpi/robot_ws/build/my_robot/launch/robot.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+symbolically linking /home/rockpi/robot_ws/build/my_robot/launch/slam.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+symbolically linking /home/rockpi/robot_ws/build/my_robot/config/mapper_params_online_async.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+symbolically linking /home/rockpi/robot_ws/build/my_robot/config/slam_toolbox_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+symbolically linking /home/rockpi/robot_ws/build/my_robot/config/ekf.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+symbolically linking /home/rockpi/robot_ws/build/my_robot/urdf/robot.urdf.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/urdf

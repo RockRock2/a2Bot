@@ -1,0 +1,54 @@
+[3.968s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/rockpi/ros_control_ws/src/my_robot_hardware_interface -DCMAKE_INSTALL_PREFIX=/home/rockpi/ros_control_ws/install/my_robot_hardware_interface
+[6.026s] -- The C compiler identification is GNU 13.3.0
+[7.363s] -- The CXX compiler identification is GNU 13.3.0
+[7.702s] -- Detecting C compiler ABI info
+[9.072s] -- Detecting C compiler ABI info - done
+[9.188s] -- Check for working C compiler: /usr/bin/cc - skipped
+[9.196s] -- Detecting C compile features
+[9.203s] -- Detecting C compile features - done
+[9.373s] -- Detecting CXX compiler ABI info
+[11.041s] -- Detecting CXX compiler ABI info - done
+[11.091s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[11.093s] -- Detecting CXX compile features
+[11.095s] -- Detecting CXX compile features - done
+[11.324s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[14.206s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[17.451s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[19.335s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[20.012s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[20.532s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[20.790s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[22.178s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[22.242s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[23.628s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[23.748s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[23.856s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[25.266s] -- Found hardware_interface: 4.42.2 (/opt/ros/jazzy/share/hardware_interface/cmake)
+[30.383s] -- Configuring done (26.0s)
+[30.614s] -- Generating done (0.2s)
+[30.635s] -- Build files have been written to: /home/rockpi/ros_control_ws/build/my_robot_hardware_interface
+[30.685s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/rockpi/ros_control_ws/src/my_robot_hardware_interface -DCMAKE_INSTALL_PREFIX=/home/rockpi/ros_control_ws/install/my_robot_hardware_interface
+[30.692s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4
+[31.624s] [ 50%] [32mBuilding CXX object CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o[0m
+[51.070s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn my_robot_hardware_interface::MyRobotHardware::[01;32m[Kon_init[m[K(const hardware_interface::HardwareInfo&)[m[K’:
+[51.070s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:21:51:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn hardware_interface::HardwareComponentInterface::[01;32m[Kon_init[m[K(const hardware_interface::HardwareInfo&)[m[K’ is deprecated: Use on_init(const HardwareComponentInterfaceParams & params) instead. [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[51.071s]    21 |   if ([01;35m[Khardware_interface::SystemInterface::on_init(info)[m[K !=
+[51.071s]       |       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[51.072s] In file included from [01m[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/system_interface.hpp:18[m[K,
+[51.072s]                  from [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/include/my_robot_hardware_interface/my_robot_hardware.hpp:9[m[K,
+[51.073s]                  from [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:3[m[K:
+[51.073s] [01m[K/opt/ros/jazzy/include/hardware_interface/hardware_interface/hardware_component_interface.hpp:140:26:[m[K [01;36m[Knote: [m[Kdeclared here
+[51.074s]   140 |   virtual CallbackReturn [01;36m[Kon_init[m[K(const HardwareInfo & hardware_info);
+[51.074s]       |                          [01;36m[K^~~~~~~[m[K
+[51.126s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:[m[K In member function ‘[01m[Kbool my_robot_hardware_interface::MyRobotHardware::[01;32m[KwriteSerial[m[K(const std::string&)[m[K’:
+[51.127s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:229:15:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmy_robot_hardware_interface::MyRobotHardware::write(int&, const char*, std::__cxx11::basic_string<char>::size_type)[m[K’
+[51.127s]   229 |   return [01;31m[Kwrite(serial_fd_, data.c_str(), data.size())[m[K == (ssize_t)data.size();
+[51.128s]       |          [01;31m[K~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[51.131s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:166:33:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual hardware_interface::return_type my_robot_hardware_interface::MyRobotHardware::[01;32m[Kwrite[m[K(const rclcpp::Time&, const rclcpp::Duration&)[m[K’
+[51.135s]   166 | hardware_interface::return_type [01;36m[KMyRobotHardware[m[K::write(
+[51.136s]       |                                 [01;36m[K^~~~~~~~~~~~~~~[m[K
+[51.138s] [01m[K/home/rockpi/ros_control_ws/src/my_robot_hardware_interface/src/my_robot_hardware.cpp:166:33:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 3 provided
+[59.550s] gmake[2]: *** [CMakeFiles/my_robot_hardware.dir/build.make:76: CMakeFiles/my_robot_hardware.dir/src/my_robot_hardware.cpp.o] Error 1
+[59.551s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_robot_hardware.dir/all] Error 2
+[59.553s] gmake: *** [Makefile:146: all] Error 2
+[59.562s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot_hardware_interface' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rockpi/ros_control_ws/build/my_robot_hardware_interface -- -j4 -l4

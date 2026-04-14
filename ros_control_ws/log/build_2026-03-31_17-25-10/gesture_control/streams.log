@@ -1,0 +1,24 @@
+[24.457s] Invoking command in '/home/rockpi/ros_control_ws/src/gesture_control': PYTHONPATH=/home/rockpi/ros_control_ws/build/gesture_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gesture_control build --build-base /home/rockpi/ros_control_ws/build/gesture_control/build install --record /home/rockpi/ros_control_ws/build/gesture_control/install.log --single-version-externally-managed install_data
+[30.678s] running egg_info
+[31.279s] writing ../../build/gesture_control/gesture_control.egg-info/PKG-INFO
+[31.287s] writing dependency_links to ../../build/gesture_control/gesture_control.egg-info/dependency_links.txt
+[31.298s] writing entry points to ../../build/gesture_control/gesture_control.egg-info/entry_points.txt
+[31.307s] writing requirements to ../../build/gesture_control/gesture_control.egg-info/requires.txt
+[31.313s] writing top-level names to ../../build/gesture_control/gesture_control.egg-info/top_level.txt
+[32.622s] reading manifest file '../../build/gesture_control/gesture_control.egg-info/SOURCES.txt'
+[32.641s] writing manifest file '../../build/gesture_control/gesture_control.egg-info/SOURCES.txt'
+[32.649s] running build
+[32.659s] running build_py
+[32.660s] copying gesture_control/gesture_node.py -> /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control
+[32.677s] running install
+[32.745s] running install_lib
+[33.436s] copying /home/rockpi/ros_control_ws/build/gesture_control/build/lib/gesture_control/gesture_node.py -> /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control
+[33.455s] byte-compiling /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control/gesture_node.py to gesture_node.cpython-312.pyc
+[33.483s] running install_data
+[33.492s] running install_egg_info
+[34.192s] removing '/home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control-0.0.0-py3.12.egg-info' (and everything under it)
+[34.204s] Copying ../../build/gesture_control/gesture_control.egg-info to /home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages/gesture_control-0.0.0-py3.12.egg-info
+[34.250s] running install_scripts
+[38.593s] Installing gesture_node script to /home/rockpi/ros_control_ws/install/gesture_control/lib/gesture_control
+[38.616s] writing list of installed files to '/home/rockpi/ros_control_ws/build/gesture_control/install.log'
+[38.927s] Invoked command in '/home/rockpi/ros_control_ws/src/gesture_control' returned '0': PYTHONPATH=/home/rockpi/ros_control_ws/build/gesture_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/gesture_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gesture_control build --build-base /home/rockpi/ros_control_ws/build/gesture_control/build install --record /home/rockpi/ros_control_ws/build/gesture_control/install.log --single-version-externally-managed install_data

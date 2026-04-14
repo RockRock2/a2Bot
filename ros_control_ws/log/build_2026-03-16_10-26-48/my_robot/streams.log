@@ -1,0 +1,31 @@
+[9.244s] Invoking command in '/home/rockpi/ros_control_ws/build/my_robot': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/ros_control_ws/build/my_robot/build --no-deps symlink_data --force
+[13.416s] running develop
+[15.418s] running egg_info
+[15.688s] writing my_robot.egg-info/PKG-INFO
+[15.693s] writing dependency_links to my_robot.egg-info/dependency_links.txt
+[15.695s] writing entry points to my_robot.egg-info/entry_points.txt
+[15.697s] writing requirements to my_robot.egg-info/requires.txt
+[15.698s] writing top-level names to my_robot.egg-info/top_level.txt
+[16.256s] reading manifest file 'my_robot.egg-info/SOURCES.txt'
+[16.267s] writing manifest file 'my_robot.egg-info/SOURCES.txt'
+[16.580s] running build_ext
+[16.581s] Creating /home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+[16.611s] Installing diff_drive_controller script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[16.616s] Installing imu_node script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[16.618s] Installing odometry_node script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[16.619s] Installing twist_to_twist_stamped script to /home/rockpi/ros_control_ws/install/my_robot/lib/my_robot
+[16.621s] 
+[16.623s] Installed /home/rockpi/ros_control_ws/build/my_robot
+[16.626s] running symlink_data
+[16.629s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/resource/my_robot -> /home/rockpi/ros_control_ws/install/my_robot/share/ament_index/resource_index/packages
+[16.631s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/package.xml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot
+[16.637s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/launch/navigation.launch.py -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/launch
+[16.640s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/launch/robot.launch.py -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/launch
+[16.645s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/launch/slam.launch.py -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/launch
+[16.654s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/config/mapper_params_online_async.yaml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/config
+[16.661s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/config/slam_toolbox_params.yaml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/config
+[16.665s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/config/ekf.yaml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/config
+[16.667s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/config/nav2_params.yaml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/config
+[16.670s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/config/controllers.yaml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/config
+[16.674s] symbolically linking /home/rockpi/ros_control_ws/build/my_robot/urdf/robot.urdf.xml -> /home/rockpi/ros_control_ws/install/my_robot/share/my_robot/urdf
+[16.957s] Invoked command in '/home/rockpi/ros_control_ws/build/my_robot' returned '0': PYTHONPATH=/home/rockpi/ros_control_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/ros_control_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/ros_control_ws/build/my_robot/build --no-deps symlink_data --force

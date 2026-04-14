@@ -1,0 +1,27 @@
+[4.378s] Invoking command in '/home/rockpi/robot_ws/build/my_robot': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot/build --no-deps symlink_data --force
+[5.799s] running develop
+[6.711s] running egg_info
+[6.796s] writing my_robot.egg-info/PKG-INFO
+[6.838s] writing dependency_links to my_robot.egg-info/dependency_links.txt
+[6.840s] writing entry points to my_robot.egg-info/entry_points.txt
+[6.843s] writing requirements to my_robot.egg-info/requires.txt
+[6.844s] writing top-level names to my_robot.egg-info/top_level.txt
+[7.049s] reading manifest file 'my_robot.egg-info/SOURCES.txt'
+[7.054s] writing manifest file 'my_robot.egg-info/SOURCES.txt'
+[7.140s] running build_ext
+[7.143s] Creating /home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages/my-robot.egg-link (link to .)
+[7.146s] Installing diff_drive_controller script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[7.147s] Installing imu_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[7.148s] Installing odometry_node script to /home/rockpi/robot_ws/install/my_robot/lib/my_robot
+[7.149s] 
+[7.150s] Installed /home/rockpi/robot_ws/build/my_robot
+[7.151s] running symlink_data
+[7.151s] symbolically linking /home/rockpi/robot_ws/build/my_robot/resource/my_robot -> /home/rockpi/robot_ws/install/my_robot/share/ament_index/resource_index/packages
+[7.152s] symbolically linking /home/rockpi/robot_ws/build/my_robot/package.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot
+[7.153s] symbolically linking /home/rockpi/robot_ws/build/my_robot/launch/robot.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+[7.154s] symbolically linking /home/rockpi/robot_ws/build/my_robot/launch/slam.launch.py -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/launch
+[7.155s] symbolically linking /home/rockpi/robot_ws/build/my_robot/config/mapper_params_online_async.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[7.155s] symbolically linking /home/rockpi/robot_ws/build/my_robot/config/slam_toolbox_params.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[7.156s] symbolically linking /home/rockpi/robot_ws/build/my_robot/config/ekf.yaml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/config
+[7.157s] symbolically linking /home/rockpi/robot_ws/build/my_robot/urdf/robot.urdf.xml -> /home/rockpi/robot_ws/install/my_robot/share/my_robot/urdf
+[7.320s] Invoked command in '/home/rockpi/robot_ws/build/my_robot' returned '0': PYTHONPATH=/home/rockpi/robot_ws/build/my_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rockpi/robot_ws/install/my_robot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/rockpi/robot_ws/build/my_robot/build --no-deps symlink_data --force
