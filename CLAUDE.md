@@ -74,6 +74,18 @@ edubot-docs/
 | L sign | Rotate left |
 | No gesture | Stop |
 
+Uses the MediaPipe **Tasks API** (`mediapipe.tasks.python.vision.GestureRecognizer`). Model file must exist at `~/gesture_recognizer.task` on the laptop. Old `mp.solutions.hands` API is removed in MediaPipe 0.10+.
+
+## Dashboard / Gesture Demo Architecture
+
+Browsers enforce Private Network Access: a page served by the Pi cannot fetch `localhost` on the laptop. All traffic is relayed through the Pi.
+
+- `gesture_launcher` (laptop, port 5001) — starts/stops `gesture_node`. On startup POSTs to `http://<pi>:8888/api/gesture/register` so the Pi learns its IP.
+- `gesture_node` (laptop, port 5000) — runs MediaPipe, serves MJPEG at `/video_feed`.
+- `robot_dashboard` (Pi, port 8888) — UI, WebSocket state, relays `/api/demo/{start,stop}` to launcher, proxies `/video_feed` from gesture_node.
+
+Launcher auto-detects Pi IP from default gateway; on non-hotspot networks pass `--ros-args -p pi_ip:=<pi-ip>`.
+
 ## Coding Conventions
 
 - ROS2 Python nodes use `rclpy`, follow standard node/publisher/subscriber patterns

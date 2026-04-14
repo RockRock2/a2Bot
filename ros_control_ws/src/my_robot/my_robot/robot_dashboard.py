@@ -16,8 +16,10 @@ from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+import requests as _requests
+
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.responses import HTMLResponse, JSONResponse
 import uvicorn
 
 from my_robot import wifi_manager
@@ -40,8 +42,8 @@ _state = {
     "demo_running": False,
 }
 _lock = threading.Lock()
-_demo_proc = None
 _ros_node = None
+_gesture_host: str | None = None  # IP of the laptop running gesture_launcher
 
 
 # ── ROS 2 Node ──────────────────────────────────────────────────────────────
@@ -163,37 +165,73 @@ async def wifi_connect(body: dict):
     return result
 
 
+@app.post("/api/gesture/register")
+async def gesture_register(request: Request):
+    """Called by gesture_launcher on the laptop so the Pi knows its IP."""
+    global _gesture_host
+    _gesture_host = request.client.host
+    return {"ok": True, "registered": _gesture_host}
+
+
+def _relay(path: str) -> bool:
+    """Forward a start/stop command to the gesture launcher on the laptop."""
+    if not _gesture_host:
+        return False
+    try:
+        _requests.post(f"http://{_gesture_host}:5001{path}", timeout=5)
+        return True
+    except Exception:
+        return False
+
+
 @app.post("/api/demo/start")
 async def demo_start():
-    global _demo_proc
-    with _lock:
-        if _state["demo_running"]:
-            return {"ok": True, "message": "already running"}
-    try:
-        env = os.environ.copy()
-        env["PATH"] = "/opt/ros/jazzy/bin:" + env.get("PATH", "")
-        _demo_proc = subprocess.Popen(
-            ["ros2", "run", "gesture_control", "gesture_node"],
-            env=env,
+    loop = asyncio.get_event_loop()
+    reached = await loop.run_in_executor(None, _relay, "/start")
+    if not reached and _gesture_host is None:
+        return JSONResponse(
+            {"ok": False, "error": "Gesture launcher not registered. Run: ros2 run gesture_control gesture_launcher on the laptop."},
+            status_code=503,
         )
-        with _lock:
-            _state["demo_running"] = True
-            _state["nodes"]["gesture_node"] = True
-        return {"ok": True}
-    except Exception as e:
-        return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+    with _lock:
+        _state["demo_running"] = True
+        _state["nodes"]["gesture_node"] = True
+    return {"ok": True}
 
 
 @app.post("/api/demo/stop")
 async def demo_stop():
-    global _demo_proc
-    if _demo_proc and _demo_proc.poll() is None:
-        _demo_proc.terminate()
-        _demo_proc = None
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(None, _relay, "/stop")
     with _lock:
         _state["demo_running"] = False
         _state["nodes"]["gesture_node"] = False
     return {"ok": True}
+
+
+@app.get("/video_feed")
+async def video_feed():
+    """Proxy the MJPEG stream from the laptop's gesture_node."""
+    if not _gesture_host:
+        return JSONResponse({"error": "gesture launcher not registered"}, status_code=503)
+
+    def _stream():
+        try:
+            with _requests.get(
+                f"http://{_gesture_host}:5000/video_feed",
+                stream=True, timeout=10,
+            ) as r:
+                for chunk in r.iter_content(chunk_size=4096):
+                    if chunk:
+                        yield chunk
+        except Exception:
+            return
+
+    from fastapi.responses import StreamingResponse
+    return StreamingResponse(
+        _stream(),
+        media_type="multipart/x-mixed-replace; boundary=frame",
+    )
 
 
 @app.post("/api/drive")
@@ -204,27 +242,6 @@ async def drive(body: dict):
         _ros_node.publish_cmd_vel(linear_x, angular_z)
     return {"ok": True}
 
-
-@app.get("/video_feed")
-async def video_feed():
-    """Proxy the MJPEG stream from gesture_node running on port 5000."""
-    import requests
-
-    def _stream():
-        try:
-            with requests.get(
-                "http://localhost:5000/video_feed", stream=True, timeout=5
-            ) as r:
-                for chunk in r.iter_content(chunk_size=4096):
-                    if chunk:
-                        yield chunk
-        except Exception:
-            return
-
-    return StreamingResponse(
-        _stream(),
-        media_type="multipart/x-mixed-replace; boundary=frame",
-    )
 
 
 # ── HTML frontend ───────────────────────────────────────────────────────────
@@ -517,11 +534,20 @@ function update(s) {
   btn.textContent = s.demo_running ? 'Stop Gesture Demo' : 'Start Gesture Demo';
   btn.className   = 'btn-demo ' + (s.demo_running ? 'stop' : 'start');
 
-  // Camera
+  // Camera — gesture_node runs on the laptop, so the browser fetches
+  // the stream directly from localhost:5000 (not through the Pi proxy).
   const box = document.getElementById('camera-box');
   if (s.demo_running) {
     if (!box.querySelector('img')) {
-      box.innerHTML = '<img src="/video_feed" alt="Camera feed">';
+      box.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = '/video_feed';
+      img.alt = 'Camera feed';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover';
+      img.onerror = function() {
+        box.innerHTML = '<span class="camera-off">Camera stream not reachable.<br>Run gesture_node on this laptop.</span>';
+      };
+      box.appendChild(img);
     }
   } else {
     box.innerHTML = '<span class="camera-off">Camera offline<br>Start gesture demo to activate</span>';
@@ -536,9 +562,7 @@ function update(s) {
   // Node grid
   document.getElementById('node-grid').innerHTML = NODES.map(n => {
     const ok = s.nodes[n] || false;
-    return `<div class="node-tag ${ok ? 'ok' : 'err'}">
-      <span></span>${n.replace(/_/g, ' ')}
-    </div>`;
+    return `<div class="node-tag ${ok ? 'ok' : 'err'}"><span></span>${n.replace(/_/g, ' ')}</div>`;
   }).join('');
 }
 
@@ -550,8 +574,16 @@ function drive(lx, az) {
   });
 }
 
-function toggleDemo() {
-  fetch(demoRunning ? '/api/demo/stop' : '/api/demo/start', {method: 'POST'});
+async function toggleDemo() {
+  const btn = document.getElementById('demo-btn');
+  btn.disabled = true;
+  try {
+    const r = await fetch(demoRunning ? '/api/demo/stop' : '/api/demo/start', {method: 'POST'});
+    const d = await r.json();
+    if (!d.ok) alert(d.error || 'Request failed');
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 // WiFi setup screen

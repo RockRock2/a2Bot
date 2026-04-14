@@ -3,3 +3,8 @@ site/
 *.db
 __pycache__/
 *.pyc
+
+# colcon build artifacts
+ros_control_ws/build/
+ros_control_ws/install/
+ros_control_ws/log/

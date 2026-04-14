@@ -1,2 +1,0 @@
-[console_scripts]
-gesture_node = gesture_control.gesture_node:main

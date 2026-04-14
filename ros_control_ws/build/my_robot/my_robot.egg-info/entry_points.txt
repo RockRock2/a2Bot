@@ -1,6 +1,0 @@
-[console_scripts]
-diff_drive_controller = my_robot.diff_drive_controller:main
-imu_node = my_robot.imu_node:main
-node_monitor_server = my_robot.node_monitor_server:main
-odometry_node = my_robot.odometry_node:main
-twist_to_twist_stamped = my_robot.twist_to_twist_stamped:main

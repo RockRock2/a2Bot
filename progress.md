@@ -26,6 +26,15 @@ Pi 4 CPU is busy with ROS2. MediaPipe runs acceptably on a laptop CPU. Avoids ne
 ### Dashboard as systemd service
 `edubot-dashboard.service` auto-starts the terminal dashboard on boot. Sources both `/opt/ros/jazzy/setup.bash` and the workspace `install/setup.bash` in the ExecStart command.
 
+### Gesture demo architecture — Pi-relayed, not browser-direct
+Browsers block Private Network Access (PNA): a page served from `http://<pi-ip>:8888` cannot fetch `http://localhost` on the same laptop. Original design (browser → `localhost:5001` launcher + `localhost:5000` video) broke in Firefox/Chrome.
+- **Fix:** `gesture_launcher` on the laptop registers its IP with the Pi via `POST /api/gesture/register` on startup (IP read from `request.client.host`).
+- Browser only talks to the Pi. Pi relays start/stop to `http://<laptop-ip>:5001/{start,stop}` and proxies the MJPEG stream from `http://<laptop-ip>:5000/video_feed` through `/video_feed`.
+- Launcher auto-detects Pi IP via default-route gateway, but when laptop is on a regular LAN (not Pi's hotspot) the gateway is the router — must pass `--ros-args -p pi_ip:=<pi-ip>` explicitly.
+
+### MediaPipe Tasks API, not Solutions
+`mp.solutions.hands` is deprecated/removed in MediaPipe 0.10+. Use `GestureRecognizer` from `mediapipe.tasks.python.vision` with a `.task` model file at `~/gesture_recognizer.task`.
+
 ---
 
 ## Open Questions
@@ -43,6 +52,7 @@ Pi 4 CPU is busy with ROS2. MediaPipe runs acceptably on a laptop CPU. Avoids ne
 - **Gesture control works** — MediaPipe detects thumb up / peace / L sign, publishes cmd_vel
 - **Serial protocol stable** — V/F message format, 50Hz, 115200 baud
 - **Dashboard service configured** — systemd unit written and placed at project root
+- **Dashboard + gesture demo end-to-end** — browser start/stop button, live camera stream, working gesture control via Pi-relayed architecture
 
 ---
 

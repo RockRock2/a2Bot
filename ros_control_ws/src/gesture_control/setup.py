@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'gesture_node = gesture_control.gesture_node:main',
+            'gesture_launcher = gesture_control.gesture_launcher:main',
         ],
     },
 )
