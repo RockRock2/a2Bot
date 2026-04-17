@@ -12,13 +12,13 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/lessons/gesture-control/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/setup/ros2-jazzy/">
       
       
-        <link rel="prev" href="../keyboard-teleop/">
+        <link rel="prev" href="../raspberry-pi/">
       
       
-        <link rel="next" href="../lidar/">
+        <link rel="next" href="../camera/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Gesture Control - EduBot Docs</title>
+        <title>ROS2 Jazzy Install - EduBot Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gesture-control" class="md-skip">
+        <a href="#ros2-jazzy-install" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gesture Control
+              ROS2 Jazzy Install
             
           </span>
         </div>
@@ -263,11 +263,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -303,13 +305,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../lessons/overview/" class="md-tabs__link">
           
   
   
@@ -608,28 +608,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -647,7 +650,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -665,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/raspberry-pi/" class="md-nav__link">
+      <a href="../raspberry-pi/" class="md-nav__link">
         
   
   
@@ -690,10 +693,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Jazzy Install
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -709,6 +739,147 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-add-ros2-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Add ROS2 Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install ROS2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-install-build-tools-and-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Install Build Tools and Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-source-ros2-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Source ROS2 Automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-initialize-rosdep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Initialize rosdep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-build-the-edubot-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Build the EduBot Workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-verify-the-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Verify the Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuilding-after-code-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebuilding After Code Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laptop-only-install-mediapipe-for-gesture-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laptop-Only: Install MediaPipe (for gesture control)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -721,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/camera/" class="md-nav__link">
+      <a href="../camera/" class="md-nav__link">
         
   
   
@@ -749,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/display/" class="md-nav__link">
+      <a href="../display/" class="md-nav__link">
         
   
   
@@ -954,31 +1125,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -996,7 +1164,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1014,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../lessons/overview/" class="md-nav__link">
         
   
   
@@ -1042,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keyboard-teleop/" class="md-nav__link">
+      <a href="../../lessons/keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1067,37 +1235,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gesture Control
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lessons/gesture-control/" class="md-nav__link">
         
   
   
@@ -1113,70 +1254,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestures
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Running
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1189,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lidar/" class="md-nav__link">
+      <a href="../../lessons/lidar/" class="md-nav__link">
         
   
   
@@ -1217,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slam/" class="md-nav__link">
+      <a href="../../lessons/slam/" class="md-nav__link">
         
   
   
@@ -1245,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../navigation/" class="md-nav__link">
+      <a href="../../lessons/navigation/" class="md-nav__link">
         
   
   
@@ -1444,10 +1521,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Prerequisites
       
     </span>
   </a>
@@ -1455,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gestures" class="md-nav__link">
+  <a href="#step-1-add-ros2-repository" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestures
+        Step 1: Add ROS2 Repository
       
     </span>
   </a>
@@ -1466,10 +1543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#step-2-install-ros2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        Step 2: Install ROS2
       
     </span>
   </a>
@@ -1477,10 +1554,87 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running" class="md-nav__link">
+  <a href="#step-3-install-build-tools-and-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running
+        Step 3: Install Build Tools and Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-source-ros2-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Source ROS2 Automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-initialize-rosdep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Initialize rosdep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-build-the-edubot-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Build the EduBot Workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-verify-the-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Verify the Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuilding-after-code-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebuilding After Code Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laptop-only-install-mediapipe-for-gesture-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laptop-Only: Install MediaPipe (for gesture control)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
       
     </span>
   </a>
@@ -1507,59 +1661,137 @@
   
 
 
-<h1 id="gesture-control">Gesture Control<a class="headerlink" href="#gesture-control" title="Permanent link">&para;</a></h1>
-<p>Control EduBot with hand gestures using MediaPipe and ROS2.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The gesture control node runs on your laptop, detects hand gestures
-via webcam, and publishes velocity commands to the robot over WiFi.</p>
-<p>Webcam → MediaPipe → ROS2 /cmd_vel → Robot</p>
-<h2 id="gestures">Gestures<a class="headerlink" href="#gestures" title="Permanent link">&para;</a></h2>
+<h1 id="ros2-jazzy-install">ROS2 Jazzy Install<a class="headerlink" href="#ros2-jazzy-install" title="Permanent link">&para;</a></h1>
+<p>ROS2 Jazzy is the 2024 LTS release of ROS2. Install it on both the Raspberry Pi and your laptop.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ubuntu 24.04 LTS (Noble) — required for Jazzy</li>
+<li>Internet connection</li>
+<li>~2 GB disk space</li>
+</ul>
+<hr />
+<h2 id="step-1-add-ros2-repository">Step 1: Add ROS2 Repository<a class="headerlink" href="#step-1-add-ros2-repository" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install prerequisites</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>software-properties-common<span class="w"> </span>curl
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Add ROS2 GPG key</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-o<span class="w"> </span>/usr/share/keyrings/ros-archive-keyring.gpg
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Add the repository</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s2">  http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros2.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+<hr />
+<h2 id="step-2-install-ros2">Step 2: Install ROS2<a class="headerlink" href="#step-2-install-ros2" title="Permanent link">&para;</a></h2>
+<p><strong>On the Raspberry Pi (server, no GUI):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-jazzy-ros-base
+</code></pre></div></p>
+<p><strong>On your laptop (full desktop, includes RViz2):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-jazzy-desktop
+</code></pre></div></p>
+<hr />
+<h2 id="step-3-install-build-tools-and-dependencies">Step 3: Install Build Tools and Dependencies<a class="headerlink" href="#step-3-install-build-tools-and-dependencies" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>python3-rosdep<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>python3-vcstool<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>ros-jazzy-ros2-control<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>ros-jazzy-ros2-controllers<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>ros-jazzy-controller-manager<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span>ros-jazzy-robot-localization<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span>ros-jazzy-slam-toolbox<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span>ros-jazzy-nav2-bringup<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span>ros-jazzy-rplidar-ros<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span>ros-jazzy-teleop-twist-keyboard<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span>ros-jazzy-tf2-tools
+</code></pre></div>
+<hr />
+<h2 id="step-4-source-ros2-automatically">Step 4: Source ROS2 Automatically<a class="headerlink" href="#step-4-source-ros2-automatically" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/jazzy/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export ROS_DOMAIN_ID=0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ros2<span class="w"> </span>--version
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># ros2 2.x.x (jazzy)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="step-5-initialize-rosdep">Step 5: Initialize rosdep<a class="headerlink" href="#step-5-initialize-rosdep" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>rosdep<span class="w"> </span>update
+</code></pre></div>
+<hr />
+<h2 id="step-6-build-the-edubot-workspace">Step 6: Build the EduBot Workspace<a class="headerlink" href="#step-6-build-the-edubot-workspace" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/edubot-docs/ros_control_ws
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Install ROS dependencies from package.xml files</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Build</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>colcon<span class="w"> </span>build
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Source the workspace</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/edubot-docs/ros_control_ws/install/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>The build takes 3–8 minutes on a Pi 4. Warnings are normal; errors are not.</p>
+<hr />
+<h2 id="step-7-verify-the-build">Step 7: Verify the Build<a class="headerlink" href="#step-7-verify-the-build" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Check packages are found</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ros2<span class="w"> </span>pkg<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>my_robot
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Should show: my_robot, my_robot_hardware, my_robot_hardware_interface, gesture_control</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Test launch</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Wait 10 seconds then Ctrl+C — no ERROR lines is good</span>
+</code></pre></div>
+<hr />
+<h2 id="rebuilding-after-code-changes">Rebuilding After Code Changes<a class="headerlink" href="#rebuilding-after-code-changes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/edubot-docs/ros_control_ws
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>my_robot<span class="w"> </span>gesture_control<span class="w">   </span><span class="c1"># faster: only changed packages</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<hr />
+<h2 id="laptop-only-install-mediapipe-for-gesture-control">Laptop-Only: Install MediaPipe (for gesture control)<a class="headerlink" href="#laptop-only-install-mediapipe-for-gesture-control" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>mediapipe<span class="w"> </span>opencv-python<span class="w"> </span>flask<span class="w"> </span>requests
+</code></pre></div>
+<p>Download the gesture recognizer model:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>wget<span class="w"> </span>https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task
+</code></pre></div></p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Gesture</th>
-<th>Action</th>
+<th>Problem</th>
+<th>Fix</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>👍 Thumb up</td>
-<td>Move forward</td>
+<td><code>ros2: command not found</code></td>
+<td>Run <code>source /opt/ros/jazzy/setup.bash</code> or add to <code>.bashrc</code></td>
 </tr>
 <tr>
-<td>✌️ Peace sign</td>
-<td>Rotate right</td>
+<td><code>colcon build</code> fails with missing headers</td>
+<td>Run <code>rosdep install</code> first</td>
 </tr>
 <tr>
-<td>🤙 L sign</td>
-<td>Rotate left</td>
+<td>Package not found after build</td>
+<td>Run <code>source install/setup.bash</code> after build</td>
 </tr>
 <tr>
-<td>No gesture</td>
-<td>Stop</td>
+<td><code>ROS_DOMAIN_ID</code> not set</td>
+<td>Add <code>export ROS_DOMAIN_ID=0</code> to <code>.bashrc</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>mediapipe
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>wget<span class="w"> </span>-O<span class="w"> </span>~/gesture_recognizer.task<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task
-</code></pre></div>
-<h2 id="running">Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Terminal 1 — launch robot on Pi</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Terminal 2 — gesture node on laptop</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Make sure <code>ROS_DOMAIN_ID</code> matches on both laptop and Pi.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Both devices must be on the same WiFi network.</p>
-</div>
 
 
 

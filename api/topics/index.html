@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/api/topics/">
       
       
+        <link rel="prev" href="../../lessons/navigation/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../parameters/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>ROS2 Topics - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#ros2-topics" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              ROS2 Topics
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -307,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+        <a href="../../lessons/overview/" class="md-tabs__link">
           
   
   
@@ -323,11 +323,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -754,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+      <a href="../../setup/raspberry-pi/" class="md-nav__link">
         
   
   
@@ -782,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../../setup/camera/" class="md-nav__link">
         
   
   
@@ -838,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../../setup/display/" class="md-nav__link">
         
   
   
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1100,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+      <a href="../../lessons/overview/" class="md-nav__link">
         
   
   
@@ -1128,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+      <a href="../../lessons/keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1156,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../../lessons/gesture-control/" class="md-nav__link">
         
   
   
@@ -1184,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+      <a href="../../lessons/lidar/" class="md-nav__link">
         
   
   
@@ -1212,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+      <a href="../../lessons/slam/" class="md-nav__link">
         
   
   
@@ -1240,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../../lessons/navigation/" class="md-nav__link">
         
   
   
@@ -1272,28 +1183,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1311,7 +1225,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1326,10 +1240,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Topics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1345,6 +1286,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odometry-and-state-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Odometry and State Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Odometry and State Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odom-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /odom message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint_states-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /joint_states message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /scan message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboard-api-topics-http-not-ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard API Topics (HTTP, not ROS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tf-transform-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TF Transform Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-monitoring-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Monitoring Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1357,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1511,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#control-topics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Control Topics
       
     </span>
   </a>
@@ -1450,10 +1522,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#odometry-and-state-topics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Odometry and State Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Odometry and State Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odom-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /odom message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint_states-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /joint_states message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /scan message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboard-api-topics-http-not-ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard API Topics (HTTP, not ROS)
       
     </span>
   </a>
@@ -1461,10 +1600,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#tf-transform-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        TF Transform Tree
       
     </span>
   </a>
@@ -1472,10 +1611,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#useful-monitoring-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Useful Monitoring Commands
       
     </span>
   </a>
@@ -1502,80 +1641,216 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
-</ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<h1 id="ros2-topics">ROS2 Topics<a class="headerlink" href="#ros2-topics" title="Permanent link">&para;</a></h1>
+<p>All topics published and subscribed to by EduBot nodes. <code>ROS_DOMAIN_ID=0</code> must be set on all machines.</p>
+<hr />
+<h2 id="control-topics">Control Topics<a class="headerlink" href="#control-topics" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Specification</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Direction</th>
+<th>Publisher</th>
+<th>Subscribers</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
-</tr>
-<tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
-</tr>
-<tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
-</tr>
-<tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
+<td><code>/cmd_vel</code></td>
+<td><code>geometry_msgs/Twist</code></td>
+<td>Commands</td>
+<td>teleop / gesture_node / Nav2</td>
+<td>diff_drive_controller</td>
 </tr>
 </tbody>
 </table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
+<p><code>/cmd_vel</code> is the main velocity command topic. Send a Twist message to drive the robot:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Drive forward at 0.1 m/s</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="s2">&quot;{ linear: { x: 0.1, y: 0.0, z: 0.0 }, angular: { x: 0.0, y: 0.0, z: 0.0 } }&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--rate<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Stop</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="w"> </span>--once
 </code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
-<ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
-</ol>
+<hr />
+<h2 id="odometry-and-state-topics">Odometry and State Topics<a class="headerlink" href="#odometry-and-state-topics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Type</th>
+<th>Publisher</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/odom</code></td>
+<td><code>nav_msgs/Odometry</code></td>
+<td>ekf_node (filtered)</td>
+<td>~25 Hz</td>
+</tr>
+<tr>
+<td><code>/wheel_odom</code></td>
+<td><code>nav_msgs/Odometry</code></td>
+<td>diff_drive_controller (raw)</td>
+<td>25 Hz</td>
+</tr>
+<tr>
+<td><code>/joint_states</code></td>
+<td><code>sensor_msgs/JointState</code></td>
+<td>joint_state_broadcaster</td>
+<td>25 Hz</td>
+</tr>
+<tr>
+<td><code>/tf</code></td>
+<td><code>tf2_msgs/TFMessage</code></td>
+<td>robot_state_publisher, ekf_node</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>/tf_static</code></td>
+<td><code>tf2_msgs/TFMessage</code></td>
+<td>robot_state_publisher</td>
+<td>latched</td>
+</tr>
+</tbody>
+</table>
+<h3 id="odom-message-fields"><code>/odom</code> message fields<a class="headerlink" href="#odom-message-fields" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>header.frame_id: &quot;odom&quot;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>child_frame_id:  &quot;base_footprint&quot;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>pose.pose.position.x  — forward distance from start (meters)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>pose.pose.position.y  — lateral distance from start (meters)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>pose.pose.orientation — quaternion, yaw = heading angle
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>twist.twist.linear.x  — forward velocity (m/s)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>twist.twist.angular.z — rotation rate (rad/s)
+</code></pre></div>
+<h3 id="joint_states-message-fields"><code>/joint_states</code> message fields<a class="headerlink" href="#joint_states-message-fields" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>name:     [&quot;left_wheel_joint&quot;, &quot;right_wheel_joint&quot;]
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>position: [left_pos_rad, right_pos_rad]   — cumulative angle
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>velocity: [left_vel_rad_s, right_vel_rad_s]
+</code></pre></div>
+<hr />
+<h2 id="sensor-topics">Sensor Topics<a class="headerlink" href="#sensor-topics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Type</th>
+<th>Publisher</th>
+<th>Rate</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/scan</code></td>
+<td><code>sensor_msgs/LaserScan</code></td>
+<td>rplidar</td>
+<td>~10 Hz</td>
+<td>360° LiDAR, frame <code>laser</code></td>
+</tr>
+<tr>
+<td><code>/imu/data_raw</code></td>
+<td><code>sensor_msgs/Imu</code></td>
+<td>imu_node</td>
+<td>50 Hz</td>
+<td>MPU-9265, uncalibrated</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scan-message-fields"><code>/scan</code> message fields<a class="headerlink" href="#scan-message-fields" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>header.frame_id: &quot;laser&quot;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>angle_min:       -π  (−180°)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>angle_max:       +π  (+180°)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>range_min:       0.15 m
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>range_max:       6.0 m (A1) / 12.0 m (A2)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ranges:          array of distances (m) — 360 values at 1°/step
+</code></pre></div>
+<hr />
+<h2 id="dashboard-api-topics-http-not-ros">Dashboard API Topics (HTTP, not ROS)<a class="headerlink" href="#dashboard-api-topics-http-not-ros" title="Permanent link">&para;</a></h2>
+<p>The dashboard at <code>http://&lt;pi-ip&gt;:8888</code> also exposes these HTTP endpoints:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/status</code></td>
+<td>GET</td>
+<td>Full robot state JSON</td>
+</tr>
+<tr>
+<td><code>/ws</code></td>
+<td>WebSocket</td>
+<td>Live state at 1 Hz</td>
+</tr>
+<tr>
+<td><code>/api/wifi/networks</code></td>
+<td>GET</td>
+<td>Scan for Wi-Fi networks</td>
+</tr>
+<tr>
+<td><code>/api/wifi/connect</code></td>
+<td>POST</td>
+<td>Connect to a Wi-Fi network</td>
+</tr>
+<tr>
+<td><code>/api/gesture/register</code></td>
+<td>POST</td>
+<td>Laptop registers its IP for gesture demo</td>
+</tr>
+<tr>
+<td><code>/api/demo/start</code></td>
+<td>POST</td>
+<td>Start gesture demo (relays to gesture_launcher:5001)</td>
+</tr>
+<tr>
+<td><code>/api/demo/stop</code></td>
+<td>POST</td>
+<td>Stop gesture demo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tf-transform-tree">TF Transform Tree<a class="headerlink" href="#tf-transform-tree" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>odom
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> └── base_footprint  (from ekf_node / diff_drive_controller)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      └── base_link  (from robot_state_publisher)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>           ├── left_wheel   (joint state)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>           ├── right_wheel  (joint state)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>           ├── caster_wheel (static)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>           ├── laser        (static: x=+80mm, z=+65mm)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>           └── imu_link     (static: z=+20mm)
+</code></pre></div>
+<hr />
+<h2 id="useful-monitoring-commands">Useful Monitoring Commands<a class="headerlink" href="#useful-monitoring-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># List all active topics</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Watch odometry</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Check LiDAR</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/scan
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Check encoder velocities</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/joint_states
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># Watch IMU</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/imu/data_raw
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1"># Monitor all topics bandwidth</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>ros2<span class="w"> </span>topic<span class="w"> </span>bw<span class="w"> </span>/scan
+</code></pre></div>
 
 
 
@@ -1631,10 +1906,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

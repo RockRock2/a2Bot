@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/lessons/slam/">
       
       
+        <link rel="prev" href="../lidar/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../navigation/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>SLAM Mapping - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#lesson-4-slam-mapping" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              SLAM Mapping
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -303,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+        <a href="../../api/topics/" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -754,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+      <a href="../../setup/raspberry-pi/" class="md-nav__link">
         
   
   
@@ -782,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../../setup/camera/" class="md-nav__link">
         
   
   
@@ -838,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../../setup/display/" class="md-nav__link">
         
   
   
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1043,28 +954,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1082,7 +996,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1100,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -1128,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+      <a href="../keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1156,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../gesture-control/" class="md-nav__link">
         
   
   
@@ -1184,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+      <a href="../lidar/" class="md-nav__link">
         
   
   
@@ -1209,10 +1123,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLAM Mapping
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1228,6 +1169,147 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-how-slam-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background: How SLAM Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-check-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Check Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-launch-slam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Launch SLAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-drive-to-build-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Drive to Build the Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-save-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Save the Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-view-the-saved-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: View the Saved Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Step
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1240,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../navigation/" class="md-nav__link">
         
   
   
@@ -1329,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+      <a href="../../api/topics/" class="md-nav__link">
         
   
   
@@ -1357,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../../api/parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1521,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Overview
       
     </span>
   </a>
@@ -1450,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#background-how-slam-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Background: How SLAM Works
       
     </span>
   </a>
@@ -1461,10 +1543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#step-1-check-prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Step 1: Check Prerequisites
       
     </span>
   </a>
@@ -1472,10 +1554,87 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#step-2-launch-slam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Step 2: Launch SLAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-drive-to-build-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Drive to Build the Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-save-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Save the Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-view-the-saved-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: View the Saved Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Step
       
     </span>
   </a>
@@ -1502,80 +1661,133 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h1 id="lesson-4-slam-mapping">Lesson 4: SLAM Mapping<a class="headerlink" href="#lesson-4-slam-mapping" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Intermediate<br />
+<strong>Time:</strong> 1–2 hours<br />
+<strong>Prerequisites:</strong> LiDAR working (Lesson 3), reliable odometry</p>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>SLAM stands for <strong>Simultaneous Localization and Mapping</strong>. The robot builds a map of its environment <em>while</em> figuring out where it is within that map — both at the same time. It's one of the most important algorithms in mobile robotics.</p>
+<p>EduBot uses <strong>slam_toolbox</strong>, which is the recommended SLAM package for ROS2.</p>
+<hr />
+<h2 id="background-how-slam-works">Background: How SLAM Works<a class="headerlink" href="#background-how-slam-works" title="Permanent link">&para;</a></h2>
+<p>Without a map, the robot only knows its relative position from odometry — which drifts over time. SLAM fixes this by matching LiDAR scans against each other:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Scan 1 (from start):   ██████ (wall shape)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Move forward 50 cm
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Scan 2 (odometry):     ██████ (slightly different shape)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>SLAM: align these scans → measure how much odometry drifted → correct position
+</code></pre></div>
+<p>Over many scans, the robot builds a 2D <strong>occupancy grid map</strong>: each cell is marked as free, occupied, or unknown.</p>
+<hr />
+<h2 id="step-1-check-prerequisites">Step 1: Check Prerequisites<a class="headerlink" href="#step-1-check-prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before running SLAM, verify:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># LiDAR publishing</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/scan<span class="w">   </span><span class="c1"># should be ~10 Hz</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Odometry publishing  </span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/odom<span class="w">   </span><span class="c1"># should be ~25 Hz</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># TF tree is complete (no errors)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>tf2_tools<span class="w"> </span>view_frames
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Open frames.pdf — should show: odom → base_footprint → base_link → laser</span>
+</code></pre></div>
+<p>If <code>/scan</code> or <code>/odom</code> are missing, fix those before continuing.</p>
+<hr />
+<h2 id="step-2-launch-slam">Step 2: Launch SLAM<a class="headerlink" href="#step-2-launch-slam" title="Permanent link">&para;</a></h2>
+<p>Open three terminals:</p>
+<p><strong>Terminal 1 — Robot stack (Pi):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
+</code></pre></div></p>
+<p><strong>Terminal 2 — SLAM (Pi):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>slam.launch.py
+</code></pre></div></p>
+<p><strong>Terminal 3 — RViz2 (laptop):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rviz2
+</code></pre></div></p>
+<p>In RViz2:
+1. Fixed Frame: <code>map</code>
+2. Add → <strong>Map</strong> → Topic: <code>/map</code>
+3. Add → <strong>RobotModel</strong>
+4. Add → <strong>LaserScan</strong> → Topic: <code>/scan</code></p>
+<hr />
+<h2 id="step-3-drive-to-build-the-map">Step 3: Drive to Build the Map<a class="headerlink" href="#step-3-drive-to-build-the-map" title="Permanent link">&para;</a></h2>
+<p>Use keyboard teleop (in a 4th terminal) to drive around the room:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
+</code></pre></div>
+<p><strong>Mapping tips:</strong>
+- Drive <strong>slowly</strong> (reduce speed with <code>,</code> key in teleop)
+- Cover all areas you want in the map
+- Return to previously mapped areas — this helps SLAM close loops and reduce drift
+- Avoid spinning in place rapidly — this confuses the scan matcher</p>
+<p>Watch the map build in real-time in RViz2. Grey = unknown, white = free space, black = obstacles.</p>
+<hr />
+<h2 id="step-4-save-the-map">Step 4: Save the Map<a class="headerlink" href="#step-4-save-the-map" title="Permanent link">&para;</a></h2>
+<p>Once you're happy with the map:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>nav2_map_server<span class="w"> </span>map_saver_cli<span class="w"> </span>-f<span class="w"> </span>~/maps/my_room
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># This creates:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># ~/maps/my_room.pgm  — image of the map</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># ~/maps/my_room.yaml — metadata (resolution, origin)</span>
+</code></pre></div>
+<hr />
+<h2 id="step-5-view-the-saved-map">Step 5: View the Saved Map<a class="headerlink" href="#step-5-view-the-saved-map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># The .yaml file looks like:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cat<span class="w"> </span>~/maps/my_room.yaml
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># image: my_room.pgm</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># resolution: 0.05  ← each pixel = 5cm</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># origin: [-X, -Y, 0]</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># free_thresh: 0.25</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># occupied_thresh: 0.65</span>
+</code></pre></div>
+<p>Open <code>my_room.pgm</code> in any image viewer. White = free, black = walls, grey = unknown.</p>
+<hr />
+<h2 id="expected-outcome">Expected Outcome<a class="headerlink" href="#expected-outcome" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
+<li>A 2D map that matches the room layout</li>
+<li>Walls appear as solid black lines</li>
+<li>Free space is white</li>
+<li>Map saved to <code>~/maps/</code></li>
 </ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="checkpoint-questions">Checkpoint Questions<a class="headerlink" href="#checkpoint-questions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Why do you need both LiDAR and odometry for SLAM? What happens without each?</li>
+<li>What does "loop closure" mean in SLAM?</li>
+<li>If the map shows a wall that isn't there, what might have caused it?</li>
+<li>What does the map resolution of 0.05 m/pixel mean practically?</li>
+</ol>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Specification</th>
+<th>Problem</th>
+<th>Fix</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
+<td>Map stays grey (no data)</td>
+<td>Check <code>/scan</code> topic is publishing with correct <code>frame_id: laser</code></td>
 </tr>
 <tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
+<td>Map grows but is clearly wrong</td>
+<td>Check TF tree — <code>laser</code> frame must be connected to <code>base_link</code></td>
 </tr>
 <tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
+<td>Robot jumps on the map</td>
+<td>Odometry drift — calibrate wheel params before SLAM</td>
 </tr>
 <tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
+<td>SLAM crashes</td>
+<td>Check Pi RAM: <code>free -h</code>. SLAM needs ~500 MB free</td>
 </tr>
 </tbody>
 </table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
-</code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
-<ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
-</ol>
+<hr />
+<h2 id="next-step">Next Step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
+<p>With a saved map, you can run <strong><a href="../navigation/">Autonomous Navigation</a></strong> — send the robot to any point on the map automatically.</p>
 
 
 
@@ -1631,10 +1843,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

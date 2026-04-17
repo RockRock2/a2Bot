@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/setup/raspberry-pi/">
       
       
+        <link rel="prev" href="../../hardware/bom/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../ros2-jazzy/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>Raspberry Pi Setup - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#raspberry-pi-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Raspberry Pi Setup
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -263,11 +263,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -287,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -307,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+        <a href="../../lessons/overview/" class="md-tabs__link">
           
   
   
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+        <a href="../../api/topics/" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -697,28 +608,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -736,7 +650,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -751,10 +665,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raspberry Pi Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -770,6 +711,147 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-flash-ubuntu-2404" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Flash Ubuntu 24.04
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: First Boot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-set-hostname-and-timezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Set Hostname and Timezone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-static-ip-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Configure Static IP (optional but recommended)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-enable-i2c-for-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Enable I2C (for IMU)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-serial-port-access-for-arduino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Serial Port Access (for Arduino)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Install Python Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-clone-the-edubot-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Clone the EduBot Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-set-ros_domain_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Set ROS_DOMAIN_ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -782,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../camera/" class="md-nav__link">
         
   
   
@@ -838,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../display/" class="md-nav__link">
         
   
   
@@ -927,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1100,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+      <a href="../../lessons/overview/" class="md-nav__link">
         
   
   
@@ -1128,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+      <a href="../../lessons/keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1156,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../../lessons/gesture-control/" class="md-nav__link">
         
   
   
@@ -1184,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+      <a href="../../lessons/lidar/" class="md-nav__link">
         
   
   
@@ -1212,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+      <a href="../../lessons/slam/" class="md-nav__link">
         
   
   
@@ -1240,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../../lessons/navigation/" class="md-nav__link">
         
   
   
@@ -1329,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+      <a href="../../api/topics/" class="md-nav__link">
         
   
   
@@ -1357,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../../api/parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1521,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Prerequisites
       
     </span>
   </a>
@@ -1450,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#step-1-flash-ubuntu-2404" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Step 1: Flash Ubuntu 24.04
       
     </span>
   </a>
@@ -1461,10 +1543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#step-2-first-boot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Step 2: First Boot
       
     </span>
   </a>
@@ -1472,10 +1554,87 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#step-3-set-hostname-and-timezone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Step 3: Set Hostname and Timezone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-static-ip-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Configure Static IP (optional but recommended)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-enable-i2c-for-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Enable I2C (for IMU)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-serial-port-access-for-arduino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Serial Port Access (for Arduino)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Install Python Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-clone-the-edubot-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Clone the EduBot Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-set-ros_domain_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Set ROS_DOMAIN_ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -1502,80 +1661,117 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h1 id="raspberry-pi-setup">Raspberry Pi Setup<a class="headerlink" href="#raspberry-pi-setup" title="Permanent link">&para;</a></h1>
+<p>This page walks through setting up a fresh Raspberry Pi 4 for EduBot. By the end you'll have Ubuntu 24.04, all dependencies installed, and the robot workspace ready to build.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
+<li>Raspberry Pi 4 (4 GB recommended)</li>
+<li>microSD card, 32 GB or larger (fast card: A2 rated)</li>
+<li>Laptop with SD card reader</li>
+<li>Monitor, keyboard, and mouse (for initial setup) or HDMI cable + USB hub</li>
 </ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
-</tr>
-<tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
-</tr>
-<tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
-</tr>
-<tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
-</tr>
-</tbody>
-</table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
-</code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
+<hr />
+<h2 id="step-1-flash-ubuntu-2404">Step 1: Flash Ubuntu 24.04<a class="headerlink" href="#step-1-flash-ubuntu-2404" title="Permanent link">&para;</a></h2>
+<p>Ubuntu 24.04 LTS (Noble) is required for ROS2 Jazzy.</p>
 <ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
+<li>Download <strong>Raspberry Pi Imager</strong>: https://www.raspberrypi.com/software/</li>
+<li>Open Imager → Choose OS → Other general-purpose OS → Ubuntu → <strong>Ubuntu Server 24.04 LTS (64-bit)</strong></li>
+<li>Choose your SD card</li>
+<li>Click the gear icon ⚙ to set:</li>
+<li>Hostname: <code>edubot</code></li>
+<li>Username: <code>rock</code>, password of your choice</li>
+<li>Wi-Fi SSID and password (your home network)</li>
+<li>Enable SSH</li>
+<li>Write and eject</li>
 </ol>
+<hr />
+<h2 id="step-2-first-boot">Step 2: First Boot<a class="headerlink" href="#step-2-first-boot" title="Permanent link">&para;</a></h2>
+<p>Insert the SD card and power on. Wait 2 minutes for first-boot setup.</p>
+<p>SSH in from your laptop:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>rock@edubot.local
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># If that doesn&#39;t work, find the IP on your router and use:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ssh rock@&lt;pi-ip&gt;</span>
+</code></pre></div></p>
+<p>Update the system:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>reboot
+</code></pre></div></p>
+<hr />
+<h2 id="step-3-set-hostname-and-timezone">Step 3: Set Hostname and Timezone<a class="headerlink" href="#step-3-set-hostname-and-timezone" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>edubot
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>America/New_York<span class="w">   </span><span class="c1"># change to your timezone</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>timedatectl<span class="w"> </span>status
+</code></pre></div>
+<hr />
+<h2 id="step-4-configure-static-ip-optional-but-recommended">Step 4: Configure Static IP (optional but recommended)<a class="headerlink" href="#step-4-configure-static-ip-optional-but-recommended" title="Permanent link">&para;</a></h2>
+<p>A static IP makes SSH and the dashboard URL predictable.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Find your network interface name</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ip<span class="w"> </span>link<span class="w"> </span>show
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Edit netplan config</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/netplan/50-cloud-init.yaml
+</code></pre></div>
+<p>Add a static IP:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.1.100/24</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">          </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.1</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">8.8.8.8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8.8.4.4</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">wifis</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">wlan0</span><span class="p">:</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="nt">access-points</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="s">&quot;YourWiFiName&quot;</span><span class="p p-Indicator">:</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YourPassword&quot;</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div>
+<hr />
+<h2 id="step-5-enable-i2c-for-imu">Step 5: Enable I2C (for IMU)<a class="headerlink" href="#step-5-enable-i2c-for-imu" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>i2c-tools
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>raspi-config<span class="w">   </span><span class="c1"># or edit /boot/firmware/config.txt</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Interface Options → I2C → Enable</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Verify IMU is detected after wiring</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>sudo<span class="w"> </span>i2cdetect<span class="w"> </span>-y<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Should show 68 at address 0x68</span>
+</code></pre></div>
+<hr />
+<h2 id="step-6-serial-port-access-for-arduino">Step 6: Serial Port Access (for Arduino)<a class="headerlink" href="#step-6-serial-port-access-for-arduino" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span>rock
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Log out and back in for this to take effect</span>
+</code></pre></div>
+<hr />
+<h2 id="step-7-install-python-dependencies">Step 7: Install Python Dependencies<a class="headerlink" href="#step-7-install-python-dependencies" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pip<span class="w"> </span>python3-smbus2
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Dashboard dependencies</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>pip3<span class="w"> </span>install<span class="w"> </span>fastapi<span class="w"> </span>uvicorn<span class="w"> </span>requests
+</code></pre></div>
+<hr />
+<h2 id="step-8-clone-the-edubot-repository">Step 8: Clone the EduBot Repository<a class="headerlink" href="#step-8-clone-the-edubot-repository" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/RockRock2/a2Bot.git<span class="w"> </span>edubot-docs
+</code></pre></div>
+<hr />
+<h2 id="step-9-set-ros_domain_id">Step 9: Set ROS_DOMAIN_ID<a class="headerlink" href="#step-9-set-ros_domain_id" title="Permanent link">&para;</a></h2>
+<p>This must match on all machines:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export ROS_DOMAIN_ID=0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../ros2-jazzy/">ROS2 Jazzy Install</a></li>
+<li><a href="../camera/">Camera Setup</a></li>
+</ul>
 
 
 
@@ -1631,10 +1827,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

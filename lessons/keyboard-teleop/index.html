@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/lessons/keyboard-teleop/">
       
       
+        <link rel="prev" href="../overview/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../gesture-control/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>Keyboard Teleop - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#lesson-1-keyboard-teleop" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Keyboard Teleop
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -303,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+        <a href="../../api/topics/" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -754,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+      <a href="../../setup/raspberry-pi/" class="md-nav__link">
         
   
   
@@ -782,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../../setup/camera/" class="md-nav__link">
         
   
   
@@ -838,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../../setup/display/" class="md-nav__link">
         
   
   
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1043,28 +954,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1082,7 +996,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1100,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -1125,10 +1039,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyboard Teleop
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1144,6 +1085,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-how-does-the-robot-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background: How Does the Robot Move?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-start-the-robot-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Start the Robot Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-teleop_twist_keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install teleop_twist_keyboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Drive!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-watch-the-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Watch the Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-visualize-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Visualize in RViz2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1156,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../gesture-control/" class="md-nav__link">
         
   
   
@@ -1184,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+      <a href="../lidar/" class="md-nav__link">
         
   
   
@@ -1212,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+      <a href="../slam/" class="md-nav__link">
         
   
   
@@ -1240,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../navigation/" class="md-nav__link">
         
   
   
@@ -1329,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+      <a href="../../api/topics/" class="md-nav__link">
         
   
   
@@ -1357,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../../api/parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1510,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Overview
       
     </span>
   </a>
@@ -1450,10 +1521,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#background-how-does-the-robot-move" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Background: How Does the Robot Move?
       
     </span>
   </a>
@@ -1461,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#step-1-start-the-robot-stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Step 1: Start the Robot Stack
       
     </span>
   </a>
@@ -1472,10 +1543,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#step-2-install-teleop_twist_keyboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Step 2: Install teleop_twist_keyboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Drive!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-watch-the-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Watch the Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-visualize-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Visualize in RViz2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
       
     </span>
   </a>
@@ -1502,80 +1639,142 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h1 id="lesson-1-keyboard-teleop">Lesson 1: Keyboard Teleop<a class="headerlink" href="#lesson-1-keyboard-teleop" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Beginner<br />
+<strong>Time:</strong> 30 minutes<br />
+<strong>Prerequisites:</strong> Robot assembled and powered, ROS2 Jazzy installed on Pi</p>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>In this lesson you will drive EduBot using a keyboard. Along the way you'll learn how ROS2 nodes communicate, what a velocity command looks like, and how differential drive steering works.</p>
+<hr />
+<h2 id="background-how-does-the-robot-move">Background: How Does the Robot Move?<a class="headerlink" href="#background-how-does-the-robot-move" title="Permanent link">&para;</a></h2>
+<p>EduBot receives velocity commands on a topic called <code>/cmd_vel</code>. A <strong>topic</strong> is like a radio channel — any node can publish to it, and any node can subscribe to it.</p>
+<p>The velocity command is a <strong>Twist</strong> message with two fields:
+- <code>linear.x</code> — how fast to go forward/backward (meters per second)
+- <code>angular.z</code> — how fast to rotate left/right (radians per second)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Twist message:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  linear.x  =  0.1   →  go forward at 0.1 m/s
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  angular.z =  0.5   →  rotate left at 0.5 rad/s
+</code></pre></div>
+<p>The <code>diff_drive_controller</code> receives this Twist and calculates:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>left_wheel_speed  = (linear.x - angular.z × wheelbase/2) / wheel_radius
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>right_wheel_speed = (linear.x + angular.z × wheelbase/2) / wheel_radius
+</code></pre></div></p>
+<p>These wheel speeds go to the Arduino, which converts them to PWM.</p>
+<hr />
+<h2 id="step-1-start-the-robot-stack">Step 1: Start the Robot Stack<a class="headerlink" href="#step-1-start-the-robot-stack" title="Permanent link">&para;</a></h2>
+<p>On the Raspberry Pi (SSH in, or use a keyboard/display):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
+</code></pre></div>
+<p>Wait about 10 seconds for all nodes to start. You should see:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[INFO] [robot_dashboard]: Robot dashboard node started
+</code></pre></div></p>
+<p>Check that controllers are active:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ros2<span class="w"> </span>control<span class="w"> </span>list_controllers
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Expected:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># diff_drive_controller[...] active</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># joint_state_broadcaster[...] active</span>
+</code></pre></div></p>
+<hr />
+<h2 id="step-2-install-teleop_twist_keyboard">Step 2: Install teleop_twist_keyboard<a class="headerlink" href="#step-2-install-teleop_twist_keyboard" title="Permanent link">&para;</a></h2>
+<p>On your laptop (or on the Pi directly):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-teleop-twist-keyboard
+</code></pre></div>
+<hr />
+<h2 id="step-3-drive">Step 3: Drive!<a class="headerlink" href="#step-3-drive" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
+</code></pre></div>
+<p>You should see:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Reading from the keyboard  and Publishing to Twist!
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>---------------------------
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Moving around:
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   u    i    o
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   j    k    l
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>   m    ,    .
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>i/,  : increase/decrease linear velocity
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>j/l  : increase/decrease angular velocity
+</code></pre></div></p>
+<p><strong>Key mapping:</strong>
+| Key | Action |
+|---|---|
+| <code>i</code> | Forward |
+| <code>,</code> | Backward |
+| <code>j</code> | Rotate left |
+| <code>l</code> | Rotate right |
+| <code>u</code> | Forward + left |
+| <code>o</code> | Forward + right |
+| <code>k</code> | Stop |</p>
+<div class="admonition warning">
+<p class="admonition-title">Start slow!</p>
+<p>The first time, start with a low speed. The robot's default max is 0.1 m/s forward and 0.5 rad/s rotation. Press <code>i</code> to decrease speed if the robot moves too fast.</p>
+</div>
+<hr />
+<h2 id="step-4-watch-the-topics">Step 4: Watch the Topics<a class="headerlink" href="#step-4-watch-the-topics" title="Permanent link">&para;</a></h2>
+<p>Open a second terminal (keep teleop running):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Watch velocity commands being sent</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/cmd_vel
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Watch odometry (robot&#39;s estimated position)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># See all active topics</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</code></pre></div>
+<p>As you drive, you'll see <code>/cmd_vel</code> messages update in real time. <code>/odom</code> shows the robot's X/Y position and heading.</p>
+<hr />
+<h2 id="step-5-visualize-in-rviz2">Step 5: Visualize in RViz2<a class="headerlink" href="#step-5-visualize-in-rviz2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rviz2
+</code></pre></div>
+<p>In RViz2:
+1. Set <strong>Fixed Frame</strong> to <code>odom</code>
+2. Add → <strong>RobotModel</strong> → Topic: <code>/robot_description</code>
+3. Add → <strong>Odometry</strong> → Topic: <code>/odom</code></p>
+<p>Drive the robot and watch the position marker move on screen.</p>
+<hr />
+<h2 id="expected-outcome">Expected Outcome<a class="headerlink" href="#expected-outcome" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
+<li>Robot drives smoothly in all directions</li>
+<li><code>/cmd_vel</code> shows Twist messages while driving</li>
+<li><code>/odom</code> updates with position changes</li>
+<li>Robot stops when you release the key (teleop sends a zero Twist on key release)</li>
 </ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="checkpoint-questions">Checkpoint Questions<a class="headerlink" href="#checkpoint-questions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>What is the maximum forward speed (m/s) configured in <code>controllers.yaml</code>?</li>
+<li>If <code>linear.x = 0</code> and <code>angular.z = 0.5</code>, which direction does the robot turn?</li>
+<li>Why does the robot stop when you lift your finger from the key?</li>
+<li>What happens to <code>/odom</code> if you drive in a square and return to the start?</li>
+</ol>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Specification</th>
+<th>Problem</th>
+<th>Fix</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
+<td>"No movement"</td>
+<td>Check <code>ros2 control list_controllers</code> — both must be <code>active</code></td>
 </tr>
 <tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
+<td>Robot jerks then stops</td>
+<td>teleop lost focus — click the terminal window, try again</td>
 </tr>
 <tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
+<td>Very slow response</td>
+<td>Check CPU load on Pi: <code>htop</code>. Try lowering <code>update_rate</code> in controllers.yaml</td>
 </tr>
 <tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
+<td>Can't see Pi from laptop</td>
+<td>Check <code>ROS_DOMAIN_ID=0</code> on both machines</td>
 </tr>
 </tbody>
 </table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
-</code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
-<ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
-</ol>
 
 
 
@@ -1631,10 +1830,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/lessons/lidar/">
       
       
+        <link rel="prev" href="../gesture-control/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../slam/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>Adding LiDAR - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#lesson-3-adding-lidar" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Adding LiDAR
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -303,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+        <a href="../../api/topics/" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -754,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+      <a href="../../setup/raspberry-pi/" class="md-nav__link">
         
   
   
@@ -782,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../../setup/camera/" class="md-nav__link">
         
   
   
@@ -838,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../../setup/display/" class="md-nav__link">
         
   
   
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1043,28 +954,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1082,7 +996,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1100,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -1128,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+      <a href="../keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1156,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../gesture-control/" class="md-nav__link">
         
   
   
@@ -1181,10 +1095,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adding LiDAR
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1200,6 +1141,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-how-lidar-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background: How LiDAR Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-mount-the-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Mount the LiDAR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-the-ros2-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install the ROS2 Driver
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-the-udev-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create the udev Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-test-the-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Test the LiDAR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-visualize-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Visualize in RViz2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Step
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1212,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+      <a href="../slam/" class="md-nav__link">
         
   
   
@@ -1240,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../navigation/" class="md-nav__link">
         
   
   
@@ -1329,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+      <a href="../../api/topics/" class="md-nav__link">
         
   
   
@@ -1357,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../../api/parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1510,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Overview
       
     </span>
   </a>
@@ -1450,10 +1521,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#background-how-lidar-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Background: How LiDAR Works
       
     </span>
   </a>
@@ -1461,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#step-1-mount-the-lidar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Step 1: Mount the LiDAR
       
     </span>
   </a>
@@ -1472,10 +1543,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#step-2-install-the-ros2-driver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Step 2: Install the ROS2 Driver
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-the-udev-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create the udev Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-test-the-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Test the LiDAR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-visualize-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Visualize in RViz2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Step
       
     </span>
   </a>
@@ -1502,80 +1639,102 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
-</ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
-</tr>
-<tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
-</tr>
-<tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
-</tr>
-<tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
-</tr>
-</tbody>
-</table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
+<h1 id="lesson-3-adding-lidar">Lesson 3: Adding LiDAR<a class="headerlink" href="#lesson-3-adding-lidar" title="Permanent link">&para;</a></h1>
+<p><strong>Difficulty:</strong> Beginner–Intermediate<br />
+<strong>Time:</strong> 45 minutes<br />
+<strong>Prerequisites:</strong> Keyboard teleop working (Lesson 1)</p>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>A LiDAR (Light Detection and Ranging) sensor spins a laser beam 360° and measures the distance to objects at each angle. EduBot uses an RPLidar A1 or A2. In this lesson you'll mount the sensor, install the driver, and visualize the scan data in RViz2.</p>
+<hr />
+<h2 id="background-how-lidar-works">Background: How LiDAR Works<a class="headerlink" href="#background-how-lidar-works" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        obstacle
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>           │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ╔══════╪══════╗
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ║  →→→→│      ║   laser beam hits obstacle
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ║      │←←←←  ║   reflected pulse returns
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ╚══════╪══════╝
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>           │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         sensor
 </code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
+<p>The sensor measures the <strong>time of flight</strong> of each laser pulse. Since light travels at a known speed, distance = (time × speed of light) / 2.</p>
+<p>It does this ~8000 times per second while spinning, producing a complete 360° scan every ~100 ms.</p>
+<hr />
+<h2 id="step-1-mount-the-lidar">Step 1: Mount the LiDAR<a class="headerlink" href="#step-1-mount-the-lidar" title="Permanent link">&para;</a></h2>
+<p>Mount the RPLidar on top of the robot, centered front-to-back, with the USB cable accessible. The URDF already places it at <code>x=80mm, z=65mm</code> from <code>base_link</code> center.</p>
+<div class="admonition warning">
+<p class="admonition-title">Cable routing</p>
+<p>Route the USB cable so it doesn't catch on rotating parts. Use cable ties.</p>
+</div>
+<hr />
+<h2 id="step-2-install-the-ros2-driver">Step 2: Install the ROS2 Driver<a class="headerlink" href="#step-2-install-the-ros2-driver" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-rplidar-ros
+</code></pre></div>
+<hr />
+<h2 id="step-3-create-the-udev-rule">Step 3: Create the udev Rule<a class="headerlink" href="#step-3-create-the-udev-rule" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Find vendor/product IDs</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>lsusb<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>slamtec
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create udev rule</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &gt; /etc/udev/rules.d/99-rplidar.rules &lt;&lt; EOF</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;10c4&quot;, ATTRS{idProduct}==&quot;ea60&quot;, SYMLINK+=&quot;rplidar&quot;, MODE=&quot;0666&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">EOF&#39;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Verify</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>ls<span class="w"> </span>-la<span class="w"> </span>/dev/rplidar
+</code></pre></div>
+<hr />
+<h2 id="step-4-test-the-lidar">Step 4: Test the LiDAR<a class="headerlink" href="#step-4-test-the-lidar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Test standalone (without full robot stack)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>run<span class="w"> </span>rplidar_ros<span class="w"> </span>rplidar_composition<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--ros-args<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-p<span class="w"> </span>serial_port:<span class="o">=</span>/dev/rplidar<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-p<span class="w"> </span>frame_id:<span class="o">=</span>laser
+</code></pre></div>
+<p>In another terminal:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Check it&#39;s publishing</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/scan
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Should show ~10 Hz</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Look at a few scan values</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan<span class="w"> </span>--field<span class="w"> </span>ranges<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</code></pre></div></p>
+<hr />
+<h2 id="step-5-visualize-in-rviz2">Step 5: Visualize in RViz2<a class="headerlink" href="#step-5-visualize-in-rviz2" title="Permanent link">&para;</a></h2>
+<p>The RPLidar is already included in <code>robot.launch.py</code> — it starts automatically.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Start full stack</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># On your laptop</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>rviz2
+</code></pre></div>
+<p>In RViz2:
+1. Fixed Frame: <code>odom</code>
+2. Add → <strong>RobotModel</strong>
+3. Add → <strong>LaserScan</strong> → Topic: <code>/scan</code> → Style: <code>Points</code> → Size: <code>0.03</code></p>
+<p>Point EduBot at a wall and slowly approach it. The red point cloud should densify as you get closer.</p>
+<hr />
+<h2 id="expected-outcome">Expected Outcome<a class="headerlink" href="#expected-outcome" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>/scan</code> publishes at ~10 Hz</li>
+<li>RViz2 shows 360° ring of points around the robot</li>
+<li>Points correctly match obstacles in the room</li>
+<li>Points disappear in open space (returns <code>inf</code> for no obstacle)</li>
+</ul>
+<hr />
+<h2 id="checkpoint-questions">Checkpoint Questions<a class="headerlink" href="#checkpoint-questions" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
+<li>What does <code>range_min</code> in the <code>/scan</code> message mean?</li>
+<li>Why does the LiDAR return <code>inf</code> for some angles?</li>
+<li>The URDF places the LiDAR 80mm forward from center. Why does this matter for SLAM?</li>
+<li>What would happen if the <code>frame_id</code> in the LiDAR driver didn't match the URDF joint name?</li>
 </ol>
+<hr />
+<h2 id="next-step">Next Step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
+<p>Once LiDAR is working, move on to <strong><a href="../slam/">SLAM Mapping</a></strong> — you'll use these scans to build a map.</p>
 
 
 
@@ -1631,10 +1790,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

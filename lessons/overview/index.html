@@ -12,29 +12,31 @@
         <meta name="author" content="Rock">
       
       
-        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/">
+        <link rel="canonical" href="https://yourusername.github.io/edubot-docs/lessons/overview/">
       
       
+        <link rel="prev" href="../../software/odometry/">
       
-        <link rel="next" href="hardware/overview/">
+      
+        <link rel="next" href="../keyboard-teleop/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>EduBot Docs</title>
+        <title>Overview - EduBot Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#edubot-educational-ros2-differential-drive-robot" class="md-skip">
+        <a href="#lessons-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-header__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -222,11 +224,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="hardware/overview/" class="md-tabs__link">
+        <a href="../../hardware/overview/" class="md-tabs__link">
           
   
   
@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/raspberry-pi/" class="md-tabs__link">
+        <a href="../../setup/raspberry-pi/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="software/urdf/" class="md-tabs__link">
+        <a href="../../software/urdf/" class="md-tabs__link">
           
   
   
@@ -303,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="lessons/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/topics/" class="md-tabs__link">
+        <a href="../../api/topics/" class="md-tabs__link">
           
   
   
@@ -345,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -380,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
+    <a href="../.." title="EduBot Docs" class="md-nav__button md-logo" aria-label="EduBot Docs" data-md-component="logo">
       
-  <img src="assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     EduBot Docs
@@ -406,37 +408,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -452,70 +427,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -581,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/overview/" class="md-nav__link">
+      <a href="../../hardware/overview/" class="md-nav__link">
         
   
   
@@ -609,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/wiring/" class="md-nav__link">
+      <a href="../../hardware/wiring/" class="md-nav__link">
         
   
   
@@ -637,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/power/" class="md-nav__link">
+      <a href="../../hardware/power/" class="md-nav__link">
         
   
   
@@ -665,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hardware/bom/" class="md-nav__link">
+      <a href="../../hardware/bom/" class="md-nav__link">
         
   
   
@@ -754,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/raspberry-pi/" class="md-nav__link">
+      <a href="../../setup/raspberry-pi/" class="md-nav__link">
         
   
   
@@ -782,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/ros2-jazzy/" class="md-nav__link">
+      <a href="../../setup/ros2-jazzy/" class="md-nav__link">
         
   
   
@@ -810,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/camera/" class="md-nav__link">
+      <a href="../../setup/camera/" class="md-nav__link">
         
   
   
@@ -838,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/display/" class="md-nav__link">
+      <a href="../../setup/display/" class="md-nav__link">
         
   
   
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/urdf/" class="md-nav__link">
+      <a href="../../software/urdf/" class="md-nav__link">
         
   
   
@@ -955,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/arduino/" class="md-nav__link">
+      <a href="../../software/arduino/" class="md-nav__link">
         
   
   
@@ -983,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/ros2-control/" class="md-nav__link">
+      <a href="../../software/ros2-control/" class="md-nav__link">
         
   
   
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software/odometry/" class="md-nav__link">
+      <a href="../../software/odometry/" class="md-nav__link">
         
   
   
@@ -1043,28 +954,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1082,7 +996,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1097,10 +1011,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="lessons/overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1116,6 +1057,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-pathway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Pathway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lesson Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-keyboard-teleop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Keyboard Teleop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-gesture-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Gesture Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-adding-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Adding LiDAR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-slam-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. SLAM Mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autonomous-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Autonomous Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-all-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for All Lessons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1128,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/keyboard-teleop/" class="md-nav__link">
+      <a href="../keyboard-teleop/" class="md-nav__link">
         
   
   
@@ -1156,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/gesture-control/" class="md-nav__link">
+      <a href="../gesture-control/" class="md-nav__link">
         
   
   
@@ -1184,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/lidar/" class="md-nav__link">
+      <a href="../lidar/" class="md-nav__link">
         
   
   
@@ -1212,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/slam/" class="md-nav__link">
+      <a href="../slam/" class="md-nav__link">
         
   
   
@@ -1240,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="lessons/navigation/" class="md-nav__link">
+      <a href="../navigation/" class="md-nav__link">
         
   
   
@@ -1329,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/topics/" class="md-nav__link">
+      <a href="../../api/topics/" class="md-nav__link">
         
   
   
@@ -1357,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/parameters/" class="md-nav__link">
+      <a href="../../api/parameters/" class="md-nav__link">
         
   
   
@@ -1392,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1439,10 +1494,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#learning-pathway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Learning Pathway
       
     </span>
   </a>
@@ -1450,32 +1505,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#lesson-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Lesson Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-keyboard-teleop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Keyboard Teleop
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-gesture-control" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        2. Gesture Control
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-adding-lidar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        3. Adding LiDAR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-slam-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. SLAM Mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autonomous-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Autonomous Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-all-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for All Lessons
       
     </span>
   </a>
@@ -1502,80 +1607,79 @@
   
 
 
-<h1 id="edubot-educational-ros2-differential-drive-robot">EduBot — Educational ROS2 Differential Drive Robot<a class="headerlink" href="#edubot-educational-ros2-differential-drive-robot" title="Permanent link">&para;</a></h1>
-<p><img alt="EduBot" src="assets/robot.jpg" /></p>
-<p>EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
-designed to teach robotics concepts from hardware to autonomous navigation.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Differential drive</strong> — two-wheel independent motor control</li>
-<li><strong>ROS2 Jazzy</strong> — full ROS2 stack on Raspberry Pi 4</li>
-<li><strong>SLAM</strong> — build maps with RPLidar and slam_toolbox</li>
-<li><strong>Autonomous Navigation</strong> — Nav2 goal-based navigation</li>
-<li><strong>Gesture Control</strong> — control robot with hand gestures via MediaPipe</li>
-<li><strong>Object Detection</strong> — YOLOv8 person detection with webcam</li>
-</ul>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>Raspberry Pi 4 (4GB)</td>
-</tr>
-<tr>
-<td>Motors</td>
-<td>JGB37-520 DC with encoders</td>
-</tr>
-<tr>
-<td>Motor Driver</td>
-<td>Cytron MDD3A</td>
-</tr>
-<tr>
-<td>Microcontroller</td>
-<td>Arduino Nano</td>
-</tr>
-<tr>
-<td>LiDAR</td>
-<td>RPLidar A1/A2</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>USB Webcam</td>
-</tr>
-<tr>
-<td>Display</td>
-<td>lcdwiki 4" HDMI (MPI4008)</td>
-</tr>
-<tr>
-<td>Battery</td>
-<td>3S LiPo 11.1V</td>
-</tr>
-</tbody>
-</table>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Launch robot</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>my_robot<span class="w"> </span>robot.launch.py
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Keyboard teleop</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Gesture control</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>run<span class="w"> </span>gesture_control<span class="w"> </span>gesture_node
+<h1 id="lessons-overview">Lessons Overview<a class="headerlink" href="#lessons-overview" title="Permanent link">&para;</a></h1>
+<p>EduBot lessons are designed to be completed in order. Each lesson builds on the previous one — you won't need SLAM until you can drive reliably, and you won't navigate autonomously until you have a map.</p>
+<hr />
+<h2 id="learning-pathway">Learning Pathway<a class="headerlink" href="#learning-pathway" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Keyboard Teleop ──────────► Drive with keyboard, understand /cmd_vel
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ▼
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2. Gesture Control ──────────► Control robot with hand gestures, learn MediaPipe
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        ▼
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>3. Adding LiDAR ─────────────► Mount RPLidar, see obstacle data in RViz2
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        ▼
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>4. SLAM Mapping ─────────────► Build a map of a room, save it
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        ▼
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>5. Autonomous Navigation ────► Give the robot a goal, watch it plan a path
 </code></pre></div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>New to EduBot? Start here:</p>
-<ol>
-<li><a href="hardware/overview/">Hardware Overview</a></li>
-<li><a href="setup/raspberry-pi/">Raspberry Pi Setup</a></li>
-<li><a href="setup/ros2-jazzy/">ROS2 Jazzy Install</a></li>
-<li><a href="lessons/keyboard-teleop/">First Drive</a></li>
-</ol>
+<hr />
+<h2 id="lesson-summary">Lesson Summary<a class="headerlink" href="#lesson-summary" title="Permanent link">&para;</a></h2>
+<h3 id="1-keyboard-teleop">1. <a href="../keyboard-teleop/">Keyboard Teleop</a><a class="headerlink" href="#1-keyboard-teleop" title="Permanent link">&para;</a></h3>
+<p><strong>Prerequisite:</strong> Robot assembled, ROS2 running<br />
+<strong>Outcome:</strong> Drive the robot with arrow keys, understand velocity commands and the <code>/cmd_vel</code> topic</p>
+<p><strong>What you'll learn:</strong>
+- How ROS2 nodes send messages
+- What a <code>Twist</code> message is
+- How differential drive steering works</p>
+<hr />
+<h3 id="2-gesture-control">2. <a href="../gesture-control/">Gesture Control</a><a class="headerlink" href="#2-gesture-control" title="Permanent link">&para;</a></h3>
+<p><strong>Prerequisite:</strong> Keyboard teleop working, laptop with webcam<br />
+<strong>Outcome:</strong> Control the robot using hand gestures detected by MediaPipe on your laptop</p>
+<p><strong>What you'll learn:</strong>
+- How computer vision can generate robot commands
+- MediaPipe hand landmark detection
+- Running ROS2 nodes across two machines (<code>ROS_DOMAIN_ID</code>)</p>
+<hr />
+<h3 id="3-adding-lidar">3. <a href="../lidar/">Adding LiDAR</a><a class="headerlink" href="#3-adding-lidar" title="Permanent link">&para;</a></h3>
+<p><strong>Prerequisite:</strong> Basic driving working<br />
+<strong>Outcome:</strong> Mount and configure the RPLidar, visualize scan data in RViz2</p>
+<p><strong>What you'll learn:</strong>
+- How a spinning laser scanner works
+- ROS2 sensor topics (<code>/scan</code>)
+- Visualizing data in RViz2</p>
+<hr />
+<h3 id="4-slam-mapping">4. <a href="../slam/">SLAM Mapping</a><a class="headerlink" href="#4-slam-mapping" title="Permanent link">&para;</a></h3>
+<p><strong>Prerequisite:</strong> LiDAR working<br />
+<strong>Outcome:</strong> Drive the robot around a room and generate a 2D occupancy grid map</p>
+<p><strong>What you'll learn:</strong>
+- What SLAM means (Simultaneous Localization and Mapping)
+- How slam_toolbox builds a map from LiDAR scans + odometry
+- How to save a map for later use</p>
+<hr />
+<h3 id="5-autonomous-navigation">5. <a href="../navigation/">Autonomous Navigation</a><a class="headerlink" href="#5-autonomous-navigation" title="Permanent link">&para;</a></h3>
+<p><strong>Prerequisite:</strong> A saved map<br />
+<strong>Outcome:</strong> Click a goal in RViz2 and watch the robot navigate to it while avoiding obstacles</p>
+<p><strong>What you'll learn:</strong>
+- Path planning (how does the robot choose a route?)
+- Obstacle avoidance
+- Nav2 stack overview</p>
+<hr />
+<h2 id="tips-for-all-lessons">Tips for All Lessons<a class="headerlink" href="#tips-for-all-lessons" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Always check ROS_DOMAIN_ID first</p>
+<p>If topics from another machine aren't visible, run <code>echo $ROS_DOMAIN_ID</code>. Both the Pi and your laptop must show <code>0</code> (or the same number). See <a href="../../api/parameters/#environment-variables">Parameters</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Check node health with the dashboard</p>
+<p>Open <code>http://&lt;pi-ip&gt;:8888</code> to see which nodes are running before starting a lesson.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Save your work</p>
+<p>After each lesson, commit your changes: <code>git add -A &amp;&amp; git commit -m "lesson X complete"</code>. This gives you a restore point if something breaks later.</p>
+</div>
 
 
 
@@ -1631,10 +1735,10 @@ designed to teach robotics concepts from hardware to autonomous navigation.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
