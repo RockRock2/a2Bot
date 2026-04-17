@@ -1748,12 +1748,12 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ROS2 Jazzy                                 │
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  ├── robot_state_publisher                  │
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  ├── controller_manager (ros2_control)      │
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  │   ├── diff_drive_controller             │
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  │   └── joint_state_broadcaster           │
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  ├── ekf_node (robot_localization)         │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  ├── imu_node (MPU-9265 over I2C)          │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  │   ├── diff_drive_controller              │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  │   └── joint_state_broadcaster            │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  ├── ekf_node (robot_localization)          │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  ├── imu_node (MPU-9265 over I2C)           │
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  ├── rplidar (USB)                          │
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  └── robot_dashboard (FastAPI :8888)        │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  └── robot_dashboard (FastAPI :5000)        │
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>└───────────────┬─────────────────────────────┘
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                │ USB Serial (115200 baud)
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>┌───────────────▼─────────────────────────────┐
@@ -1764,9 +1764,9 @@
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>└───────────────┬─────────────────────────────┘
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                │ PWM signals
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>┌───────────────▼─────────────────────────────┐
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│         Cytron MDD3A Motor Driver            │
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│         Cytron MDD3A Motor Driver           │
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│   Left channel ←→ Right channel             │
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>└──────┬──────────────────────────┬────────────┘
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>└──────┬──────────────────────────┬───────────┘
 <a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>       │                          │
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>  Left Motor                Right Motor
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>  (JGB37-520)                (JGB37-520)
