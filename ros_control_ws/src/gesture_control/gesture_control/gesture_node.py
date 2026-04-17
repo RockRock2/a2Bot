@@ -1,6 +1,5 @@
 import cv2
 import os
-import threading
 
 import mediapipe as mp
 from mediapipe.tasks import python
@@ -13,33 +12,8 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from flask import Flask, Response
 
-app = Flask(__name__)
-latest_frame = None
-
-
-def generate():
-    global latest_frame
-    while True:
-        if latest_frame is None:
-            continue
-        _, buffer = cv2.imencode('.jpg', latest_frame,
-                                 [cv2.IMWRITE_JPEG_QUALITY, 70])
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n'
-               + buffer.tobytes() + b'\r\n')
-
-
-@app.route('/video_feed')
-def video_feed():
-    return Response(generate(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/video')
-def video():
-    return Response(generate(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+WINDOW_NAME = 'EduBot Gesture Control'
 
 
 class GestureControlNode(Node):
@@ -70,19 +44,17 @@ class GestureControlNode(Node):
         if not self.cap.isOpened():
             self.get_logger().error(f'Cannot open camera at index {cam_index}')
 
-        # Start Flask MJPEG stream in background thread
-        flask_thread = threading.Thread(
-            target=lambda: app.run(host='0.0.0.0', port=5000, threaded=True),
-            daemon=True,
-        )
-        flask_thread.start()
-        self.get_logger().info('Stream available at http://localhost:5000/video_feed')
+        # Fullscreen window
+        cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+        cv2.setWindowProperty(WINDOW_NAME, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN)
 
         self.create_timer(1.0 / 15.0, self.loop)
         self.get_logger().info('Gesture control node started')
         self.get_logger().info('Thumb Up       = move forward')
         self.get_logger().info('Peace sign     = rotate right')
         self.get_logger().info('L sign         = rotate left')
+        self.get_logger().info('Press Q in window to quit')
 
     def is_peace_sign(self, lm):
         index_up     = lm[8].y  < lm[6].y
@@ -124,7 +96,6 @@ class GestureControlNode(Node):
             cv2.line(frame, points[a], points[b], (0, 200, 255), 2)
 
     def loop(self):
-        global latest_frame
         ret, frame = self.cap.read()
         if not ret:
             return
@@ -180,11 +151,10 @@ class GestureControlNode(Node):
                     (10, h - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (200, 200, 200), 1)
 
         self.cmd_pub.publish(twist)
-        latest_frame = frame
+        cv2.imshow(WINDOW_NAME, frame)
 
-        cv2.imshow("Gesture Control", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            self.destroy_node()
+            rclpy.shutdown()
 
     def destroy_node(self):
         self.cap.release()

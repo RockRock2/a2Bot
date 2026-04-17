@@ -78,13 +78,40 @@ Uses the MediaPipe **Tasks API** (`mediapipe.tasks.python.vision.GestureRecogniz
 
 ## Dashboard / Gesture Demo Architecture
 
-Browsers enforce Private Network Access: a page served by the Pi cannot fetch `localhost` on the laptop. All traffic is relayed through the Pi.
+Browser MJPEG streaming was abandoned. Gesture demo shows a fullscreen OpenCV window on the laptop instead. Dashboard only handles status/control, no video.
 
 - `gesture_launcher` (laptop, port 5001) — starts/stops `gesture_node`. On startup POSTs to `http://<pi>:8888/api/gesture/register` so the Pi learns its IP.
-- `gesture_node` (laptop, port 5000) — runs MediaPipe, serves MJPEG at `/video_feed`.
-- `robot_dashboard` (Pi, port 8888) — UI, WebSocket state, relays `/api/demo/{start,stop}` to launcher, proxies `/video_feed` from gesture_node.
+- `gesture_node` (laptop) — runs MediaPipe, opens a **fullscreen OpenCV window** (`cv2.WND_PROP_FULLSCREEN`). No Flask, no MJPEG. Press **Q** in window to quit (calls `rclpy.shutdown()`).
+- `robot_dashboard` (Pi, port 8888) — UI, WebSocket state, manual drive pad, relays `/api/demo/{start,stop}` to launcher. No camera feed, no `/video_feed` route.
 
 Launcher auto-detects Pi IP from default gateway; on non-hotspot networks pass `--ros-args -p pi_ip:=<pi-ip>`.
+
+### Auto-start on Pi boot
+
+Two systemd units both set `Environment=ROS_DOMAIN_ID=0` so they match SSH shells:
+
+- `edubot-robot.service` — runs `ros2 launch my_robot robot.launch.py`
+- `edubot-dashboard.service` — runs `ros2 run my_robot robot_dashboard`
+
+Deploy / update:
+```bash
+sudo cp ~/edubot-docs/edubot-{robot,dashboard}.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now edubot-robot edubot-dashboard
+```
+
+> **Systemd does NOT source `~/.bashrc`.** If `ROS_DOMAIN_ID` lives only in bashrc, systemd service runs in default domain (0) and SSH terminal sits on a different domain → `ros2 topic echo` appears empty even while robot moves (dashboard publishes within its own process). Fix: set `Environment=ROS_DOMAIN_ID=0` in `[Service]` AND export the same value in `~/.bashrc` on Pi + laptop.
+
+### Drive pad continuous publish
+
+Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearInterval` + zero-twist on `mouseup`/`touchend`. Without this, one click publishes a single `/cmd_vel` message and robot jerks once then stops.
+
+### Key Implementation Notes
+
+- `_gesture_host` is in-memory only — if dashboard restarts, gesture_launcher must be restarted too
+- `gesture_launcher /start` calls `pkill -f gesture_control.gesture_node` before spawning — clears stale processes
+- `camera_index` is a ROS parameter (default 4); pass via `--ros-args -p camera_index:=N`
+- Gesture window is a native OpenCV window — requires a display (X11/Wayland) on the laptop, not headless-safe
 
 ## Coding Conventions
 

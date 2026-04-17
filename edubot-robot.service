@@ -1,5 +1,5 @@
 [Unit]
-Description=EduBot Robot Dashboard
+Description=EduBot ROS2 Robot Stack
 After=network-online.target NetworkManager.service
 Wants=network-online.target
 
@@ -7,7 +7,7 @@ Wants=network-online.target
 User=rock
 WorkingDirectory=/home/rock/edubot-docs/ros_control_ws
 Environment=ROS_DOMAIN_ID=0
-ExecStart=/bin/bash -c "source /opt/ros/jazzy/setup.bash && source install/setup.bash && ros2 run my_robot robot_dashboard"
+ExecStart=/bin/bash -c "source /opt/ros/jazzy/setup.bash && source install/setup.bash && ros2 launch my_robot robot.launch.py"
 Restart=on-failure
 RestartSec=5
 

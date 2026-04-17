@@ -12,7 +12,6 @@ import threading
 
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
 
@@ -52,8 +51,7 @@ class DashboardNode(Node):
         super().__init__("robot_dashboard")
         self.create_subscription(Odometry, "/odom", self._odom_cb, 10)
         self.create_subscription(JointState, "/joint_states", self._joint_cb, 10)
-        self._cmd_pub = self.create_publisher(Twist, "/cmd_vel", 10)
-        self.create_timer(2.0, self._update_nodes)
+self.create_timer(2.0, self._update_nodes)
         self.create_timer(5.0, self._update_wifi)
         self._ros_env = self._build_ros_env()
         self.get_logger().info("Robot dashboard node started")
@@ -110,11 +108,6 @@ class DashboardNode(Node):
         with _lock:
             _state["wifi"] = info
 
-    def publish_cmd_vel(self, linear_x: float, angular_z: float):
-        msg = Twist()
-        msg.linear.x = float(linear_x)
-        msg.angular.z = float(angular_z)
-        self._cmd_pub.publish(msg)
 
 
 # ── FastAPI application ─────────────────────────────────────────────────────
@@ -209,38 +202,7 @@ async def demo_stop():
     return {"ok": True}
 
 
-@app.get("/video_feed")
-async def video_feed():
-    """Proxy the MJPEG stream from the laptop's gesture_node."""
-    if not _gesture_host:
-        return JSONResponse({"error": "gesture launcher not registered"}, status_code=503)
 
-    def _stream():
-        try:
-            with _requests.get(
-                f"http://{_gesture_host}:5000/video_feed",
-                stream=True, timeout=10,
-            ) as r:
-                for chunk in r.iter_content(chunk_size=4096):
-                    if chunk:
-                        yield chunk
-        except Exception:
-            return
-
-    from fastapi.responses import StreamingResponse
-    return StreamingResponse(
-        _stream(),
-        media_type="multipart/x-mixed-replace; boundary=frame",
-    )
-
-
-@app.post("/api/drive")
-async def drive(body: dict):
-    linear_x = float(body.get("linear_x", 0.0))
-    angular_z = float(body.get("angular_z", 0.0))
-    if _ros_node:
-        _ros_node.publish_cmd_vel(linear_x, angular_z)
-    return {"ok": True}
 
 
 
@@ -313,11 +275,6 @@ header h1 { font-size: 20px; font-weight: 600; }
 .node-tag.ok  span { background: #22c55e; }
 .node-tag.err span { background: #ef4444; }
 
-.camera-box { background: #111; border-radius: 12px; overflow: hidden;
-              aspect-ratio: 4/3; display: flex; align-items: center;
-              justify-content: center; }
-.camera-box img { width: 100%; height: 100%; object-fit: cover; }
-.camera-off { color: #555; font-size: 13px; text-align: center; padding: 20px; }
 
 .controls-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-demo { flex: 1; min-width: 160px; padding: 14px 20px; border: none;
@@ -328,18 +285,7 @@ header h1 { font-size: 20px; font-weight: 600; }
 .btn-demo.stop  { background: #ef4444; color: #fff; }
 .btn-demo.stop:hover  { background: #dc2626; }
 
-.drive-pad { display: grid;
-             grid-template-columns: repeat(3, 64px);
-             grid-template-rows: repeat(3, 64px);
-             gap: 6px; margin-top: 16px; }
-.d-btn { border: none; border-radius: 10px; background: #e5e7eb;
-         font-size: 24px; cursor: pointer; user-select: none;
-         display: flex; align-items: center; justify-content: center;
-         transition: background .1s; touch-action: none; }
-.d-btn:active { background: #4f6ef7; color: #fff; }
-.d-btn.stop-btn { background: #fef3c7; font-size: 13px;
-                  font-weight: 700; color: #92400e; }
-.d-btn.stop-btn:active { background: #f59e0b; color: #fff; }
+
 </style>
 </head>
 <body>
@@ -430,44 +376,14 @@ header h1 { font-size: 20px; font-weight: 600; }
       </div>
     </div>
 
-    <!-- Right column: camera + controls -->
+    <!-- Right column: controls -->
     <div>
-      <div class="section-label">Camera Feed</div>
-      <div class="camera-box" id="camera-box">
-        <span class="camera-off">Camera offline<br>Start gesture demo to activate</span>
-      </div>
-
-      <div class="section-label" style="margin-top:18px;">Controls</div>
+      <div class="section-label">Controls</div>
       <div class="card">
         <div class="controls-row">
           <button class="btn-demo start" id="demo-btn" onclick="toggleDemo()">
             Start Gesture Demo
           </button>
-        </div>
-
-        <div class="section-label" style="margin-top:20px;">Manual Drive</div>
-        <div class="drive-pad">
-          <div></div>
-          <button class="d-btn"
-            onmousedown="drive(0.08,0)"  onmouseup="drive(0,0)"
-            ontouchstart="drive(0.08,0)" ontouchend="drive(0,0)">▲</button>
-          <div></div>
-
-          <button class="d-btn"
-            onmousedown="drive(0,0.5)"  onmouseup="drive(0,0)"
-            ontouchstart="drive(0,0.5)" ontouchend="drive(0,0)">◄</button>
-          <button class="d-btn stop-btn"
-            onmousedown="drive(0,0)"
-            ontouchstart="drive(0,0)">STOP</button>
-          <button class="d-btn"
-            onmousedown="drive(0,-0.5)"  onmouseup="drive(0,0)"
-            ontouchstart="drive(0,-0.5)" ontouchend="drive(0,0)">►</button>
-
-          <div></div>
-          <button class="d-btn"
-            onmousedown="drive(-0.08,0)"  onmouseup="drive(0,0)"
-            ontouchstart="drive(-0.08,0)" ontouchend="drive(0,0)">▼</button>
-          <div></div>
         </div>
       </div>
     </div>
@@ -534,25 +450,6 @@ function update(s) {
   btn.textContent = s.demo_running ? 'Stop Gesture Demo' : 'Start Gesture Demo';
   btn.className   = 'btn-demo ' + (s.demo_running ? 'stop' : 'start');
 
-  // Camera — gesture_node runs on the laptop, so the browser fetches
-  // the stream directly from localhost:5000 (not through the Pi proxy).
-  const box = document.getElementById('camera-box');
-  if (s.demo_running) {
-    if (!box.querySelector('img')) {
-      box.innerHTML = '';
-      const img = document.createElement('img');
-      img.src = '/video_feed';
-      img.alt = 'Camera feed';
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover';
-      img.onerror = function() {
-        box.innerHTML = '<span class="camera-off">Camera stream not reachable.<br>Run gesture_node on this laptop.</span>';
-      };
-      box.appendChild(img);
-    }
-  } else {
-    box.innerHTML = '<span class="camera-off">Camera offline<br>Start gesture demo to activate</span>';
-  }
-
   // Motion data
   document.getElementById('val-left').textContent  = s.encoders.left_vel.toFixed(3)  + ' rad/s';
   document.getElementById('val-right').textContent = s.encoders.right_vel.toFixed(3) + ' rad/s';
@@ -566,13 +463,6 @@ function update(s) {
   }).join('');
 }
 
-function drive(lx, az) {
-  fetch('/api/drive', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({linear_x: lx, angular_z: az})
-  });
-}
 
 async function toggleDemo() {
   const btn = document.getElementById('demo-btn');

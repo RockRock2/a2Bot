@@ -22,6 +22,7 @@ app = Flask(__name__)
 
 _proc: subprocess.Popen | None = None
 _lock = threading.Lock()
+_camera_index: int = 4
 
 
 def _is_running() -> bool:
@@ -33,16 +34,31 @@ def status():
     return jsonify({"running": _is_running()})
 
 
+def _kill_stale_gesture_node():
+    """Kill any leftover gesture_node process by name, not by port."""
+    try:
+        subprocess.run(
+            ["pkill", "-f", "gesture_control.gesture_node"],
+            capture_output=True,
+        )
+        time.sleep(0.5)
+    except FileNotFoundError:
+        pass
+
+
 @app.post("/start")
 def start():
     global _proc
     with _lock:
         if _is_running():
             return jsonify({"ok": True, "message": "already running"})
+        _kill_stale_gesture_node()
         env = os.environ.copy()
         ros_setup = "/opt/ros/jazzy/setup.bash"
         ws_setup = os.path.expanduser("~/edubot-docs/ros_control_ws/install/setup.bash")
-        cmd = f"source {ros_setup} && source {ws_setup} && ros2 run gesture_control gesture_node"
+        cmd = (f"source {ros_setup} && source {ws_setup} && "
+               f"ros2 run gesture_control gesture_node "
+               f"--ros-args -p camera_index:={_camera_index}")
         _proc = subprocess.Popen(
             ["bash", "-c", cmd],
             env=env,
@@ -93,12 +109,14 @@ def _register_with_pi(pi_ip: str, retries: int = 5):
 
 
 def main(args=None):
+    global _camera_index
     import rclpy
     from rclpy.node import Node
 
     rclpy.init(args=args)
     node = Node("gesture_launcher")
     pi_ip = node.declare_parameter("pi_ip", "").value
+    _camera_index = node.declare_parameter("camera_index", 4).value
     node.destroy_node()
     rclpy.shutdown()
 
