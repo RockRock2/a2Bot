@@ -58,7 +58,7 @@ nav:
     - Bill of Materials: hardware/bom.md
   - Setup:
     - Raspberry Pi Setup: setup/raspberry-pi.md
-    - ROS2 Jazzy Install: setup/ros2-jazzy.md
+    - ROS2 Humble Install: setup/ros2-humble.md
     - Camera Setup: setup/camera.md
     - Display Setup: setup/display.md
   - Robot Software:
@@ -68,6 +68,7 @@ nav:
     - Odometry: software/odometry.md
   - Lessons:
     - Overview: lessons/overview.md
+    - Gazebo Simulation: lessons/gazebo-simulation.md
     - Keyboard Teleop: lessons/keyboard-teleop.md
     - Gesture Control: lessons/gesture-control.md
     - Adding LiDAR: lessons/lidar.md

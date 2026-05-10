@@ -4,6 +4,73 @@ Odometry is how the robot estimates its own position and orientation by counting
 
 ---
 
+## Differential Drive Basics
+
+EduBot uses **differential drive** — the simplest and most common locomotion system for ground robots. There are two independently driven wheels. Movement is achieved by varying their speeds:
+
+```
+         Left Wheel
+              │
+Reference ────●──── Forward direction →
+  Point       │
+         Right Wheel
+```
+
+| Command | Left wheel | Right wheel | Result |
+|---|---|---|---|
+| Forward | +v | +v | Straight ahead |
+| Backward | −v | −v | Straight back |
+| Turn right | +v | −v | Rotate clockwise |
+| Turn left | −v | +v | Rotate counter-clockwise |
+| Gentle curve right | +v_fast | +v_slow | Arc to the right |
+
+The `diff_drive_controller` converts a single **Twist** message (`linear.x`, `angular.z`) into individual left/right wheel velocities:
+
+```
+v_left  = linear.x − (angular.z × wheel_separation / 2)
+v_right = linear.x + (angular.z × wheel_separation / 2)
+```
+
+EduBot's wheel separation is **0.25 m** and wheel radius is **0.033 m**.
+
+---
+
+## Rotary Encoders
+
+Each motor on EduBot has a **quadrature encoder** — two output signals (A and B) 90° out of phase. This lets the Arduino count ticks and determine direction.
+
+```
+Counter-clockwise:       Clockwise:
+A: ─┐ ┌─┐ ┌─           A: ─┐ ┌─┐ ┌─
+B: ──┐ ┌─┐ ┌            B:  └─┘ └─┘
+     A leads B               B leads A
+```
+
+When ENC_A rises:
+- ENC_B is HIGH → wheel moving forward → `ticks++`
+- ENC_B is LOW  → wheel moving backward → `ticks--`
+
+EduBot's encoders have **360 ticks per revolution**. At 0.033 m wheel radius, each tick = **0.576 mm** of wheel travel.
+
+---
+
+## IMU (Inertial Measurement Unit)
+
+EduBot's 9-DOF IMU provides three types of measurement:
+
+| Sensor | Measures | Unit | Use in EduBot |
+|---|---|---|---|
+| **Accelerometer** | Linear acceleration (X, Y, Z) | m/s² | Detect if robot is tilted or bumped |
+| **Gyroscope** | Angular velocity (roll, pitch, yaw) | rad/s | Measure how fast robot is turning |
+| **Magnetometer** | Earth's magnetic field (X, Y, Z) | µT | Compass heading (absolute orientation) |
+
+The gyroscope is the most important for navigation — it measures the robot's yaw rate and is fused with wheel odometry to reduce drift.
+
+!!! tip "Filters"
+    Raw IMU data is noisy. EduBot uses a **Kalman Filter** (via `robot_localization`) to optimally blend gyroscope and encoder data. This produces a smoother `/odom` estimate than either sensor alone.
+
+---
+
 ## How Wheel Odometry Works
 
 Each encoder tick = a tiny rotation of the wheel. By counting ticks on both wheels and comparing them, the robot can calculate:

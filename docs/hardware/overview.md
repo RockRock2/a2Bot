@@ -45,7 +45,7 @@ EduBot is a two-wheeled differential drive robot built on a Raspberry Pi 4. This
 ┌─────────────────────────────────────────────┐
 │             Raspberry Pi 4                  │
 │                                             │
-│  ROS2 Jazzy                                 │
+│  ROS2 Humble                                 │
 │  ├── robot_state_publisher                  │
 │  ├── controller_manager (ros2_control)      │
 │  │   ├── diff_drive_controller             │
@@ -76,7 +76,7 @@ EduBot is a two-wheeled differential drive robot built on a Raspberry Pi 4. This
 ## Key Components
 
 ### Raspberry Pi 4 (4 GB)
-The brain of the robot. Runs ROS2 Jazzy and all high-level software. Connects to the Arduino over USB serial.
+The brain of the robot. Runs ROS2 Humble and all high-level software. Connects to the Arduino over USB serial.
 
 ### Arduino Nano
 Handles real-time motor control. The Pi sends velocity commands (rad/s) and the Arduino translates them to PWM signals and reports encoder feedback at 50 Hz.

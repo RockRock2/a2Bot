@@ -2,7 +2,7 @@
 
 **Difficulty:** Beginner  
 **Time:** 30 minutes  
-**Prerequisites:** Robot assembled and powered, ROS2 Jazzy installed on Pi
+**Prerequisites:** Robot assembled and powered, ROS2 Humble installed on Pi
 
 ---
 
@@ -64,7 +64,7 @@ ros2 control list_controllers
 On your laptop (or on the Pi directly):
 
 ```bash
-sudo apt install ros-jazzy-teleop-twist-keyboard
+sudo apt install ros-humble-teleop-twist-keyboard
 ```
 
 ---

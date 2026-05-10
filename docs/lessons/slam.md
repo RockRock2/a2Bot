@@ -12,6 +12,22 @@ SLAM stands for **Simultaneous Localization and Mapping**. The robot builds a ma
 
 EduBot uses **slam_toolbox**, which is the recommended SLAM package for ROS2.
 
+### SLAM Algorithm Comparison
+
+There are several SLAM algorithms available. Here's how the most common ones compare:
+
+| Feature | **slam_toolbox** ✓ | Hector SLAM | GMapping |
+|---|---|---|---|
+| ROS2 support | Yes (native) | Limited port | ROS1 only |
+| Requires odometry | No (but better with it) | No | Yes |
+| Requires LiDAR | Yes | Yes | Yes |
+| Map quality | Excellent | Good in sparse envs | Good with accurate odom |
+| CPU usage | Medium | Low | Medium |
+| Loop closure | Yes | No | Limited |
+| Best for | EduBot (our choice) | Fast robots, poor odom | Robots with reliable encoders |
+
+EduBot uses slam_toolbox because it's the ROS2-native choice, supports loop closure, and works with both odometry and LiDAR.
+
 ---
 
 ## Background: How SLAM Works

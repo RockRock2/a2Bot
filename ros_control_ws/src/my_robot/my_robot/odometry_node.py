@@ -15,7 +15,7 @@ class OdometryNode(Node):
         # ── Parameters ─────────────────────────────────────────────
         self.declare_parameter('wheel_radius',    0.033)
         self.declare_parameter('wheel_separation', 0.25)
-        self.declare_parameter('ticks_per_rev',   3000)   # ← SET YOUR ENCODER TPR
+        self.declare_parameter('ticks_per_rev',   360)
 
         self.wheel_radius     = self.get_parameter('wheel_radius').value
         self.wheel_separation = self.get_parameter('wheel_separation').value

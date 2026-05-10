@@ -72,26 +72,48 @@ You should see your saved map loaded, with the robot model roughly in the right 
 
 ## Step 3: Set the Initial Pose
 
-Nav2 needs to know where the robot currently is on the map. Use **2D Pose Estimate** in RViz2 (top toolbar):
+Nav2 uses **AMCL** (Adaptive Monte Carlo Localization) to track the robot's position on the map. Before it can do this, it needs a rough starting estimate. Use **2D Pose Estimate** in RViz2 (top toolbar):
 
-1. Click the **2D Pose Estimate** button
-2. Click on the map at the robot's actual current position
-3. Drag to set the orientation (which direction it faces)
+1. Click the **2D Pose Estimate** button in the RViz2 toolbar
+2. Click on the map at the robot's **actual current position**
+3. Hold and drag the arrow toward the direction the robot is **facing**
+4. Release — Nav2 will initialize AMCL at that pose
 
-The robot should localize — the LiDAR scan should line up with the map walls.
+**How to verify it worked:** The LiDAR scan (red dots) should align with the map walls. If the dots don't line up, repeat the pose estimate more carefully.
+
+!!! tip "Repeat if needed"
+    It may take 2–3 attempts to get a good initial pose. Move the robot slightly (to generate odometry) after setting the pose — AMCL will refine the estimate automatically.
+
+```
+Good pose estimate:          Poor pose estimate:
+                             
+  ██████████                   ██████████
+  █         █                  █         █
+  █  ●→     █   ← robot        █   ●←    █   ← robot facing wrong way
+  █         █                  █         █
+  ██████████                   ██████████
+  
+  Scan dots overlap walls      Scan dots don't match walls
+```
 
 ---
 
 ## Step 4: Send a Goal
 
-1. Click the **Nav2 Goal** button in RViz2 (or **2D Nav Goal**)
-2. Click anywhere on the free (white) space of the map
-3. Drag to set the goal orientation
+1. Click the **Nav2 Goal** button in RViz2 toolbar (also called **2D Nav Goal**)
+2. Click anywhere on **free (white) space** of the map — not on a wall or unknown (grey) cell
+3. Hold and drag the arrow to set the **goal orientation** (which direction the robot should face when it arrives)
+4. Release — Nav2 immediately begins planning
 
 The robot will:
-1. Plan a path (shown as a green line)
-2. Drive along the path
-3. Stop at the goal
+1. Plan a global path around walls (shown as a green/yellow line)
+2. Drive along the path while the local planner avoids dynamic obstacles
+3. Stop and rotate to face the goal orientation
+
+!!! warning "Goal in occupied space"
+    If you click on a black (wall) or grey (unknown) cell, Nav2 will report "Could not find valid path". Always click in white (free) space.
+
+The **root of the arrow** is the X, Y destination. The **direction of the arrow** is the heading (θ) the robot will adopt on arrival. This lets you, for example, navigate the robot to face a charging station.
 
 ---
 

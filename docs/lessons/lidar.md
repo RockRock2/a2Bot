@@ -43,7 +43,7 @@ Mount the RPLidar on top of the robot, centered front-to-back, with the USB cabl
 ## Step 2: Install the ROS2 Driver
 
 ```bash
-sudo apt install ros-jazzy-rplidar-ros
+sudo apt install ros-humble-rplidar-ros
 ```
 
 ---
@@ -72,9 +72,10 @@ ls -la /dev/rplidar
 
 ```bash
 # Test standalone (without full robot stack)
-ros2 run rplidar_ros rplidar_composition \
+ros2 run rplidar_ros rplidar_node \
   --ros-args \
   -p serial_port:=/dev/rplidar \
+  -p serial_baudrate:=115200 \
   -p frame_id:=laser
 ```
 

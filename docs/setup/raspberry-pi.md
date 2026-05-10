@@ -13,12 +13,12 @@ This page walks through setting up a fresh Raspberry Pi 4 for EduBot. By the end
 
 ---
 
-## Step 1: Flash Ubuntu 24.04
+## Step 1: Flash Ubuntu 22.04
 
-Ubuntu 24.04 LTS (Noble) is required for ROS2 Jazzy.
+Ubuntu 22.04 LTS (Jammy) is required for ROS2 Humble.
 
 1. Download **Raspberry Pi Imager**: https://www.raspberrypi.com/software/
-2. Open Imager → Choose OS → Other general-purpose OS → Ubuntu → **Ubuntu Server 24.04 LTS (64-bit)**
+2. Open Imager → Choose OS → Other general-purpose OS → Ubuntu → **Ubuntu Server 22.04 LTS (64-bit)**
 3. Choose your SD card
 4. Click the gear icon ⚙ to set:
    - Hostname: `edubot`
@@ -153,5 +153,5 @@ source ~/.bashrc
 
 ## Next Steps
 
-- [ROS2 Jazzy Install](ros2-jazzy.md)
+- [ROS2 Humble Install](ros2-humble.md)
 - [Camera Setup](camera.md)

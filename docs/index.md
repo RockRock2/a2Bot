@@ -2,13 +2,13 @@
 
 ![EduBot](assets/robot.jpg)
 
-EduBot is an open-source educational mobile robot built with ROS2 Jazzy,
+EduBot is an open-source educational mobile robot built with ROS2 Humble,
 designed to teach robotics concepts from hardware to autonomous navigation.
 
 ## Features
 
 - **Differential drive** — two-wheel independent motor control
-- **ROS2 Jazzy** — full ROS2 stack on Raspberry Pi 4
+- **ROS2 Humble** — full ROS2 stack on Raspberry Pi 4
 - **SLAM** — build maps with RPLidar and slam_toolbox
 - **Autonomous Navigation** — Nav2 goal-based navigation
 - **Gesture Control** — control robot with hand gestures via MediaPipe
@@ -46,5 +46,5 @@ New to EduBot? Start here:
 
 1. [Hardware Overview](hardware/overview.md)
 2. [Raspberry Pi Setup](setup/raspberry-pi.md)
-3. [ROS2 Jazzy Install](setup/ros2-jazzy.md)
+3. [ROS2 Humble Install](setup/ros2-humble.md)
 4. [First Drive](lessons/keyboard-teleop.md)

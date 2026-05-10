@@ -96,6 +96,6 @@ sudo systemctl restart edubot-robot edubot-dashboard
 
 The `ExecStart` in the `.service` file must source ROS setup scripts via bash:
 ```ini
-ExecStart=/bin/bash -c "source /opt/ros/jazzy/setup.bash && source install/setup.bash && ros2 launch ..."
+ExecStart=/bin/bash -c "source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 launch ..."
 ```
 A bare `ros2 launch ...` without sourcing will fail because `ros2` isn't in the default PATH for systemd.
