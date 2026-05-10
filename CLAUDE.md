@@ -4,16 +4,31 @@
 
 EduBot is an open-source educational differential drive robot targeting pre-university and high school students. The goal is a complete, buildable robot that teaches the full robotics stack — from hardware wiring to autonomous navigation — through progressive, hands-on lessons.
 
+## Current State
+
+| Area | Status |
+|---|---|
+| Differential drive + encoder feedback | Working on physical robot |
+| Gesture control (laptop → Pi) | Working |
+| Robot dashboard (Pi, port 8888) | Working |
+| Humble code migration | Complete — 4/4 packages build 0 errors |
+| Pi hardware setup (Ubuntu 22.04 + Humble install) | Pending |
+| SLAM | Pending |
+| Autonomous navigation (Nav2) | Pending |
+| Documentation site | In progress — gesture-control lesson done |
+| YOLOv8 object detection | Planned |
+
 ## Technology Stack
 
 | Layer | Technology | Why |
 |---|---|---|
-| Robot OS | ROS2 Jazzy | Latest LTS ROS2; good community docs for students |
+| Host OS | Ubuntu 22.04 LTS (Jammy) | Required base for Humble; use on Pi and dev machine |
+| Robot OS | ROS2 Humble | LTS (EOL May 2027); required by course |
 | SBC | Raspberry Pi 4 (4GB) | Widely available, strong community support |
 | Motor control | ros2_control + Arduino Nano | Clean separation: ROS handles logic, Arduino handles real-time |
 | Motor driver | Cytron MDD3A (dual PWM mode) | Simple PWM interface, suitable for classroom use |
 | SLAM | slam_toolbox | ROS2 native, well-maintained |
-| Navigation | Nav2 | Standard ROS2 navigation stack |
+| Navigation | Nav2 (1.1.x) | Standard ROS2 navigation stack |
 | Gesture vision | MediaPipe (runs on laptop) | No GPU required, easy pip install |
 | Object detection | YOLOv8 | Planned — not yet implemented |
 | Docs | MkDocs Material | Clean, searchable, free GitHub Pages hosting |
@@ -21,24 +36,26 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 ## Directory Structure
 
 ```
-edubot-docs/
+a2Bot/
 ├── docs/                        # MkDocs source (Markdown)
 │   ├── index.md                 # Home page / feature overview
 │   ├── hardware/                # BOM, wiring, power (mostly empty)
-│   ├── setup/                   # Pi setup, ROS2 install, camera (empty)
+│   ├── setup/                   # Pi setup, ROS2 install, camera
+│   │   └── ros2-jazzy.md        # To be renamed ros2-humble.md
 │   ├── software/                # URDF, Arduino, ros2_control, odometry (empty)
 │   ├── lessons/
 │   │   └── gesture-control.md   # Only completed lesson doc
 │   └── api/                     # ROS2 topics, parameters (empty)
 ├── robot_firmware.ino/
 │   └── robot_firmware.ino.ino   # Arduino firmware (production-ready)
-├── ros_control_ws/              # ROS2 workspace
+├── ros_control_ws/              # ROS2 workspace (built against Humble)
 │   └── src/
 │       ├── my_robot/            # Main package: launch, config, URDF, dashboard
 │       ├── my_robot_hardware/   # Python hardware interface (serial bridge)
-│       ├── my_robot_hardware_interface/  # C++ hardware interface
+│       ├── my_robot_hardware_interface/  # C++ hardware interface (ros2_control plugin)
 │       └── gesture_control/     # MediaPipe gesture node (laptop-side)
-├── edubot-dashboard.service     # systemd service for auto-start
+├── edubot-robot.service         # systemd: auto-starts robot.launch.py on Pi boot
+├── edubot-dashboard.service     # systemd: auto-starts robot_dashboard on Pi boot
 └── mkdocs.yml                   # Docs site config
 ```
 
@@ -58,6 +75,7 @@ edubot-docs/
 ## Robot Hardware Parameters
 
 - Wheel radius: 0.033m
+- Wheel separation: 0.25m
 - Encoder resolution: 360 ticks/rev
 - Max PWM: 120 (software-limited from 200 to reduce speed)
 - PWM deadband: 30
@@ -93,18 +111,18 @@ Two systemd units both set `Environment=ROS_DOMAIN_ID=0` so they match SSH shell
 - `edubot-robot.service` — runs `ros2 launch my_robot robot.launch.py`
 - `edubot-dashboard.service` — runs `ros2 run my_robot robot_dashboard`
 
-Deploy / update:
+Both source `/opt/ros/humble/setup.bash`. Deploy to Pi:
 ```bash
-sudo cp ~/edubot-docs/edubot-{robot,dashboard}.service /etc/systemd/system/
+sudo cp /path/to/a2Bot/edubot-{robot,dashboard}.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now edubot-robot edubot-dashboard
 ```
 
-> **Systemd does NOT source `~/.bashrc`.** If `ROS_DOMAIN_ID` lives only in bashrc, systemd service runs in default domain (0) and SSH terminal sits on a different domain → `ros2 topic echo` appears empty even while robot moves (dashboard publishes within its own process). Fix: set `Environment=ROS_DOMAIN_ID=0` in `[Service]` AND export the same value in `~/.bashrc` on Pi + laptop.
+> **Systemd does NOT source `~/.bashrc`.** If `ROS_DOMAIN_ID` lives only in bashrc, the systemd service and your SSH terminal sit on different domains → `ros2 topic echo` appears empty even while the robot moves. Fix: set `Environment=ROS_DOMAIN_ID=0` in `[Service]` **and** export it in `~/.bashrc` on both Pi and laptop.
 
 ### Drive pad continuous publish
 
-Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearInterval` + zero-twist on `mouseup`/`touchend`. Without this, one click publishes a single `/cmd_vel` message and robot jerks once then stops.
+Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearInterval` + zero-twist on `mouseup`/`touchend`. Without this, one click publishes a single `/cmd_vel` message and the robot jerks once then stops.
 
 ### Key Implementation Notes
 
@@ -112,6 +130,7 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - `gesture_launcher /start` calls `pkill -f gesture_control.gesture_node` before spawning — clears stale processes
 - `camera_index` is a ROS parameter (default 4); pass via `--ros-args -p camera_index:=N`
 - Gesture window is a native OpenCV window — requires a display (X11/Wayland) on the laptop, not headless-safe
+- `robot_dashboard._build_ros_env()` hardcodes Humble paths (`/opt/ros/humble`, `python3.10`)
 
 ## Coding Conventions
 
@@ -133,3 +152,27 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - Do not introduce ROS1 concepts or packages
 - Do not use `rospy` — this project is ROS2 only
 - Do not hardcode IP addresses — use ROS_DOMAIN_ID for multi-machine comms
+- Do not write Jazzy-specific code — target is Humble (ros2_control 2.x, Nav2 1.1.x)
+
+---
+
+## Pending Work
+
+### Pi hardware setup (do once on the physical Pi)
+1. Confirm Ubuntu 22.04 Jammy (not 24.04 Noble)
+2. `sudo apt install ros-humble-ros-base ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-hardware-interface ros-humble-pluginlib ros-humble-rclcpp-lifecycle ros-humble-robot-localization ros-humble-slam-toolbox ros-humble-nav2-bringup ros-humble-rplidar-ros`
+3. Add `source /opt/ros/humble/setup.bash` and `export ROS_DOMAIN_ID=0` to `~/.bashrc`
+4. Build workspace: `cd ~/ros_control_ws && colcon build`
+5. Deploy and enable systemd services
+6. Smoke-test: `ros2 launch my_robot robot.launch.py` → controller manager must report active
+
+### Testing (after Pi is set up)
+- Drive test: send `/cmd_vel`, confirm motor response and `/odom` publishing
+- Gesture pipeline: run `gesture_launcher` on laptop → verify gesture→motion
+- Nav2: `ros2 launch my_robot navigation.launch.py` → AMCL and DWB must load without errors
+
+### Documentation (after physical robot verified)
+- Rename `docs/setup/ros2-jazzy.md` → `docs/setup/ros2-humble.md` and rewrite install instructions
+- Update `mkdocs.yml` nav entry
+- Write remaining lesson pages: keyboard-teleop, SLAM, Nav2
+- Fill empty doc sections: hardware BOM/wiring, Pi setup, URDF, Arduino, ros2_control, odometry

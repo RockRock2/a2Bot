@@ -28,7 +28,7 @@ public:
 
   // Lifecycle callbacks
   hardware_interface::CallbackReturn on_init(
-    const hardware_interface::HardwareComponentInterfaceParams & params) override;
+    const hardware_interface::HardwareInfo & info) override;
     
   hardware_interface::CallbackReturn on_configure(
     const rclcpp_lifecycle::State & previous_state) override;

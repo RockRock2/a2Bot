@@ -119,21 +119,6 @@ def generate_launch_description():
             package='my_robot',
             executable='twist_to_twist_stamped',
             name='twist_to_twist_stamped',
-        ),  
-
-        TimerAction(
-            period=4.0,
-            actions=[
-                Node(
-                    package='controller_manager',
-                    executable='spawner',
-                    arguments=['diff_drive_controller',
-                            '--controller-manager', '/controller_manager'],
-                    remappings=[
-                        ('/diff_drive_controller/odom', '/wheel_odom'),
-                    ],
-                ),
-            ],
         ),
 
         Node(

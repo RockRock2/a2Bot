@@ -19,9 +19,9 @@ namespace my_robot_hardware_interface
 // Reads parameters from URDF <ros2_control> tag
 // ============================================================
 hardware_interface::CallbackReturn MyRobotHardware::on_init(
-  const hardware_interface::HardwareComponentInterfaceParams & params)
+  const hardware_interface::HardwareInfo & info)
 {
-  if (hardware_interface::SystemInterface::on_init(params) !=
+  if (hardware_interface::SystemInterface::on_init(info) !=
       hardware_interface::CallbackReturn::SUCCESS) {
     return hardware_interface::CallbackReturn::ERROR;
   }

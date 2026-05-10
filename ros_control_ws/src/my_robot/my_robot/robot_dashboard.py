@@ -51,22 +51,22 @@ class DashboardNode(Node):
         super().__init__("robot_dashboard")
         self.create_subscription(Odometry, "/odom", self._odom_cb, 10)
         self.create_subscription(JointState, "/joint_states", self._joint_cb, 10)
-self.create_timer(2.0, self._update_nodes)
+        self.create_timer(2.0, self._update_nodes)
         self.create_timer(5.0, self._update_wifi)
         self._ros_env = self._build_ros_env()
         self.get_logger().info("Robot dashboard node started")
 
     def _build_ros_env(self):
         env = os.environ.copy()
-        env["PATH"] = "/opt/ros/jazzy/bin:" + env.get("PATH", "")
-        env["ROS_DISTRO"] = "jazzy"
-        env["AMENT_PREFIX_PATH"] = "/opt/ros/jazzy"
+        env["PATH"] = "/opt/ros/humble/bin:" + env.get("PATH", "")
+        env["ROS_DISTRO"] = "humble"
+        env["AMENT_PREFIX_PATH"] = "/opt/ros/humble"
         env["PYTHONPATH"] = (
-            "/opt/ros/jazzy/lib/python3.12/site-packages:"
+            "/opt/ros/humble/lib/python3.10/site-packages:"
             + env.get("PYTHONPATH", "")
         )
         env["LD_LIBRARY_PATH"] = (
-            "/opt/ros/jazzy/lib:" + env.get("LD_LIBRARY_PATH", "")
+            "/opt/ros/humble/lib:" + env.get("LD_LIBRARY_PATH", "")
         )
         return env
 
