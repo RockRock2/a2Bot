@@ -8,14 +8,18 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 
 | Area | Status |
 |---|---|
-| Differential drive + encoder feedback | Working on physical robot |
-| Gesture control (laptop → Pi) | Working |
-| Robot dashboard (Pi, port 8888) | Working |
-| Humble code migration | Complete — 4/4 packages build 0 errors |
-| Pi hardware setup (Ubuntu 22.04 + Humble install) | Pending |
-| SLAM | Pending |
-| Autonomous navigation (Nav2) | Pending |
-| Documentation site | In progress — gesture-control lesson done |
+| Humble code migration | ✅ Complete — 4/4 packages build 0 errors |
+| Pi colcon build | ✅ Working (must `source /opt/ros/humble/setup.bash` first) |
+| RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
+| RViz2 scan visualization (laptop) | ✅ Working via `ROS_DOMAIN_ID=0` over WiFi |
+| Differential drive + encoder feedback | ✅ Motors + encoders working — MAX_MOTOR_RAD_S=14.8 calibrated |
+| Gesture control (laptop → Pi) | Working (untested this session) |
+| Robot dashboard (Pi, port 8888) | Working (untested this session) |
+| Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
+| SLAM | Pending motors |
+| Autonomous navigation (Nav2) | Pending SLAM map |
+| Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
+| Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
 | YOLOv8 object detection | Planned |
 
 ## Technology Stack
@@ -40,12 +44,23 @@ a2Bot/
 ├── docs/                        # MkDocs source (Markdown)
 │   ├── index.md                 # Home page / feature overview
 │   ├── hardware/                # BOM, wiring, power (mostly empty)
-│   ├── setup/                   # Pi setup, ROS2 install, camera
-│   │   └── ros2-jazzy.md        # To be renamed ros2-humble.md
-│   ├── software/                # URDF, Arduino, ros2_control, odometry (empty)
+│   ├── setup/
+│   │   ├── raspberry-pi.md      # Pi flashing + first-boot steps
+│   │   └── ros2-humble.md       # Full Humble install guide (Ubuntu 22.04)
+│   ├── software/
+│   │   ├── arduino.md           # Serial protocol, pin map, firmware guide ✅
+│   │   ├── odometry.md          # Diff-drive, encoders, IMU, EKF theory ✅
+│   │   ├── urdf.md              # (stub)
+│   │   └── ros2-control.md      # (stub)
 │   ├── lessons/
-│   │   └── gesture-control.md   # Only completed lesson doc
+│   │   ├── gazebo-simulation.md # Lesson 0: Gazebo + RViz2 + TurtleBot3 ✅
+│   │   ├── keyboard-teleop.md   # Lesson 1 ✅
+│   │   ├── gesture-control.md   # Lesson 2 ✅
+│   │   ├── lidar.md             # Lesson 3 ✅
+│   │   ├── slam.md              # Lesson 4 ✅
+│   │   └── navigation.md        # Lesson 5 ✅
 │   └── api/                     # ROS2 topics, parameters (empty)
+├── .github/workflows/docs.yml   # Auto-deploys MkDocs to gh-pages on push
 ├── robot_firmware.ino/
 │   └── robot_firmware.ino.ino   # Arduino firmware (production-ready)
 ├── ros_control_ws/              # ROS2 workspace (built against Humble)
@@ -56,6 +71,8 @@ a2Bot/
 │       └── gesture_control/     # MediaPipe gesture node (laptop-side)
 ├── edubot-robot.service         # systemd: auto-starts robot.launch.py on Pi boot
 ├── edubot-dashboard.service     # systemd: auto-starts robot_dashboard on Pi boot
+├── 4th Day caftra intermediate A2BOT - ROS2.pptx  # Course slides Day 4 (ROS2 updated)
+├── 3rd Day caftra intermediate - ROS2.pptx         # Course slides Day 3 (new, ROS2)
 └── mkdocs.yml                   # Docs site config
 ```
 
@@ -65,6 +82,15 @@ a2Bot/
 - **Feedback (Arduino → Pi):** `F<left_pos_rad>,<right_pos_rad>,<left_vel>,<right_vel>\n`
 - **Rate:** 50Hz (20ms interval)
 - **Baud:** 115200
+
+## LiDAR Hardware
+
+- **Model:** RPLidar A1 or A2 (confirmed: firmware 1.29, hardware rev 7)
+- **Baud rate:** 115200 (verified on physical hardware — set explicitly in `robot.launch.py`)
+- **Scan rate:** ~7 Hz on Pi (10 Hz native; USB overhead reduces it slightly)
+- **Max range:** 12 m (scan mode: Sensitivity)
+- **udev rule:** `/etc/udev/rules.d/99-rplidar.rules` → `ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60"` → symlink `/dev/rplidar`
+- **Standalone test:** `ros2 run rplidar_ros rplidar_node --ros-args -p serial_port:=/dev/rplidar -p serial_baudrate:=115200`
 
 ## Key ROS2 Topics
 
@@ -154,25 +180,36 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - Do not hardcode IP addresses — use ROS_DOMAIN_ID for multi-machine comms
 - Do not write Jazzy-specific code — target is Humble (ros2_control 2.x, Nav2 1.1.x)
 
+## Known Issues / Gotchas
+
+- **`colcon build` fails with `ament_cmake` not found** — you forgot to `source /opt/ros/humble/setup.bash` before building. Always source first.
+- **Gazebo TurtleBot3 spawn timeout** — on first launch, Gazebo downloads models and the `/spawn_entity` service times out. Fix: `git clone https://github.com/osrf/gazebo_models.git ~/.gazebo/models/` then retry.
+- **`odometry_node.py` had wrong TPR** — was `3000` (placeholder), corrected to `360` (matches Arduino firmware). Commit `05d4094`.
+- **WS_ziad reference workspace** at `/home/rock-ubuntu/Desktop/A2_bot/WS_ziad` — ROS1-based reference from the course. Useful for Nav2 config parameters and modular launch file structure. Do NOT use its serial bridge or hector_slam.
+
 ---
 
 ## Pending Work
 
-### Pi hardware setup (do once on the physical Pi)
-1. Confirm Ubuntu 22.04 Jammy (not 24.04 Noble)
-2. `sudo apt install ros-humble-ros-base ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-hardware-interface ros-humble-pluginlib ros-humble-rclcpp-lifecycle ros-humble-robot-localization ros-humble-slam-toolbox ros-humble-nav2-bringup ros-humble-rplidar-ros`
-3. Add `source /opt/ros/humble/setup.bash` and `export ROS_DOMAIN_ID=0` to `~/.bashrc`
-4. Build workspace: `cd ~/ros_control_ws && colcon build`
-5. Deploy and enable systemd services
-6. Smoke-test: `ros2 launch my_robot robot.launch.py` → controller manager must report active
+### Motors ✅ (completed 2026-05-15)
+- Arduino wired, udev rule `/dev/arduino` in place (CH340: `idVendor=="1a86"`)
+- Firmware flashed: right encoder ISR sign fixed, MAX_MOTOR_RAD_S=14.8 (measured)
+- Left motor M+/M− swapped at Cytron to correct forward direction
+- `use_stamped_vel: true` set in controllers.yaml (twist_to_twist_stamped pipeline)
+- **Remaining:** verify `/odom` increments correctly during ROS2 drive test
 
-### Testing (after Pi is set up)
-- Drive test: send `/cmd_vel`, confirm motor response and `/odom` publishing
-- Gesture pipeline: run `gesture_launcher` on laptop → verify gesture→motion
-- Nav2: `ros2 launch my_robot navigation.launch.py` → AMCL and DWB must load without errors
+### SLAM + Nav2 (blocked until motors working)
+- Drive test first, then SLAM mapping session
+- Save map: `ros2 run nav2_map_server map_saver_cli -f ~/maps/room`
+- Nav2: `ros2 launch my_robot navigation.launch.py map:=~/maps/room.yaml`
 
-### Documentation (after physical robot verified)
-- Rename `docs/setup/ros2-jazzy.md` → `docs/setup/ros2-humble.md` and rewrite install instructions
-- Update `mkdocs.yml` nav entry
-- Write remaining lesson pages: keyboard-teleop, SLAM, Nav2
-- Fill empty doc sections: hardware BOM/wiring, Pi setup, URDF, Arduino, ros2_control, odometry
+### Documentation (remaining stubs)
+- `docs/hardware/` — BOM, wiring diagram, power system
+- `docs/software/urdf.md` — robot model explanation
+- `docs/software/ros2-control.md` — controller manager, diff_drive_controller
+- `docs/api/` — topics and parameters reference
+
+### Course slides (manual edits still needed)
+- Day 4 pptx: slides 13-15 / 29-31 ("ROS master & slave") need concept rewrite for ROS2 DDS
+- Day 4 pptx: slides 11/27 (Windows IP config) — simplify to "same WiFi + ROS_DOMAIN_ID=0"
+- Day 3 pptx: visual formatting (font sizes, code box styling) needs review in PowerPoint

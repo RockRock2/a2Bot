@@ -17,9 +17,7 @@
 // --- Robot Parameters (UPDATE THESE) ---
 const float WHEEL_RADIUS    = 0.033;
 const int   TICKS_PER_REV   = 360;
-const float MAX_MOTOR_RAD_S = 5.0;    // ← lower this to match your actual motor
-                                       //   measure: spin motor at full PWM,
-                                       //   count rad/s from encoder feedback
+const float MAX_MOTOR_RAD_S = 14.8;   // measured at full PWM 120
 const int   MAX_PWM         = 120;    // ← too fast at 200
 const int   PWM_DEADBAND    = 30;
 // --- Encoder State ---
@@ -44,7 +42,7 @@ void leftEncoderISR() {
 }
 
 void rightEncoderISR() {
-  rightTicks += (digitalRead(RIGHT_ENC_B) == HIGH) ? -1 : 1;
+  rightTicks += (digitalRead(RIGHT_ENC_B) == HIGH) ? 1 : -1;
 }
 
 // ============================================================
