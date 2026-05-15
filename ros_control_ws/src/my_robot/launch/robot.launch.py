@@ -63,18 +63,18 @@ def generate_launch_description():
             ],
         ),
 
-        # ── IMU Node ─────────────────────────────────────────────
-        Node(
-            package='my_robot',
-            executable='imu_node',
-            name='imu_node',
-            parameters=[{
-                'i2c_bus':      1,
-                'i2c_address':  0x68,
-                'publish_rate': 10.0,
-                'frame_id':     'imu_link',
-            }],
-        ),
+        # ── IMU Node (disabled until I2C wiring verified) ────────
+        # Node(
+        #     package='my_robot',
+        #     executable='imu_node',
+        #     name='imu_node',
+        #     parameters=[{
+        #         'i2c_bus':      1,
+        #         'i2c_address':  0x68,
+        #         'publish_rate': 10.0,
+        #         'frame_id':     'imu_link',
+        #     }],
+        # ),
 
         # ── EKF Sensor Fusion ────────────────────────────────────
         Node(
