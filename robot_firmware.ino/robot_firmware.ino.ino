@@ -38,7 +38,7 @@ unsigned long lastSendTime = 0;
 
 // ============================================================
 void leftEncoderISR() {
-  leftTicks += (digitalRead(LEFT_ENC_B) == HIGH) ? 1 : -1;
+  leftTicks += (digitalRead(LEFT_ENC_B) == HIGH) ? -1 : 1;
 }
 
 void rightEncoderISR() {

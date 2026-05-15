@@ -12,7 +12,7 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | Pi colcon build | ✅ Working (must `source /opt/ros/humble/setup.bash` first) |
 | RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
 | RViz2 scan visualization (laptop) | ✅ Working via `ROS_DOMAIN_ID=0` over WiFi |
-| Differential drive + encoder feedback | ✅ Motors + encoders working — MAX_MOTOR_RAD_S=14.8 calibrated |
+| Differential drive + encoder feedback | ✅ Working — `/odom` position.x increases steadily on forward drive |
 | Gesture control (laptop → Pi) | Working (untested this session) |
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
@@ -196,7 +196,8 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - Firmware flashed: right encoder ISR sign fixed, MAX_MOTOR_RAD_S=14.8 (measured)
 - Left motor M+/M− swapped at Cytron to correct forward direction
 - `use_stamped_vel: true` set in controllers.yaml (twist_to_twist_stamped pipeline)
-- **Remaining:** verify `/odom` increments correctly during ROS2 drive test
+- Left encoder ISR sign flipped after M+/M- swap (swapping wires reverses encoder count direction)
+- `/diff_drive_controller/odom` position.x confirmed increasing on forward drive ✅
 
 ### SLAM + Nav2 (blocked until motors working)
 - Drive test first, then SLAM mapping session
