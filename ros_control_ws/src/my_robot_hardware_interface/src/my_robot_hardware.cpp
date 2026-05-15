@@ -132,15 +132,21 @@ MyRobotHardware::export_command_interfaces()
 hardware_interface::return_type MyRobotHardware::read(
   const rclcpp::Time &, const rclcpp::Duration &)
 {
-  std::string line = readLine();
-  if (line.empty() || line[0] != 'F') {
-    return hardware_interface::return_type::OK;  // not ready yet
+  // Drain all buffered lines — keep only the latest valid F line.
+  // Arduino sends at 50Hz, controller reads at 25Hz, so the buffer
+  // accumulates one extra line per cycle and eventually overflows.
+  std::string latest;
+  std::string line;
+  while (!(line = readLine()).empty()) {
+    if (line[0] == 'F') latest = line;
   }
+
+  if (latest.empty()) return hardware_interface::return_type::OK;
 
   // Parse "F<l_pos>,<r_pos>,<l_vel>,<r_vel>"
   try {
-    line = line.substr(1);  // remove 'F'
-    std::stringstream ss(line);
+    latest = latest.substr(1);  // remove 'F'
+    std::stringstream ss(latest);
     std::string token;
     std::vector<double> vals;
 
