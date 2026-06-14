@@ -4,15 +4,16 @@
 // ============================================================
 
 // --- Pin Definitions (Cytron MDD3A dual PWM) ---
-#define LEFT_AIN1   5
-#define LEFT_AIN2   6
-#define RIGHT_BIN1  9
-#define RIGHT_BIN2  10
+// Left/right swapped relative to physical wiring — corrected here in software
+#define LEFT_AIN1   9
+#define LEFT_AIN2   10
+#define RIGHT_BIN1  5
+#define RIGHT_BIN2  6
 
-#define LEFT_ENC_A  2   // Interrupt
-#define LEFT_ENC_B  8
-#define RIGHT_ENC_A 3   // Interrupt
-#define RIGHT_ENC_B 11
+#define LEFT_ENC_A  3   // Interrupt
+#define LEFT_ENC_B  11
+#define RIGHT_ENC_A 2   // Interrupt
+#define RIGHT_ENC_B 8
 
 // --- Robot Parameters (UPDATE THESE) ---
 const float WHEEL_RADIUS    = 0.033;

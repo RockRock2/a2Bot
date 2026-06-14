@@ -13,10 +13,13 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
 | RViz2 scan visualization (laptop) | ✅ Working via `ROS_DOMAIN_ID=0` over WiFi |
 | Differential drive + encoder feedback | ✅ Working — `/odom` position.x increases steadily on forward drive |
+| Teleop / turning | ⚠️ Forward works; left/right pin swap fix flashed, pending turn test |
+| WiFi SSH | ✅ Pi at 192.168.0.11, avahi `a2bot.local` enabled |
+| IMU (MPU-9250) | ⚠️ I2C wired but not detected — EKF running wheel-only for now |
 | Gesture control (laptop → Pi) | Working (untested this session) |
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
-| SLAM | Pending motors |
+| SLAM | Pending teleop turn fix verification |
 | Autonomous navigation (Nav2) | Pending SLAM map |
 | Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
 | Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
@@ -191,16 +194,34 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 
 ## Pending Work
 
-### Motors ✅ (completed 2026-05-15)
-- Arduino wired, udev rule `/dev/arduino` in place (CH340: `idVendor=="1a86"`)
-- Firmware flashed: right encoder ISR sign fixed, MAX_MOTOR_RAD_S=14.8 (measured)
+### Motors + Drive Stack ✅ (2026-05-15)
+- Arduino wired, udev rule `/dev/arduino` (CH340: `idVendor=="1a86"`, symlink → ttyUSB1)
+- Firmware: right encoder ISR sign fixed, MAX_MOTOR_RAD_S=14.8 measured, left encoder ISR flipped after M+/M− swap
 - Left motor M+/M− swapped at Cytron to correct forward direction
-- `use_stamped_vel: true` set in controllers.yaml (twist_to_twist_stamped pipeline)
-- Left encoder ISR sign flipped after M+/M- swap (swapping wires reverses encoder count direction)
-- `/diff_drive_controller/odom` position.x confirmed increasing on forward drive ✅
+- Left/right motor+encoder pins swapped in firmware (software fix — physical wiring was L/R reversed)
+- `use_stamped_vel: true` in controllers.yaml (twist_to_twist_stamped publishes TwistStamped)
+- EKF: odom topic corrected to `/diff_drive_controller/odom`; IMU removed (wheel-only for now)
+- Hardware interface serial buffer drain fix: read all pending lines per cycle, use latest
+- `/odom` confirmed publishing; forward drive confirmed working
+- **Pending:** reflash with L/R pin swap, verify teleop turns ('j'/'l') work correctly
 
-### SLAM + Nav2 (blocked until motors working)
-- Drive test first, then SLAM mapping session
+### WiFi ✅ (2026-05-15)
+- Pi connected to home WiFi via netplan (`/etc/netplan/60-wifi.yaml`)
+- IP: `192.168.0.11` (DHCP — reserve in router for stability)
+- `avahi-daemon` installed → `ssh a2bot@a2bot.local` works on LAN
+- Pi `~/.bashrc` sources `/opt/ros/humble/setup.bash` and workspace `install/setup.bash`
+
+### IMU (MPU-9250) — blocked
+- Wired: VCC→Pin1(3.3V), GND→Pin6, SDA→Pin3, SCL→Pin5
+- I2C enabled in `/boot/firmware/config.txt` (`dtparam=i2c_arm=on`)
+- `i2cdetect -y 1` shows no devices — module not responding
+- `imu_node` disabled in `robot.launch.py` (commented out) until I2C resolved
+- EKF runs wheel-odometry-only in the meantime
+
+### SLAM + Nav2 (next — unblock after teleop turn test passes)
+- Verify 'j'/'l' teleop turns work after L/R pin swap reflash
+- Launch: `ros2 launch slam_toolbox online_async_launch.py params_file:=~/a2Bot/ros_control_ws/src/my_robot/config/mapper_params_online_async.yaml use_sim_time:=false`
+- Drive slowly around room; visualize `/map` in RViz2 on laptop
 - Save map: `ros2 run nav2_map_server map_saver_cli -f ~/maps/room`
 - Nav2: `ros2 launch my_robot navigation.launch.py map:=~/maps/room.yaml`
 
