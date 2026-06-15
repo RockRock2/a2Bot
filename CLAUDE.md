@@ -11,16 +11,16 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | Humble code migration | ✅ Complete — 4/4 packages build 0 errors |
 | Pi colcon build | ✅ Working (must `source /opt/ros/humble/setup.bash` first) |
 | RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
-| RViz2 scan visualization (laptop) | ✅ Working via `ROS_DOMAIN_ID=0` over WiFi |
+| RViz2 scan visualization (laptop) | ⚠️ DDS multicast blocked by router — fastdds_unicast.xml set up on both machines; partial topic list visible |
 | Differential drive + encoder feedback | ✅ Working — `/odom` position.x increases steadily on forward drive |
 | Teleop / turning | ✅ Working — left wheel reverse wiring fixed (pin 10 wire reseated) |
-| WiFi SSH | ✅ Pi at 192.168.0.11, avahi `a2bot.local` enabled |
+| WiFi SSH | ✅ Pi at 192.168.0.11, laptop at 192.168.0.9, avahi `a2bot.local` enabled |
 | IMU (MPU-9250) | ⚠️ I2C wired but not detected — EKF running wheel-only for now |
 | Gesture control (laptop → Pi) | Working (untested this session) |
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
 | SLAM | ✅ Map saved at `/home/a2bot/maps/room.yaml` (55×75 cells @ 0.05 m/cell) |
-| Autonomous navigation (Nav2) | ⚠️ Launch working — nav goal test pending |
+| Autonomous navigation (Nav2) | ⚠️ All nodes activate cleanly — nav goal test pending (DDS issue prevents RViz2 control from laptop) |
 | Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
 | Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
 | YOLOv8 object detection | Planned |
@@ -196,6 +196,12 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - **Port 8888 in use** — if robot.launch.py is killed and relaunched quickly, the dashboard port may still be held. Run `pkill -f robot_dashboard` before relaunching.
 - **map_saver tilde path** — `map_saver_cli -f ~/maps/room` fails if `~/maps/` doesn't exist. Run `mkdir -p ~/maps` first. Also use absolute paths (not `~`) when passing `map:=` to navigation.launch.py.
 - **Left wheel reverse wiring** — Arduino pin 10 (LEFT_AIN2) → Cytron signal wire was broken/disconnected. Fixed by replacing/reseating wire. ✅ Resolved.
+- **Nav2 plugin names — `::` vs `/`** — In Humble's Nav2, pluginlib uses `/` for some packages and `::` for others. Confirmed working: `nav2_navfn_planner/NavfnPlanner`, `nav2_behaviors/Spin|BackUp|Wait`, `nav2_bt_navigator/NavigateToPoseNavigator`, `nav2_smoother/SimpleSmoother`. Use `::` for: `dwb_core::DWBLocalPlanner`, `nav2_controller::SimpleProgressChecker`, `nav2_costmap_2d::*`, `nav2_waypoint_follower::WaitAtWaypoint`.
+- **Nav2 costmap `plugins: []`** — Empty YAML sequence stored as PARAMETER_NOT_SET in ROS2; causes controller_server crash. Always provide at least one layer (e.g. `obstacle_layer`).
+- **TF tree conflict — base_footprint vs base_link** — URDF has `base_link` as root with `base_footprint` as child. diff_drive_controller (`base_frame_id: base_footprint`, `enable_odom_tf: true`) and EKF (`base_link_frame: base_link`) both publish overlapping odom TFs, making `base_footprint` have two parents — AMCL loses track of robot. Fix: `enable_odom_tf: false` in controllers.yaml, `base_frame_id: base_link` in controllers.yaml, all Nav2 `robot_base_frame: base_link`. EKF is the sole odom→base_link TF publisher.
+- **Pi workspace colcon build path** — build from `~/a2Bot/ros_control_ws/` (not `~/a2Bot/`). Install is at `~/a2Bot/ros_control_ws/install/`.
+- **DDS multicast blocked on home WiFi** — Router blocks multicast between wireless clients; `ros2 topic list` on laptop shows only local topics. Fix: create `~/fastdds_unicast.xml` on both Pi and laptop with each other's IP in `<initialPeersList>`, set `FASTRTPS_DEFAULT_PROFILES_FILE` in `~/.bashrc`, restart daemon and relaunch nodes. Pi: 192.168.0.11, Laptop: 192.168.0.9.
+- **Initial pose must be set from Pi** — Until DDS discovery is fully resolved, run `/initialpose` pub from the Pi terminal: `ros2 topic pub --once /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -1.5, y: 1.2, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.068]}}"`
 
 ---
 
@@ -230,12 +236,14 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - Map saved at `/home/a2bot/maps/room.yaml` + `room.pgm` (55×75 cells @ 0.05 m/cell)
 - `mkdir -p ~/maps` required before first save
 
-### Nav2 ⚠️ (2026-06-15 — launch working, nav goal pending)
+### Nav2 ⚠️ (2026-06-16 — all nodes active, nav goal test blocked by DDS)
 - Launch: `ros2 launch my_robot navigation.launch.py map:=/home/a2bot/maps/room.yaml`
-- Fixed: `critics:` → `plugins:` in `nav2_params.yaml` FollowPath section (Humble DWB API)
-- Fixed: removed `cmd_vel_topic` and `max_wheel_angular_velocity` from `controllers.yaml`
-- All Nav2 nodes now launch without crash
-- **Next:** Set 2D Pose Estimate in RViz2, send Nav2 goal, confirm autonomous navigation works
+- Fixed (2026-06-15/16): costmap `plugins: []` crash, DWB `critics:` key, plugin `::` vs `/` names, TF tree conflict (base_link vs base_footprint), duplicate static TF publishers removed
+- TF tree now clean: `map→odom (AMCL) → base_link (EKF) → {laser, wheels, ...} (RSP)`
+- All 8 Nav2 nodes activate: map_server, amcl, controller_server, planner_server, behavior_server, bt_navigator, waypoint_follower, velocity_smoother
+- Initial pose: set from Pi with x=-1.5, y=1.2 in map frame (center of map)
+- **Blocked:** DDS multicast not forwarded by home WiFi router — laptop can't see all Nav2 topics → can't use RViz2 for pose/goal
+- **Next:** Resolve DDS (fastdds_unicast.xml on both machines), then set pose + send Nav2 goal from RViz2, confirm robot tracks position on map
 
 ### Documentation (remaining stubs)
 - `docs/hardware/` — BOM, wiring diagram, power system
