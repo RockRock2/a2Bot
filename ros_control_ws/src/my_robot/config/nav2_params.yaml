@@ -55,9 +55,9 @@ bt_navigator:
       - navigate_to_pose
       - navigate_through_poses
     navigate_to_pose:
-      plugin: nav2_bt_navigator::NavigateToPoseNavigator
+      plugin: nav2_bt_navigator/NavigateToPoseNavigator
     navigate_through_poses:
-      plugin: nav2_bt_navigator::NavigateThroughPosesNavigator
+      plugin: nav2_bt_navigator/NavigateThroughPosesNavigator
       
 controller_server:
   ros__parameters:
@@ -210,7 +210,7 @@ smoother_server:
     use_sim_time: false
     smoother_plugins: ["simple_smoother"]
     simple_smoother:
-      plugin: "nav2_smoother::SimpleSmoother"
+      plugin: "nav2_smoother/SimpleSmoother"
       tolerance: 1.0e-10
       max_its: 1000
       do_refinement: true
@@ -223,11 +223,11 @@ behavior_server:
     cycle_frequency: 10.0
     behavior_plugins: ["spin", "backup", "wait"]
     spin:
-      plugin: "nav2_behaviors::Spin"
+      plugin: "nav2_behaviors/Spin"
     backup:
-      plugin: "nav2_behaviors::BackUp"
+      plugin: "nav2_behaviors/BackUp"
     wait:
-      plugin: "nav2_behaviors::Wait"
+      plugin: "nav2_behaviors/Wait"
     spin_dist: 1.57
     linear_min_vel: 0.1
     linear_max_vel: 0.25
@@ -252,7 +252,7 @@ waypoint_follower:
     stop_on_failure: false
     waypoint_task_executor_plugin: "wait_at_waypoint"
     wait_at_waypoint:
-      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      plugin: "nav2_waypoint_follower/WaitAtWaypoint"
       enabled: true
       waypoint_pause_duration: 200
 
