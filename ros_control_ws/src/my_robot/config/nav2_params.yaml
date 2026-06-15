@@ -252,7 +252,7 @@ waypoint_follower:
     stop_on_failure: false
     waypoint_task_executor_plugin: "wait_at_waypoint"
     wait_at_waypoint:
-      plugin: "nav2_waypoint_follower/WaitAtWaypoint"
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
       enabled: true
       waypoint_pause_duration: 200
 
