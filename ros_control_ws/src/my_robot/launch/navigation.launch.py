@@ -1,6 +1,7 @@
 # ~/robot_ws/src/my_robot/launch/navigation.launch.py
 
 import os
+import subprocess
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, TimerAction
@@ -9,6 +10,8 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    subprocess.run('rm -rf /dev/shm/fastrtps_*', shell=True, check=False)
+
     pkg_share   = get_package_share_directory('my_robot')
     nav2_params = LaunchConfiguration('params_file')
     map_file    = LaunchConfiguration('map')
