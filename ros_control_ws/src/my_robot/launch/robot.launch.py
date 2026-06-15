@@ -99,23 +99,6 @@ def generate_launch_description():
             }],
         ),
 
-        # ── Static TF publisher ──────────────────────────────────
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='base_link_to_laser',
-            arguments=['0.08', '0', '0.065', '0', '0', '0',
-                       'base_link', 'laser'],
-        ),
-
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='base_link_to_imu',
-            arguments=['0.0', '0.0', '0.02', '0', '0', '0',
-                       'base_link', 'imu_link'],
-        ),
-
         Node(
             package='my_robot',
             executable='twist_to_twist_stamped',

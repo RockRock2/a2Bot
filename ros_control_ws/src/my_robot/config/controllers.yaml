@@ -38,9 +38,9 @@ diff_drive_controller:
     pose_covariance_diagonal:     [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
     twist_covariance_diagonal:    [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
     open_loop:                    false   # use encoder feedback (not open loop)
-    enable_odom_tf:               true    # broadcast odom→base_footprint TF
+    enable_odom_tf:               false   # EKF owns odom→base_link TF; disable to avoid conflict
     odom_frame_id:                odom
-    base_frame_id:                base_footprint
+    base_frame_id:                base_link
 
     # Publish rate
     publish_rate: 25.0          # Hz — reduce to 20.0 if CPU pressure
