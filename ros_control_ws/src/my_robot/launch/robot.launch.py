@@ -1,4 +1,5 @@
 import os
+import subprocess
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import TimerAction
@@ -6,6 +7,10 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    # Clean up stale FastDDS SHM locks and any held ports from a previous run
+    subprocess.run('rm -rf /dev/shm/fastrtps_*', shell=True, check=False)
+    subprocess.run('pkill -f robot_dashboard', shell=True, check=False)
+
     pkg_share   = get_package_share_directory('my_robot')
     urdf_file   = os.path.join(pkg_share, 'urdf', 'robot.urdf.xml')
     ctrl_config = os.path.join(pkg_share, 'config', 'controllers.yaml')
