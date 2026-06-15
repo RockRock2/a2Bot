@@ -92,6 +92,35 @@ void parseVelocityCommand(String cmd) {
 }
 
 // ============================================================
+// Motor self-test: set MOTOR_TEST 1 to run a 4-step test on boot,
+// then set back to 0 for normal operation.
+#define MOTOR_TEST 0
+
+void motorSelfTest() {
+  // Step 1: Left forward  (AIN1=PWM, AIN2=0)
+  Serial.println("TEST: Left FWD");
+  analogWrite(LEFT_AIN1, 80); analogWrite(LEFT_AIN2, 0);
+  delay(1000); stopMotors(); delay(300);
+
+  // Step 2: Left backward (AIN1=0, AIN2=PWM) — tests pin 10
+  Serial.println("TEST: Left REV");
+  analogWrite(LEFT_AIN1, 0); analogWrite(LEFT_AIN2, 80);
+  delay(1000); stopMotors(); delay(300);
+
+  // Step 3: Right forward
+  Serial.println("TEST: Right FWD");
+  analogWrite(RIGHT_BIN1, 80); analogWrite(RIGHT_BIN2, 0);
+  delay(1000); stopMotors(); delay(300);
+
+  // Step 4: Right backward
+  Serial.println("TEST: Right REV");
+  analogWrite(RIGHT_BIN1, 0); analogWrite(RIGHT_BIN2, 80);
+  delay(1000); stopMotors(); delay(300);
+
+  Serial.println("TEST: Done");
+}
+
+// ============================================================
 void setup() {
   Serial.begin(115200);
 
@@ -104,6 +133,10 @@ void setup() {
 
   attachInterrupt(digitalPinToInterrupt(LEFT_ENC_A),  leftEncoderISR,  RISING);
   attachInterrupt(digitalPinToInterrupt(RIGHT_ENC_A), rightEncoderISR, RISING);
+
+#if MOTOR_TEST
+  motorSelfTest();
+#endif
 
   prevTime = millis();
 }

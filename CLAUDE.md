@@ -13,14 +13,14 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
 | RViz2 scan visualization (laptop) | ✅ Working via `ROS_DOMAIN_ID=0` over WiFi |
 | Differential drive + encoder feedback | ✅ Working — `/odom` position.x increases steadily on forward drive |
-| Teleop / turning | ⚠️ Forward works; left/right pin swap fix flashed, pending turn test |
+| Teleop / turning | ✅ Working — left wheel reverse wiring fixed (pin 10 wire reseated) |
 | WiFi SSH | ✅ Pi at 192.168.0.11, avahi `a2bot.local` enabled |
 | IMU (MPU-9250) | ⚠️ I2C wired but not detected — EKF running wheel-only for now |
 | Gesture control (laptop → Pi) | Working (untested this session) |
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
-| SLAM | Pending teleop turn fix verification |
-| Autonomous navigation (Nav2) | Pending SLAM map |
+| SLAM | ✅ Map saved at `/home/a2bot/maps/room.yaml` (55×75 cells @ 0.05 m/cell) |
+| Autonomous navigation (Nav2) | ⚠️ Launch working — nav goal test pending |
 | Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
 | Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
 | YOLOv8 object detection | Planned |
@@ -189,12 +189,19 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - **Gazebo TurtleBot3 spawn timeout** — on first launch, Gazebo downloads models and the `/spawn_entity` service times out. Fix: `git clone https://github.com/osrf/gazebo_models.git ~/.gazebo/models/` then retry.
 - **`odometry_node.py` had wrong TPR** — was `3000` (placeholder), corrected to `360` (matches Arduino firmware). Commit `05d4094`.
 - **WS_ziad reference workspace** at `/home/rock-ubuntu/Desktop/A2_bot/WS_ziad` — ROS1-based reference from the course. Useful for Nav2 config parameters and modular launch file structure. Do NOT use its serial bridge or hector_slam.
+- **rplidar_ros buffer overflow** — apt-installed `rplidar_ros` on Humble crashes with "buffer overflow detected". Fix: build from source (`git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git` into workspace) or pass `-p channel_type:=serial`. The `rplidar_composition` node in `robot.launch.py` is unaffected.
+- **Pi workspace path** — Pi workspace root is `~/a2Bot/` (install at `~/a2Bot/install/`, source at `~/a2Bot/src/`). Not `~/a2Bot/ros_control_ws/` as previously noted. Always edit source under `~/a2Bot/src/` and rebuild from `~/a2Bot/`.
+- **nav2_params.yaml `critics` → `plugins`** — DWBLocalPlanner in Humble uses `plugins:` not `critics:` for trajectory critics list. Fixed in `config/nav2_params.yaml` FollowPath section.
+- **controllers.yaml invalid params** — `cmd_vel_topic` and `max_wheel_angular_velocity` are not valid diff_drive_controller parameters in Humble — they cause controller configure to fail. Removed.
+- **Port 8888 in use** — if robot.launch.py is killed and relaunched quickly, the dashboard port may still be held. Run `pkill -f robot_dashboard` before relaunching.
+- **map_saver tilde path** — `map_saver_cli -f ~/maps/room` fails if `~/maps/` doesn't exist. Run `mkdir -p ~/maps` first. Also use absolute paths (not `~`) when passing `map:=` to navigation.launch.py.
+- **Left wheel reverse wiring** — Arduino pin 10 (LEFT_AIN2) → Cytron signal wire was broken/disconnected. Fixed by replacing/reseating wire. ✅ Resolved.
 
 ---
 
 ## Pending Work
 
-### Motors + Drive Stack ✅ (2026-05-15)
+### Motors + Drive Stack (2026-06-15)
 - Arduino wired, udev rule `/dev/arduino` (CH340: `idVendor=="1a86"`, symlink → ttyUSB1)
 - Firmware: right encoder ISR sign fixed, MAX_MOTOR_RAD_S=14.8 measured, left encoder ISR flipped after M+/M− swap
 - Left motor M+/M− swapped at Cytron to correct forward direction
@@ -203,7 +210,8 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - EKF: odom topic corrected to `/diff_drive_controller/odom`; IMU removed (wheel-only for now)
 - Hardware interface serial buffer drain fix: read all pending lines per cycle, use latest
 - `/odom` confirmed publishing; forward drive confirmed working
-- **Pending:** reflash with L/R pin swap, verify teleop turns ('j'/'l') work correctly
+- Motor self-test added to firmware (`#define MOTOR_TEST 1` in robot_firmware.ino.ino) — runs 4-step FWD/REV sequence on boot for diagnosis; set back to 0 for normal use
+- Left wheel reverse fixed — pin 10 (LEFT_AIN2) wire from Arduino to Cytron reseated ✅; teleop turns ('j'/'l') verified
 
 ### WiFi ✅ (2026-05-15)
 - Pi connected to home WiFi via netplan (`/etc/netplan/60-wifi.yaml`)
@@ -218,12 +226,16 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - `imu_node` disabled in `robot.launch.py` (commented out) until I2C resolved
 - EKF runs wheel-odometry-only in the meantime
 
-### SLAM + Nav2 (next — unblock after teleop turn test passes)
-- Verify 'j'/'l' teleop turns work after L/R pin swap reflash
-- Launch: `ros2 launch slam_toolbox online_async_launch.py params_file:=~/a2Bot/ros_control_ws/src/my_robot/config/mapper_params_online_async.yaml use_sim_time:=false`
-- Drive slowly around room; visualize `/map` in RViz2 on laptop
-- Save map: `ros2 run nav2_map_server map_saver_cli -f ~/maps/room`
-- Nav2: `ros2 launch my_robot navigation.launch.py map:=~/maps/room.yaml`
+### SLAM ✅ (2026-06-15)
+- Map saved at `/home/a2bot/maps/room.yaml` + `room.pgm` (55×75 cells @ 0.05 m/cell)
+- `mkdir -p ~/maps` required before first save
+
+### Nav2 ⚠️ (2026-06-15 — launch working, nav goal pending)
+- Launch: `ros2 launch my_robot navigation.launch.py map:=/home/a2bot/maps/room.yaml`
+- Fixed: `critics:` → `plugins:` in `nav2_params.yaml` FollowPath section (Humble DWB API)
+- Fixed: removed `cmd_vel_topic` and `max_wheel_angular_velocity` from `controllers.yaml`
+- All Nav2 nodes now launch without crash
+- **Next:** Set 2D Pose Estimate in RViz2, send Nav2 goal, confirm autonomous navigation works
 
 ### Documentation (remaining stubs)
 - `docs/hardware/` — BOM, wiring diagram, power system

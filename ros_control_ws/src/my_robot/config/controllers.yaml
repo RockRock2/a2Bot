@@ -23,8 +23,6 @@ diff_drive_controller:
     wheel_radius:     0.033     # meters
 
     # Velocity limits
-    max_wheel_angular_velocity: 3.0   # rad/s
-
     linear:
       x:
         has_velocity_limits: true
@@ -43,10 +41,6 @@ diff_drive_controller:
     enable_odom_tf:               true    # broadcast odom→base_footprint TF
     odom_frame_id:                odom
     base_frame_id:                base_footprint
-
-    # Velocity command topic
-    # diff_drive_controller subscribes to this automatically
-    cmd_vel_topic: /cmd_vel
 
     # Publish rate
     publish_rate: 25.0          # Hz — reduce to 20.0 if CPU pressure
