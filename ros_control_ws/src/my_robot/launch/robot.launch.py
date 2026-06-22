@@ -7,18 +7,16 @@ from launch_ros.actions import Node
 
 
 def _stop_rplidar():
-    """Send STOP command to RPLidar via serial to cleanly stop motor before relaunch.
-    Prevents 80008002 / OPERATION_TIMEOUT errors caused by killing mid-scan."""
+    """Send STOP+RESET to RPLidar via serial so motor is in clean state on relaunch.
+    Uses stty+printf — no Python packages required."""
     import time
-    try:
-        import serial
-        with serial.Serial('/dev/rplidar', 115200, timeout=0.5) as ser:
-            ser.write(b'\xa5\x25')  # RPLIDAR_CMD_STOP
-            time.sleep(0.5)
-            ser.write(b'\xa5\x40')  # RPLIDAR_CMD_RESET (firmware reboot)
-            time.sleep(3.0)         # wait for device to reinitialise
-    except Exception:
-        pass  # device absent or pyserial missing — silently skip
+    if not os.path.exists('/dev/rplidar'):
+        return
+    subprocess.run('stty -F /dev/rplidar 115200 raw -echo', shell=True, check=False)
+    subprocess.run("printf '\\xa5\\x25' > /dev/rplidar", shell=True, check=False)  # STOP
+    time.sleep(0.5)
+    subprocess.run("printf '\\xa5\\x40' > /dev/rplidar", shell=True, check=False)  # RESET
+    time.sleep(3.0)  # wait for firmware to reinitialise
 
 
 def generate_launch_description():
