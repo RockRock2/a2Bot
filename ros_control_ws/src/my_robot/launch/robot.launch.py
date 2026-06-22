@@ -15,14 +15,16 @@ def _reset_rplidar_usb():
                 if '10c4' not in f.read():
                     continue
             dev_id = vendor_file.replace('/idVendor', '').split('/')[-1]
-            with open('/sys/bus/usb/drivers/usb/unbind', 'w') as f:
-                f.write(dev_id)
+            subprocess.run(
+                f'echo -n "{dev_id}" | sudo tee /sys/bus/usb/drivers/usb/unbind',
+                shell=True, check=False, capture_output=True)
             time.sleep(1.0)
-            with open('/sys/bus/usb/drivers/usb/bind', 'w') as f:
-                f.write(dev_id)
+            subprocess.run(
+                f'echo -n "{dev_id}" | sudo tee /sys/bus/usb/drivers/usb/bind',
+                shell=True, check=False, capture_output=True)
             time.sleep(1.0)
         except OSError:
-            pass  # needs root — skip silently if not permitted
+            pass
 
 
 def generate_launch_description():
