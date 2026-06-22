@@ -155,10 +155,10 @@ hardware_interface::return_type MyRobotHardware::read(
     }
 
     if (vals.size() == 4) {
-      left_wheel_pos_  = vals[0];
-      right_wheel_pos_ = vals[1];
-      left_wheel_vel_  = vals[2];
-      right_wheel_vel_ = vals[3];
+      left_wheel_pos_  = -vals[0];
+      right_wheel_pos_ = -vals[1];
+      left_wheel_vel_  = -vals[2];
+      right_wheel_vel_ = -vals[3];
     }
   } catch (const std::exception & e) {
     RCLCPP_WARN_THROTTLE(logger_, *rclcpp::Clock::make_shared(),
