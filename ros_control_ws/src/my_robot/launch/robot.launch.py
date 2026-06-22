@@ -6,10 +6,30 @@ from launch.actions import TimerAction
 from launch_ros.actions import Node
 
 
+def _reset_rplidar_usb():
+    """Unbind/rebind the CP210x USB device so RPLidar motor resets between launches."""
+    import glob, time
+    for vendor_file in glob.glob('/sys/bus/usb/devices/*/idVendor'):
+        try:
+            with open(vendor_file) as f:
+                if '10c4' not in f.read():
+                    continue
+            dev_id = vendor_file.replace('/idVendor', '').split('/')[-1]
+            with open('/sys/bus/usb/drivers/usb/unbind', 'w') as f:
+                f.write(dev_id)
+            time.sleep(1.0)
+            with open('/sys/bus/usb/drivers/usb/bind', 'w') as f:
+                f.write(dev_id)
+            time.sleep(1.0)
+        except OSError:
+            pass  # needs root — skip silently if not permitted
+
+
 def generate_launch_description():
     # Clean up stale FastDDS SHM locks and any held ports from a previous run
     subprocess.run('rm -rf /dev/shm/fastrtps_*', shell=True, check=False)
     subprocess.run('pkill -f robot_dashboard', shell=True, check=False)
+    _reset_rplidar_usb()
 
     pkg_share   = get_package_share_directory('my_robot')
     urdf_file   = os.path.join(pkg_share, 'urdf', 'robot.urdf.xml')
