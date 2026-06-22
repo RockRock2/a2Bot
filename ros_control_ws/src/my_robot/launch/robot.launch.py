@@ -22,7 +22,12 @@ def _reset_rplidar_usb():
             subprocess.run(
                 f'echo -n "{dev_id}" | sudo tee /sys/bus/usb/drivers/usb/bind',
                 shell=True, check=False, capture_output=True)
-            time.sleep(1.0)
+            # Wait for udev to recreate /dev/rplidar symlink
+            deadline = time.time() + 5.0
+            while time.time() < deadline:
+                if os.path.exists('/dev/rplidar'):
+                    break
+                time.sleep(0.3)
         except OSError:
             pass
 
