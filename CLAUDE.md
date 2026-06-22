@@ -11,7 +11,7 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | Humble code migration | ✅ Complete — 4/4 packages build 0 errors |
 | Pi colcon build | ✅ Working (must `source /opt/ros/humble/setup.bash` first) |
 | RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz |
-| RViz2 scan visualization (laptop) | ⚠️ DDS multicast blocked by router — fastdds_unicast.xml set up on both machines; partial topic list visible |
+| RViz2 scan visualization (laptop) | ⚠️ CycloneDDS installed and configured — Pi nodes visible; nav goal from RViz2 untested |
 | Differential drive + encoder feedback | ✅ Working — `/odom` position.x increases steadily on forward drive |
 | Teleop / turning | ✅ Working — left wheel reverse wiring fixed (pin 10 wire reseated) |
 | WiFi SSH | ✅ Pi at 192.168.0.11, laptop at 192.168.0.9, avahi `a2bot.local` enabled |
@@ -20,7 +20,7 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
 | SLAM | ✅ Map saved at `/home/a2bot/maps/room.yaml` (55×75 cells @ 0.05 m/cell) |
-| Autonomous navigation (Nav2) | ⚠️ All nodes activate cleanly — nav goal test pending (DDS issue prevents RViz2 control from laptop) |
+| Autonomous navigation (Nav2) | ⚠️ All 8 nodes activate cleanly with CycloneDDS — nav goal test pending |
 | Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
 | Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
 | YOLOv8 object detection | Planned |
@@ -36,6 +36,7 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 | Motor driver | Cytron MDD3A (dual PWM mode) | Simple PWM interface, suitable for classroom use |
 | SLAM | slam_toolbox | ROS2 native, well-maintained |
 | Navigation | Nav2 (1.1.x) | Standard ROS2 navigation stack |
+| DDS middleware | CycloneDDS (`rmw_cyclonedds_cpp`) | FastDDS multicast broken on Pi's Broadcom BCM43xx WiFi — CycloneDDS with unicast peer list works reliably |
 | Gesture vision | MediaPipe (runs on laptop) | No GPU required, easy pip install |
 | Object detection | YOLOv8 | Planned — not yet implemented |
 | Docs | MkDocs Material | Clean, searchable, free GitHub Pages hosting |
@@ -200,8 +201,28 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - **Nav2 costmap `plugins: []`** — Empty YAML sequence stored as PARAMETER_NOT_SET in ROS2; causes controller_server crash. Always provide at least one layer (e.g. `obstacle_layer`).
 - **TF tree conflict — base_footprint vs base_link** — URDF has `base_link` as root with `base_footprint` as child. diff_drive_controller (`base_frame_id: base_footprint`, `enable_odom_tf: true`) and EKF (`base_link_frame: base_link`) both publish overlapping odom TFs, making `base_footprint` have two parents — AMCL loses track of robot. Fix: `enable_odom_tf: false` in controllers.yaml, `base_frame_id: base_link` in controllers.yaml, all Nav2 `robot_base_frame: base_link`. EKF is the sole odom→base_link TF publisher.
 - **Pi workspace colcon build path** — build from `~/a2Bot/ros_control_ws/` (not `~/a2Bot/`). Install is at `~/a2Bot/ros_control_ws/install/`.
-- **DDS multicast blocked on home WiFi** — Router blocks multicast between wireless clients; `ros2 topic list` on laptop shows only local topics. Fix: create `~/fastdds_unicast.xml` on both Pi and laptop with each other's IP in `<initialPeersList>`, set `FASTRTPS_DEFAULT_PROFILES_FILE` in `~/.bashrc`, restart daemon and relaunch nodes. Pi: 192.168.0.11, Laptop: 192.168.0.9.
-- **Initial pose must be set from Pi** — Until DDS discovery is fully resolved, run `/initialpose` pub from the Pi terminal: `ros2 topic pub --once /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -1.5, y: 1.2, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.068]}}"`
+- **FastDDS multicast broken on Pi — switch to CycloneDDS** — Pi's Broadcom BCM43xx WiFi chip does not support multicast loopback. FastDDS default discovery (multicast) silently fails: `ros2 node list` returns empty even for same-machine nodes. `fastdds_unicast.xml` with custom peer lists does not fix it. Fix: install `ros-humble-rmw-cyclonedds-cpp`, create `~/cyclone_dds.xml` (see below), add to `~/.bashrc`: `export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` and `export CYCLONEDDS_URI=file:///home/a2bot/cyclone_dds.xml`. Do the same on the laptop (path: `file:///home/rock-ubuntu/cyclone_dds.xml`).
+- **CycloneDDS config** (`~/cyclone_dds.xml` on both Pi and laptop — identical content):
+  ```xml
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <CycloneDDS>
+    <Domain>
+      <General><AllowMulticast>false</AllowMulticast></General>
+      <Discovery>
+        <Peers>
+          <Peer address="localhost"/>
+          <Peer address="192.168.0.9"/>
+          <Peer address="192.168.0.11"/>
+        </Peers>
+        <ParticipantIndex>auto</ParticipantIndex>
+        <MaxAutoParticipantIndex>32</MaxAutoParticipantIndex>
+      </Discovery>
+    </Domain>
+  </CycloneDDS>
+  ```
+- **Stale FastDDS SHM locks controller spawner** — After Ctrl+C, `/dev/shm/fastrtps_*` files left locked. On relaunch, spawner waits forever for `/controller_manager/list_controllers`. Fixed in `robot.launch.py` and `navigation.launch.py` via `subprocess.run('rm -rf /dev/shm/fastrtps_*', ...)` at generate_launch_description() time. If manually needed: `rm -rf /dev/shm/fastrtps_*`.
+- **Port 8888 in use on relaunch** — dashboard port held after crash. Fixed in `robot.launch.py` via `subprocess.run('pkill -f robot_dashboard', ...)` at launch-description-generation time.
+- **Initial pose** — Set from Pi terminal after Nav2 activates: `ros2 topic pub --once /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -1.5, y: 1.2, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.068]}}"`
 
 ---
 
@@ -236,14 +257,13 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - Map saved at `/home/a2bot/maps/room.yaml` + `room.pgm` (55×75 cells @ 0.05 m/cell)
 - `mkdir -p ~/maps` required before first save
 
-### Nav2 ⚠️ (2026-06-16 — all nodes active, nav goal test blocked by DDS)
+### Nav2 ⚠️ (2026-06-22 — nodes activate, nav goal untested)
 - Launch: `ros2 launch my_robot navigation.launch.py map:=/home/a2bot/maps/room.yaml`
-- Fixed (2026-06-15/16): costmap `plugins: []` crash, DWB `critics:` key, plugin `::` vs `/` names, TF tree conflict (base_link vs base_footprint), duplicate static TF publishers removed
-- TF tree now clean: `map→odom (AMCL) → base_link (EKF) → {laser, wheels, ...} (RSP)`
-- All 8 Nav2 nodes activate: map_server, amcl, controller_server, planner_server, behavior_server, bt_navigator, waypoint_follower, velocity_smoother
-- Initial pose: set from Pi with x=-1.5, y=1.2 in map frame (center of map)
-- **Blocked:** DDS multicast not forwarded by home WiFi router — laptop can't see all Nav2 topics → can't use RViz2 for pose/goal
-- **Next:** Resolve DDS (fastdds_unicast.xml on both machines), then set pose + send Nav2 goal from RViz2, confirm robot tracks position on map
+- Fixed (2026-06-15/16): costmap `plugins: []` crash, DWB `critics:` key, plugin `::` vs `/` names, TF tree conflict, duplicate static TF publishers removed
+- Fixed (2026-06-22): DDS discovery — switched to CycloneDDS; all 8 nodes now activate cleanly
+- TF tree clean: `map→odom (AMCL) → base_link (EKF) → {laser, wheels, ...} (RSP)`
+- Initial pose: x=-1.5, y=1.2 in map frame
+- **Next:** Send Nav2 goal from Pi terminal or RViz2 on laptop, verify robot tracks position on map
 
 ### Documentation (remaining stubs)
 - `docs/hardware/` — BOM, wiring diagram, power system

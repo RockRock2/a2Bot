@@ -98,9 +98,10 @@ def generate_launch_description():
             executable='rplidar_composition',
             name='rplidar',
             parameters=[{
-                'serial_port':    '/dev/rplidar',
+                'serial_port':     '/dev/rplidar',
                 'serial_baudrate': 115200,
-                'frame_id':       'laser',
+                'frame_id':        'laser',
+                'channel_type':    'serial',
             }],
         ),
 
