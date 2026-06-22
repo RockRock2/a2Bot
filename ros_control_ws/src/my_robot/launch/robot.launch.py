@@ -14,7 +14,9 @@ def _stop_rplidar():
         import serial
         with serial.Serial('/dev/rplidar', 115200, timeout=0.5) as ser:
             ser.write(b'\xa5\x25')  # RPLIDAR_CMD_STOP
-            time.sleep(1.0)
+            time.sleep(0.5)
+            ser.write(b'\xa5\x40')  # RPLIDAR_CMD_RESET (firmware reboot)
+            time.sleep(3.0)         # wait for device to reinitialise
     except Exception:
         pass  # device absent or pyserial missing — silently skip
 
