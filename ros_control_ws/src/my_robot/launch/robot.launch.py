@@ -6,37 +6,24 @@ from launch.actions import TimerAction
 from launch_ros.actions import Node
 
 
-def _reset_rplidar_usb():
-    """Unbind/rebind the CP210x USB device so RPLidar motor resets between launches."""
-    import glob, time
-    for vendor_file in glob.glob('/sys/bus/usb/devices/*/idVendor'):
-        try:
-            with open(vendor_file) as f:
-                if '10c4' not in f.read():
-                    continue
-            dev_id = vendor_file.replace('/idVendor', '').split('/')[-1]
-            subprocess.run(
-                f'echo -n "{dev_id}" | sudo tee /sys/bus/usb/drivers/usb/unbind',
-                shell=True, check=False, capture_output=True)
+def _stop_rplidar():
+    """Send STOP command to RPLidar via serial to cleanly stop motor before relaunch.
+    Prevents 80008002 / OPERATION_TIMEOUT errors caused by killing mid-scan."""
+    import time
+    try:
+        import serial
+        with serial.Serial('/dev/rplidar', 115200, timeout=0.5) as ser:
+            ser.write(b'\xa5\x25')  # RPLIDAR_CMD_STOP
             time.sleep(1.0)
-            subprocess.run(
-                f'echo -n "{dev_id}" | sudo tee /sys/bus/usb/drivers/usb/bind',
-                shell=True, check=False, capture_output=True)
-            # Wait for udev to recreate /dev/rplidar symlink
-            deadline = time.time() + 5.0
-            while time.time() < deadline:
-                if os.path.exists('/dev/rplidar'):
-                    break
-                time.sleep(0.3)
-        except OSError:
-            pass
+    except Exception:
+        pass  # device absent or pyserial missing — silently skip
 
 
 def generate_launch_description():
     # Clean up stale FastDDS SHM locks and any held ports from a previous run
     subprocess.run('rm -rf /dev/shm/fastrtps_*', shell=True, check=False)
     subprocess.run('pkill -f robot_dashboard', shell=True, check=False)
-    _reset_rplidar_usb()
+    _stop_rplidar()
 
     pkg_share   = get_package_share_directory('my_robot')
     urdf_file   = os.path.join(pkg_share, 'urdf', 'robot.urdf.xml')
