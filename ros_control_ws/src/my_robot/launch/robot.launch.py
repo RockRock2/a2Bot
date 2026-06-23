@@ -117,6 +117,7 @@ def generate_launch_description():
                 'frame_id':        'laser',
                 'channel_type':    'serial',
                 'scan_mode':       'Standard',
+                'angle_compensate': True,
             }],
         ),
 
