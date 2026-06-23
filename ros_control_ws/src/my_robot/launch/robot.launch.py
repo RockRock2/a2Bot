@@ -116,7 +116,6 @@ def generate_launch_description():
                 'serial_baudrate': 115200,
                 'frame_id':        'laser',
                 'channel_type':    'serial',
-                'scan_mode':       'Standard',
                 'angle_compensate': True,
             }],
         ),
