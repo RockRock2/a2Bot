@@ -14,10 +14,9 @@ import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import JointState
+from geometry_msgs.msg import Twist
 
-import requests as _requests
-
-from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse, JSONResponse
 import uvicorn
 
@@ -34,15 +33,12 @@ _state = {
         "odometry_node": False,
         "robot_state_publisher": False,
         "imu_node": False,
-        "gesture_node": False,
     },
     "odometry": {"x": 0.0, "y": 0.0, "vx": 0.0, "omega": 0.0},
     "encoders": {"left_vel": 0.0, "right_vel": 0.0},
-    "demo_running": False,
 }
 _lock = threading.Lock()
 _ros_node = None
-_gesture_host: str | None = None  # IP of the laptop running gesture_launcher
 
 
 # ── ROS 2 Node ──────────────────────────────────────────────────────────────
@@ -51,6 +47,7 @@ class DashboardNode(Node):
         super().__init__("robot_dashboard")
         self.create_subscription(Odometry, "/odom", self._odom_cb, 10)
         self.create_subscription(JointState, "/joint_states", self._joint_cb, 10)
+        self.cmd_vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
         self.create_timer(2.0, self._update_nodes)
         self.create_timer(5.0, self._update_wifi)
         self._ros_env = self._build_ros_env()
@@ -97,8 +94,6 @@ class DashboardNode(Node):
             active = set(r.stdout.strip().splitlines())
             with _lock:
                 for key in list(_state["nodes"].keys()):
-                    if key == "gesture_node":
-                        continue  # tracked by demo_proc, not ros2 node list
                     _state["nodes"][key] = ("/" + key) in active
         except Exception as e:
             self.get_logger().warn(f"Node list update failed: {e}")
@@ -158,51 +153,15 @@ async def wifi_connect(body: dict):
     return result
 
 
-@app.post("/api/gesture/register")
-async def gesture_register(request: Request):
-    """Called by gesture_launcher on the laptop so the Pi knows its IP."""
-    global _gesture_host
-    _gesture_host = request.client.host
-    return {"ok": True, "registered": _gesture_host}
-
-
-def _relay(path: str) -> bool:
-    """Forward a start/stop command to the gesture launcher on the laptop."""
-    if not _gesture_host:
-        return False
-    try:
-        _requests.post(f"http://{_gesture_host}:5001{path}", timeout=5)
-        return True
-    except Exception:
-        return False
-
-
-@app.post("/api/demo/start")
-async def demo_start():
-    loop = asyncio.get_event_loop()
-    reached = await loop.run_in_executor(None, _relay, "/start")
-    if not reached and _gesture_host is None:
-        return JSONResponse(
-            {"ok": False, "error": "Gesture launcher not registered. Run: ros2 run gesture_control gesture_launcher on the laptop."},
-            status_code=503,
-        )
-    with _lock:
-        _state["demo_running"] = True
-        _state["nodes"]["gesture_node"] = True
+@app.post("/api/drive")
+async def drive(body: dict):
+    linear = float(body.get("linear", 0.0))
+    angular = float(body.get("angular", 0.0))
+    twist = Twist()
+    twist.linear.x = linear
+    twist.angular.z = angular
+    _ros_node.cmd_vel_pub.publish(twist)
     return {"ok": True}
-
-
-@app.post("/api/demo/stop")
-async def demo_stop():
-    loop = asyncio.get_event_loop()
-    await loop.run_in_executor(None, _relay, "/stop")
-    with _lock:
-        _state["demo_running"] = False
-        _state["nodes"]["gesture_node"] = False
-    return {"ok": True}
-
-
-
 
 
 
@@ -276,15 +235,18 @@ header h1 { font-size: 20px; font-weight: 600; }
 .node-tag.err span { background: #ef4444; }
 
 
-.controls-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-demo { flex: 1; min-width: 160px; padding: 14px 20px; border: none;
-            border-radius: 10px; font-size: 15px; font-weight: 600;
-            cursor: pointer; transition: background .2s; }
-.btn-demo.start { background: #22c55e; color: #fff; }
-.btn-demo.start:hover { background: #16a34a; }
-.btn-demo.stop  { background: #ef4444; color: #fff; }
-.btn-demo.stop:hover  { background: #dc2626; }
-
+.drive-pad { display: grid; grid-template-columns: repeat(3, 64px);
+             grid-template-rows: repeat(3, 64px); gap: 8px;
+             justify-content: center; margin: 6px auto; }
+.drive-btn { border: none; border-radius: 10px; background: #4f6ef7;
+             color: #fff; font-size: 22px; cursor: pointer;
+             user-select: none; transition: background .15s; }
+.drive-btn:hover  { background: #3a55d4; }
+.drive-btn:active,
+.drive-btn.pressed { background: #2a3fa0; }
+.drive-btn.stop  { background: #ef4444; }
+.drive-btn.stop:hover { background: #dc2626; }
+.drive-btn.empty { background: transparent; cursor: default; }
 
 </style>
 </head>
@@ -341,11 +303,6 @@ header h1 { font-size: 20px; font-weight: 600; }
           <div class="status-label">Odometry</div>
           <div class="status-val" id="val-odom">—</div>
         </div>
-        <div class="status-row">
-          <div class="dot unk" id="dot-demo"></div>
-          <div class="status-label">Gesture Demo</div>
-          <div class="status-val" id="val-demo">Stopped</div>
-        </div>
       </div>
 
       <div class="section-label" style="margin-top:18px;">Motion Data</div>
@@ -378,12 +335,20 @@ header h1 { font-size: 20px; font-weight: 600; }
 
     <!-- Right column: controls -->
     <div>
-      <div class="section-label">Controls</div>
+      <div class="section-label">Motor Control</div>
       <div class="card">
-        <div class="controls-row">
-          <button class="btn-demo start" id="demo-btn" onclick="toggleDemo()">
-            Start Gesture Demo
-          </button>
+        <div class="drive-pad">
+          <div class="drive-btn empty"></div>
+          <button class="drive-btn" data-linear="1" data-angular="0">&uarr;</button>
+          <div class="drive-btn empty"></div>
+
+          <button class="drive-btn" data-linear="0" data-angular="1">&larr;</button>
+          <button class="drive-btn stop" data-linear="0" data-angular="0">&#9632;</button>
+          <button class="drive-btn" data-linear="0" data-angular="-1">&rarr;</button>
+
+          <div class="drive-btn empty"></div>
+          <button class="drive-btn" data-linear="-1" data-angular="0">&darr;</button>
+          <div class="drive-btn empty"></div>
         </div>
       </div>
     </div>
@@ -395,10 +360,12 @@ header h1 { font-size: 20px; font-weight: 600; }
 const NODES = [
   'controller_manager', 'diff_drive_controller',
   'joint_state_broadcaster', 'odometry_node',
-  'robot_state_publisher', 'imu_node', 'gesture_node'
+  'robot_state_publisher', 'imu_node'
 ];
 
-let demoRunning = false;
+const MAX_LINEAR = 0.3;   // m/s
+const MAX_ANGULAR = 1.0;  // rad/s
+
 let ws, wsRetries = 0;
 
 function dot(id, state) {
@@ -442,14 +409,6 @@ function update(s) {
   dot('dot-odom', odomOk ? 'ok' : 'err');
   document.getElementById('val-odom').textContent = odomOk ? 'Active' : 'Inactive';
 
-  // Demo row
-  demoRunning = s.demo_running;
-  dot('dot-demo', s.demo_running ? 'ok' : 'unk');
-  document.getElementById('val-demo').textContent = s.demo_running ? 'Running' : 'Stopped';
-  const btn = document.getElementById('demo-btn');
-  btn.textContent = s.demo_running ? 'Stop Gesture Demo' : 'Start Gesture Demo';
-  btn.className   = 'btn-demo ' + (s.demo_running ? 'stop' : 'start');
-
   // Motion data
   document.getElementById('val-left').textContent  = s.encoders.left_vel.toFixed(3)  + ' rad/s';
   document.getElementById('val-right').textContent = s.encoders.right_vel.toFixed(3) + ' rad/s';
@@ -464,17 +423,37 @@ function update(s) {
 }
 
 
-async function toggleDemo() {
-  const btn = document.getElementById('demo-btn');
-  btn.disabled = true;
-  try {
-    const r = await fetch(demoRunning ? '/api/demo/stop' : '/api/demo/start', {method: 'POST'});
-    const d = await r.json();
-    if (!d.ok) alert(d.error || 'Request failed');
-  } finally {
-    btn.disabled = false;
-  }
+function sendDrive(linear, angular) {
+  fetch('/api/drive', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({linear: linear * MAX_LINEAR, angular: angular * MAX_ANGULAR})
+  }).catch(() => {});
 }
+
+let driveInterval = null;
+
+function startDrive(btn) {
+  const linear = parseFloat(btn.dataset.linear);
+  const angular = parseFloat(btn.dataset.angular);
+  btn.classList.add('pressed');
+  sendDrive(linear, angular);
+  driveInterval = setInterval(() => sendDrive(linear, angular), 100);
+}
+
+function stopDrive(btn) {
+  if (driveInterval) { clearInterval(driveInterval); driveInterval = null; }
+  btn.classList.remove('pressed');
+  sendDrive(0, 0);
+}
+
+document.querySelectorAll('.drive-btn:not(.empty)').forEach(btn => {
+  btn.addEventListener('mousedown',  () => startDrive(btn));
+  btn.addEventListener('touchstart', e => { e.preventDefault(); startDrive(btn); });
+  btn.addEventListener('mouseup',    () => stopDrive(btn));
+  btn.addEventListener('mouseleave', () => stopDrive(btn));
+  btn.addEventListener('touchend',   () => stopDrive(btn));
+});
 
 // WiFi setup screen
 async function loadNetworks() {
