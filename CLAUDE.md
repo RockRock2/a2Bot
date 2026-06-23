@@ -10,17 +10,17 @@ EduBot is an open-source educational differential drive robot targeting pre-univ
 |---|---|
 | Humble code migration | ✅ Complete — 4/4 packages build 0 errors |
 | Pi colcon build | ✅ Working (must `source /opt/ros/humble/setup.bash` first) |
-| RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz, scan_mode: Standard |
-| RViz2 scan visualization (laptop) | ⚠️ FastDDS (CycloneDDS removed) — Pi nodes may not be visible over WiFi; test needed |
-| Differential drive + encoder feedback | ✅ Working — encoder direction fixed (negated in hardware interface) |
+| RPLidar A1/A2 | ✅ Working — `/dev/rplidar` udev rule, 115200 baud, ~7 Hz, scan_mode auto-select (forcing `Standard` now breaks connection on this unit), `angle_compensate: true` |
+| RViz2 scan visualization (laptop) | ✅ CycloneDDS re-enabled (2026-06-23) — cross-machine TF/topics working |
+| Differential drive + encoder feedback | ✅ Working — encoder direction fixed and **confirmed**: odom x increases when driving forward |
 | Teleop / turning | ✅ Working — `ros2 run teleop_twist_keyboard teleop_twist_keyboard` |
 | WiFi SSH | ✅ Pi at 192.168.0.11, laptop at 192.168.0.9, avahi `a2bot.local` enabled |
 | IMU (MPU-9250) | ⚠️ I2C wired but not detected — EKF running wheel-only for now |
 | Gesture control (laptop → Pi) | Working (untested this session) |
 | Robot dashboard (Pi, port 8888) | Working (untested this session) |
 | Pi hardware setup (Ubuntu 22.04 + Humble) | ✅ Complete — build + LiDAR verified |
-| SLAM | ⚠️ Map grows; encoder direction fix applied (2026-06-23) — forward tracking untested after fix |
-| Autonomous navigation (Nav2) | ⚠️ Was working with CycloneDDS — untested after DDS revert to FastDDS |
+| SLAM | ⚠️ Lidar scan-size fix applied (`angle_compensate`), `transform_timeout` raised to 1.0s — map-growth retest pending after latest fixes |
+| Autonomous navigation (Nav2) | ⚠️ Was working with CycloneDDS — retest now that CycloneDDS is back |
 | Documentation site | ✅ All lessons written, Humble throughout, GitHub Actions auto-deploy |
 | Course slides (Day 3 + Day 4) | ✅ ROS2 pptx versions created |
 | YOLOv8 object detection | Planned |
@@ -92,7 +92,9 @@ a2Bot/
 - **Model:** RPLidar A1 or A2 (confirmed: firmware 1.29, hardware rev 7)
 - **Baud rate:** 115200 (verified on physical hardware — set explicitly in `robot.launch.py`)
 - **Scan rate:** ~7 Hz on Pi (10 Hz native; USB overhead reduces it slightly)
-- **Max range:** 12 m (scan mode: Sensitivity)
+- **Max range:** 12 m
+- **Scan mode:** Do NOT force `scan_mode` param — forcing `'Standard'` now causes `Can not start scan: 80008000!` / `Failed to set scan mode` and the node dies. Leave it unset; auto-selects `Sensitivity` and connects cleanly (2026-06-23, confirmed via standalone test).
+- **`angle_compensate: true`** required in `robot.launch.py` — without it, raw scan reading count varies cycle-to-cycle (e.g. 286 vs 293), which silently stalls slam_toolbox's Karto scan matcher after the first scan (map stops updating, `map→odom` TF freezes, no error printed).
 - **udev rule:** `/etc/udev/rules.d/99-rplidar.rules` → `ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60"` → symlink `/dev/rplidar`
 - **Standalone test:** `ros2 run rplidar_ros rplidar_node --ros-args -p serial_port:=/dev/rplidar -p serial_baudrate:=115200`
 
@@ -223,11 +225,11 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - **Stale FastDDS SHM locks controller spawner** — After Ctrl+C, `/dev/shm/fastrtps_*` files left locked. On relaunch, spawner waits forever for `/controller_manager/list_controllers`. Fixed in `robot.launch.py` and `navigation.launch.py` via `subprocess.run('rm -rf /dev/shm/fastrtps_*', ...)` at generate_launch_description() time. If manually needed: `rm -rf /dev/shm/fastrtps_*`.
 - **Port 8888 in use on relaunch** — dashboard port held after crash. Fixed in `robot.launch.py` via `subprocess.run('pkill -f robot_dashboard', ...)` at launch-description-generation time.
 - **Initial pose** — Set from Pi terminal after Nav2 activates: `ros2 topic pub --once /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -1.5, y: 1.2, z: 0.0}, orientation: {w: 1.0}}, covariance: [0.25,0,0,0,0,0, 0,0.25,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0, 0,0,0,0,0,0.068]}}"`
-- **RPLidar crashes on relaunch (80008002/OPERATION_TIMEOUT)** — motor left spinning when node killed mid-scan. Fix: `_stop_rplidar()` in robot.launch.py sends STOP+RESET via serial (stty+printf, no Python deps). Requires `/dev/rplidar` to exist. First launch after hardware power-on still needs 1× physical USB replug to clear initial bad state.
-- **RPLidar scan_mode** — `Sensitivity` and auto-detect produce variable scan counts (1183 vs 1149); slam_toolbox registers first scan size as expected and rejects all others silently. Fix: `scan_mode: Standard` in robot.launch.py. Do not use `Sensitivity` — not supported on A1 hardware.
-- **Encoder direction reversed in odometry** — Arduino ISRs use opposing sign conventions (left: `HIGH→-1`, right: `HIGH→+1`). diff_drive_controller reported backward motion for forward drive. Fix: negate all 4 values in `my_robot_hardware.cpp` read() (`-vals[0..3]`). Do NOT negate velocity commands in write().
+- **RPLidar crashes on relaunch (80008002/OPERATION_TIMEOUT)** — motor/MCU left in a bad state when node killed mid-scan or abruptly (pkill, crash). `_stop_rplidar()` in robot.launch.py sends STOP+RESET via serial (stty+printf, no Python deps) before the node starts — handles routine relaunches. **But a wedged MCU needs a real power cycle, not just the serial reset**: a brief 2–3s USB replug is NOT enough (the cp210x USB-serial bridge re-enumerates instantly even though the lidar's own processor doesn't reset that fast). If you see `SL_RESULT_OPERATION_TIMEOUT`, do a full **10-second physical unplug** before relaunching. Confirmed fix 2026-06-23.
+- **RPLidar `scan_mode` — do NOT force it (superseded 2026-06-23)** — Previously this doc said `scan_mode: Standard` fixed variable scan counts and `Sensitivity` was unsupported. That is no longer true on this unit/firmware: forcing `scan_mode: 'Standard'` now causes `Can not start scan: 80008000!` and the node dies. Leave `scan_mode` unset (auto-selects `Sensitivity`, connects cleanly). The actual fix for variable scan-reading counts (286 vs 293, which stalls slam_toolbox) is `angle_compensate: true`, not a specific scan_mode.
+- **Encoder direction reversed in odometry** — Arduino ISRs use opposing sign conventions (left: `HIGH→-1`, right: `HIGH→+1`). diff_drive_controller reported backward motion for forward drive. Fix: negate all 4 values in `my_robot_hardware.cpp` read() (`-vals[0..3]`). Do NOT negate velocity commands in write(). **Confirmed working 2026-06-23** — odom x increases correctly when driving forward.
 - **slam_toolbox base_frame** — must be `base_link` (matching EKF output), NOT `base_footprint`. If set to `base_footprint`, slam_toolbox loses robot position as it moves.
-- **CycloneDDS removed (2026-06-23)** — user reverted to FastDDS. Pi's Broadcom WiFi does NOT support multicast → cross-machine DDS (Pi↔laptop) will silently fail. Re-enable CycloneDDS if Nav2 or RViz2 cross-machine stops working (see CycloneDDS config above).
+- **CycloneDDS re-enabled (2026-06-23)** — after being removed earlier the same day, user re-enabled CycloneDDS again to fix cross-machine TF/topic visibility for RViz2/SLAM. Both Pi and laptop `~/.bashrc` must point to their OWN `cyclone_dds.xml` path — laptop bashrc initially had the Pi's path (`/home/a2bot/...`) copy-pasted in by mistake, causing `rmw_create_node` to fail outright on the laptop. Always double check `CYCLONEDDS_URI` matches the local user's home directory on each machine.
 
 ---
 
@@ -258,24 +260,25 @@ Drive buttons use `setInterval(fn, 100)` on `mousedown`/`touchstart` and `clearI
 - `imu_node` disabled in `robot.launch.py` (commented out) until I2C resolved
 - EKF runs wheel-odometry-only in the meantime
 
-### SLAM ⚠️ (2026-06-23 — map grows, forward tracking fix applied but untested)
-- Map grows as robot moves ✅
-- Fixed: `scan_mode: Standard` in robot.launch.py (A1/A2 hardware — Sensitivity mode unsupported, caused crash)
+### SLAM ⚠️ (2026-06-23 — lidar + odometry fixes confirmed, full mapping retest pending)
+- Fixed: encoder direction — negated pos/vel in `my_robot_hardware.cpp` read(). **Confirmed**: odom x increases correctly when driving forward.
 - Fixed: `base_frame: base_link` in slam_toolbox_params.yaml (was `base_footprint`)
 - Fixed: `minimum_travel_distance: 0.1`, `minimum_travel_heading: 0.2` (were 0.5 — too sparse)
-- Fixed: `transform_timeout: 0.5` (was 0.2 s)
-- Fixed: RPLidar crashes on relaunch — `_stop_rplidar()` sends STOP (0xa5 0x25) + RESET (0xa5 0x40) via serial before node starts; requires `stty` on Pi
-- Fixed: encoder direction — negated pos/vel in `my_robot_hardware.cpp` read() (Arduino ISRs have opposing sign conventions); odom was reporting backward for forward motion
+- Fixed: `transform_timeout` raised to `1.0` (was 0.5s) — gives more headroom for TF lookups in slam_toolbox's message filter
+- Fixed: RPLidar crashes on relaunch — `_stop_rplidar()` sends STOP (0xa5 0x25) + RESET (0xa5 0x40) via serial before node starts; if it still times out (`SL_RESULT_OPERATION_TIMEOUT`), do a full 10-second physical USB unplug (see Known Issues)
+- Fixed: removed forced `scan_mode: 'Standard'` from robot.launch.py — broke lidar connection entirely on this unit/firmware. Auto-select now used.
+- Fixed: added `angle_compensate: true` to RPLidar params — raw scan reading count was varying (286 vs 293), silently stalling slam_toolbox's scan matcher after the first scan (`map→odom` TF froze, no error printed, map never grew)
+- **Root cause chain for "map not growing" (2026-06-23 debugging session):** variable scan size → Karto scan matcher stalls after first scan → `map→odom` TF never updates → map looks frozen even though odom/TF chain otherwise looked healthy. Diagnosed by checking `ros2 run tf2_ros tf2_echo map odom` directly on the Pi while driving (stayed static = confirmed stalled, not just a display/clock-skew issue).
 - **Laser frame**: `rpy="0 0 3.14159"` was added then reverted — backward map was caused by encoder direction, not laser orientation. Laser joint has no rpy (forward-facing).
 - `mkdir -p ~/maps` required before first save
 - Save map: `ros2 run nav2_map_server map_saver_cli -f /home/a2bot/maps/room`
-- **Next:** verify forward drive shows forward movement in map after encoder fix + rebuild
+- **Next:** with all fixes deployed (angle_compensate, scan_mode removed, transform_timeout 1.0), drive around and re-verify `tf2_echo map odom` updates and the map visibly refines/grows in RViz2.
 
-### DDS (2026-06-23)
-- CycloneDDS was removed by user request — reverted to FastDDS (default)
-- **Warning:** Pi's Broadcom BCM43xx WiFi does NOT support multicast → FastDDS node discovery fails over WiFi
-- If `ros2 node list` returns empty: re-enable CycloneDDS (see Known Issues section)
-- Same-machine nodes (all on Pi) should still discover each other via loopback
+### DDS (2026-06-23 — re-enabled CycloneDDS)
+- CycloneDDS was briefly removed, then **re-enabled the same day** after RViz2/cross-machine TF issues confirmed FastDDS multicast is unreliable on Pi's Broadcom WiFi
+- `~/.bashrc` on both Pi and laptop must export `RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` and `CYCLONEDDS_URI=file://<own-home-dir>/cyclone_dds.xml` — **use each machine's own home directory**, not a copy-pasted path from the other machine (this caused `rmw_create_node` to fail outright on the laptop once)
+- `cyclone_dds.xml` content is identical on both machines (see Known Issues section for the XML)
+- If `ros2 node list` ever returns empty cross-machine again: verify the bashrc paths first before assuming DDS itself is broken
 
 ### Nav2 ⚠️ (was working 2026-06-22, untested after DDS revert)
 - Launch: `ros2 launch my_robot navigation.launch.py map:=/home/a2bot/maps/room.yaml`
