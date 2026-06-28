@@ -30,7 +30,7 @@ _state = {
         "controller_manager": False,
         "diff_drive_controller": False,
         "joint_state_broadcaster": False,
-        "odometry_node": False,
+        "ekf_filter_node": False,
         "robot_state_publisher": False,
         "imu_node": False,
     },
@@ -359,7 +359,7 @@ header h1 { font-size: 20px; font-weight: 600; }
 <script>
 const NODES = [
   'controller_manager', 'diff_drive_controller',
-  'joint_state_broadcaster', 'odometry_node',
+  'joint_state_broadcaster', 'ekf_filter_node',
   'robot_state_publisher', 'imu_node'
 ];
 
@@ -405,7 +405,7 @@ function update(s) {
   document.getElementById('val-motors').textContent = motorsOk ? 'Ready' : 'Not ready';
 
   // Odometry row
-  const odomOk = s.nodes.odometry_node;
+  const odomOk = s.nodes.ekf_filter_node;
   dot('dot-odom', odomOk ? 'ok' : 'err');
   document.getElementById('val-odom').textContent = odomOk ? 'Active' : 'Inactive';
 
